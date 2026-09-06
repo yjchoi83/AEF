@@ -5,6 +5,8 @@ Stages 1–5 (landscape → screen → feasibility → proposals → ranking →
 
 ## TB01 — Annual embedding: within-year event timing and detection lag
 
+**Batch verdict (P2–P4): CONDITIONAL GO, pending QC** — see `aef_explore/stage5/TB01/BATCH_SUMMARY.md`.
+
 - [x] **P1 — expert-dated event set and registration curve** (`aef_explore/stage5/TB01/`)
       *Done, verdict FAIL.* 283 optical-bracketed events (A 252, B 31; both short of the 300
       target). τ_A = 11.39°, τ_B = 19.13°. H1 FAIL, H2 rejected but ≤ 0.4 pp, H3 PASS.
@@ -26,11 +28,15 @@ Stages 1–5 (landscape → screen → feasibility → proposals → ranking →
       ≥ 5, gap **+33.3 pp** [8.4, 68.1] — but on only 23 events in the 0–2 bin, below the 30-event
       floor, so recorded **PASS (provisional, power-limited)**. **H3 PASS** (0.9855).
       Circularity check does not support the RADD/AEF-shared-input worry (B gap is negative).
-- [ ] **P2 — QC, Amazon-wide scale-up, decisive covariate** — *in progress*
-      Step 0 ✔ 53 QC chips + `qc_table.csv` (decisions blank → all verdicts **pending QC**).
-      Step 1 ✔ 37,689 DETER 2021 CR+VEG events ≥ 1 ha across 9 states.
-      Step 2 ✔ 3,082 RADD-only events (2021 clearings DETER first mapped in 2022).
-- [ ] **P3 — deferral and attribution** — pending (runs only if P2's decisive H7 passes)
-- [ ] **P4 — Congo replication** — pending (runs only if P2's decisive H7 passes)
+- [x] **P2 — QC, Amazon-wide scale-up, decisive covariate** (`aef_explore/stage5/TB01/P2/`)
+      *All 6 steps done. H1″ PASS, H3 PASS, **H7 FAIL as pre-registered → batch stopped**.*
+      40,771 events (37,689 DETER + 3,082 RADD-only), 38,303 RADD-dated, 9 states.
+      Registration **0.631** at `clear_post ≤ 2` (n = 518) vs **0.975** at `≥ 5`; gap **+34.4 pp**
+      [28.3, 40.3], monotone over seven bins. Robust in 8/9 variants.
+      H7(b) is *inestimable* (1 event in the stratum), not substantively failed — a
+      timing-controlled diagnostic gives 0.523 [0.431, 0.626] and refutes "no observations, no change".
+      ⚠ **Pending QC** — `qc_table.csv` decisions unfilled; all verdicts provisional.
+- [ ] **P3 — deferral and attribution** — **not run** (P2 STOP rule fired); PLAN written and ready
+- [ ] **P4 — Congo replication** — **not run** (P2 STOP rule fired); PLAN written and ready
 - [ ] **P5 — products** — pending (explicitly not started in this batch)
 - [ ] **P6** — pending
