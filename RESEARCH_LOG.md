@@ -1,0 +1,10 @@
+## 2026-09-06 — TB01-P1: expert-dated event set and registration-probability curve (annual embeddings)
+- **Package**: DETER 2021 × MapBiomas Alerta bracketed events in Pará BR-163 (200×200 km) and Roraima; annual-AEF registration curve vs post-event Sentinel-2 clear count; RADD latency; alert observability bias.
+- **Expected**: ≥300 events/region; P(registered) rising with post-event clear observations (H1); no region effect once count is controlled (H2); ≥95 % registration at ≥5 clear obs (H3). Pass = H1 ∧ H3.
+- **Observed — event set**: A 252, B 31 (both short of 300). The ≤62-day bracket is the binding filter (759→252, 276→31); 139 events fall inside the 80×80 km custom-embedding boxes.
+- **Observed — thresholds**: stable-forest p90 angular change τ_A = 11.39° (n = 6,256 px), τ_B = 19.13° (n = 5,655 px); event medians 37.7°/39.5°.
+- **Observed — curve**: registration is saturated — A 251/252, B 31/31. P(registered) is 0.994–0.998 flat across post-event counts 0–10 in both regions; observed counts never fall below 3 (A) or take the values 1–2 anywhere.
+- **Observed — latency/bias**: RADD covers only 48 %/55 % of events; median latency 35.5 d (A) vs 70.0 d (B), share ≥2 months 0.29 vs 0.59. Bias scan over 200 random boxes: Pearson −0.088 [−0.158, −0.006], Spearman −0.008 [−0.150, 0.141].
+- **Verdict**: **H1 FAIL, H2 rejected in sign but ≤0.4 pp in size, H3 PASS → overall FAIL.** H1 fails on a ceiling, not a contradiction: the annual embedding registers essentially every bracketed clearing, and the bracket criterion itself strips out the low-observability events the hypothesis needs.
+- **Caveat**: the explanatory variable is truncated by construction; counts 0–3 in the probability table are extrapolation, and only 10 (A) / 11 (B) 0.5° blocks back every CI.
+- **Next**: to test H1 at all, the event set must admit long-bracket (cloudy) events — either relax the 62-day rule with bracket length as a covariate, or date events from RADD/sub-annual custom embeddings inside the two 80×80 km boxes rather than from optical brackets.
