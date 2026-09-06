@@ -29,6 +29,7 @@ Stages 1–5 (landscape → screen → feasibility → proposals → ranking →
 - [ ] **P2 — QC, Amazon-wide scale-up, decisive covariate** — *in progress*
       Step 0 ✔ 53 QC chips + `qc_table.csv` (decisions blank → all verdicts **pending QC**).
       Step 1 ✔ 37,689 DETER 2021 CR+VEG events ≥ 1 ha across 9 states.
+      Step 2 ✔ 3,082 RADD-only events (2021 clearings DETER first mapped in 2022).
 - [ ] **P3 — deferral and attribution** — pending (runs only if P2's decisive H7 passes)
 - [ ] **P4 — Congo replication** — pending (runs only if P2's decisive H7 passes)
 - [ ] **P5 — products** — pending (explicitly not started in this batch)
