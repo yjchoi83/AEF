@@ -11,13 +11,21 @@ Stages 1–5 (landscape → screen → feasibility → proposals → ranking →
       Failed **by design**: the ≤ 62-day Alerta bracket admits only well-observed events, so
       P(registered) sat on a ~0.996 ceiling and H1 was untestable.
       ⚠️ §5 (RADD latency) is **superseded** — see `P1d/P1_RADD_correction.md`.
+      ⚠️ H1's ceiling is resolved by P1d, which reaches the low-observation regime P1 could not.
 - [x] **P1c — SAR-dated event population** (`aef_explore/stage5/TB01/P1c/`)
       *Done, pre-registered gate FAILED → stopped at step 2.* S1 single-breakpoint dating on all
       1,916 events gave median |SAR − midpoint| 27.0 d (needed ≤ 20) and 27.9 % inside the
       tightened interval (needed ≥ 70 %); no diagnostic variant came close. Steps 3–5 not run.
       Delivered anyway: the un-selected 1,916-event population, the corrected in-polygon RADD
       result, and full-population registration A 0.9928 / B 0.9492.
-- [ ] **P1d — RADD-dated event population and the low-observation test** — *in progress*
+- [x] **P1d — RADD-dated event population and the low-observation test** (`aef_explore/stage5/TB01/P1d/`)
+      *Done, pre-registered gate PASSED, RADD dating adopted.* Event date = first RADD alert inside
+      the polygon; coverage A 97.6 % / B 85.4 % of 1,916 events. Gate: median distance to the
+      tightened interval **0 d** (≤ 20 required); RADD leads the optical midpoint by 10 d.
+      **H1′ criterion MET** — registration 0.652 at ≤ 2 post-event clear observations vs 0.986 at
+      ≥ 5, gap **+33.3 pp** [8.4, 68.1] — but on only 23 events in the 0–2 bin, below the 30-event
+      floor, so recorded **PASS (provisional, power-limited)**. **H3 PASS** (0.9855).
+      Circularity check does not support the RADD/AEF-shared-input worry (B gap is negative).
 - [ ] **P2** — pending
 - [ ] **P3** — pending
 - [ ] **P4** — pending
