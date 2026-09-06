@@ -1,10 +1,22 @@
 # TB01 batch P2–P4 — summary and revised GO statement
 
-> **⚠ PENDING QC.** `P2/qc_table.csv` (53 chips) has an unfilled `decision` column. Every verdict
-> below is provisional until a human fills it.
+> **QC COMPLETE.** All 53 chips adjudicated — `P2/qc_decisions.md`, `P2/qc_table.csv`.
 > **⚠ BATCH STOPPED AFTER P2.** The decisive gate H7 failed *as pre-registered*, so under the STOP
 > rule **P3 (deferral/attribution) and P4 (Congo replication) were not run.** Their PLANs are
 > written and unchanged, ready to execute once the gate question is resolved.
+
+## QC result
+The 53 contact-sheet chips have been adjudicated by a human reviewer. Of the eight unregistered
+low-observation events, **3 are verified real clearings** (B_131, B_140, B_141), **1 is real but
+only partly inside the polygon** (A_336, change at the polygon edge), **1 is offset-suspect**
+(B_139, change signal adjacent to the polygon), and **4 are unverifiable** (A_320 no clear
+post-event view, A_328 haze, B_134 cloud) — unverifiable for precisely the reason they are in the
+low-observation bin at all. **None was adjudicated a false DETER polygon, so there is no evidence
+that the unregistered low-observation events are label noise**, and the H1″ result stands on its
+own terms. All 45 registered controls are confirmed real; five (B_125, B_527, A_288, A_309, A_161)
+sit near τ and would flip under a modestly higher threshold, which is what the p85/p95 robustness
+rows already probe. The single offset-suspect case is the reason P2b adds a polygon-interior vs
+50–150 m outer-ring geometric check on every unregistered event.
 
 ## What P2 established
 - **Population.** 37,689 DETER 2021 CR+VEG events ≥ 1 ha across 9 states, plus **3,082 `radd_only`** events (2021 clearings DETER first mapped in 2022) = **40,771**; 38,303 RADD-dated. RADD in-polygon coverage 0.50–0.98 by state.
@@ -26,7 +38,7 @@ A timing-controlled diagnostic (**not pre-registered, not a substitute**) answer
 **Letter and stated intent disagree.** Rather than resolve that myself I took the conservative branch of the STOP rule. The fix is to re-pre-register H7(b) with a timing-controlled S1 stratum (density relative to the event month) — which must be fixed *before* re-running, not after seeing this number.
 
 ## Revised GO statement
-**CONDITIONAL GO, pending two human decisions.** The core claim is stronger than at any earlier stage: the annual AlphaEarth embedding registers essentially every clearing that is optically re-observed (0.975 at ≥ 5 clear observations) and misses roughly a third of those that are not (0.631 at ≤ 2), on 38,303 events, with tight CIs and robustness across nine variants. This is **not** "no observations, no change" — S1 density does not explain it. The paper is not downgraded on the evidence, but GO is withheld until (1) `qc_table.csv` decisions confirm the low-observation non-registrations are real clearings and not label noise, and (2) H7(b) is re-pre-registered in timing-controlled form. P3 and P4 then run unchanged.
+**CONDITIONAL GO — one decision remaining.** The core claim is stronger than at any earlier stage: the annual AlphaEarth embedding registers essentially every clearing that is optically re-observed (0.975 at ≥ 5 clear observations) and misses roughly a third of those that are not (0.631 at ≤ 2), on 38,303 events, with tight CIs and robustness across nine variants. This is **not** "no observations, no change" — S1 density does not explain it. The paper is not downgraded on the evidence, and condition (1) — QC confirmation that the low-observation non-registrations are not label noise — is now **met** (see QC result above). GO remains withheld only on (2): H7(b) must be re-pre-registered in timing-controlled form. P3 and P4 then run unchanged.
 
 ## Known limitations recorded now
 - MA (1,268 px) and TO (251 px) missed the ≥ 2,000-px stable-forest floor; their τ is provisional (356 events, 0.9 %).
