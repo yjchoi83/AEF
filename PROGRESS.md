@@ -36,10 +36,13 @@ Stages 1–5 (landscape → screen → feasibility → proposals → ranking →
       H7(b) is *inestimable* (1 event in the stratum), not substantively failed — a
       timing-controlled diagnostic gives 0.523 [0.431, 0.626] and refutes "no observations, no change".
       ⚠ **Pending QC** — `qc_table.csv` decisions unfilled; all verdicts provisional.
-- [ ] **P2b — 2020 out-of-sample replication + re-pre-registered H7(b)′** — *in progress*
-      Step 1 ✔ offset check: 608/1,332 (45.7 %) of unregistered 2021 events are OFFSET_SUSPECT;
-      H1″ and H7(a) both still pass with them excluded (gap +28.0 pp [22.0, 34.4]).
-- [ ] **P3 — deferral and attribution** — **not run** (P2 STOP rule fired); PLAN written and ready
-- [ ] **P4 — Congo replication** — **not run** (P2 STOP rule fired); PLAN written and ready
+- [x] **P2b — 2020 out-of-sample replication + re-pre-registered H7(b)′** (`.../P2b/`)
+      *Done. **H7(b)′ PASSES on 2020**, H1″/H3/H7(a) all replicate → STOP lifted.*
+      Offset check: 608/1,332 (45.7 %) of unregistered 2021 events OFFSET_SUSPECT; H1″ and H7(a)
+      survive their exclusion. 2020: 45,917 events, 39,772 dated; high-S1 low-optical stratum
+      registers **0.626** [0.548, 0.712] (< 0.80, CI-upper < 0.85, below low-S1 0.883).
+      H1″ gap +14.1 pp [11.6, 16.6] (2021: +34.4). ⚠ no RADD snapshot contemporaneous with 2020.
+- [ ] **P3 — deferral and attribution** — *starting* (unblocked by P2b)
+- [ ] **P4 — Congo replication** — *starting* (unblocked by P2b)
 - [ ] **P5 — products** — pending (explicitly not started in this batch)
 - [ ] **P6** — pending
