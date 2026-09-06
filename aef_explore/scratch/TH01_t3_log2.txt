@@ -1,0 +1,13 @@
+ROK: n=4540 (raw 4540)
+DPRK: n=3348 (raw 3348)
+blocks ROK=77 DPRK=94
+ROK bal(WC)  {0: 810, 1: 810, 2: 810, 3: 490, 4: 810, 5: 810}
+DPRK bal(WC) {0: 630, 1: 630, 2: 630, 3: 198, 4: 630, 5: 630}
+AEF: ROK 5-fold spatial OA=0.842+-0.020 folds=[np.float64(0.807), np.float64(0.833), np.float64(0.847), np.float64(0.86), np.float64(0.863)]
+AEF: DPRK agr(WC)=0.750 agr(DW)=0.631 | WC-vs-DW ceiling on DPRK=0.674 | TV(pred,WC)=0.154
+AEF: ROK-vs-DPRK agreement gap (in-region OA - DPRK agr(WC)) = +0.093
+S2: ROK 5-fold spatial OA=0.715+-0.018 folds=[np.float64(0.692), np.float64(0.716), np.float64(0.709), np.float64(0.746), np.float64(0.711)]
+S2: DPRK agr(WC)=0.677 agr(DW)=0.582 | WC-vs-DW ceiling on DPRK=0.674 | TV(pred,WC)=0.158
+S2: ROK-vs-DPRK agreement gap (in-region OA - DPRK agr(WC)) = +0.038
+AEF sphere: mean max-cos to ROK centroids ROK=0.874 DPRK=0.837 drop=+0.037
+AEF vMF kappa ROK/DPRK: c0:416/235 c1:170/183 c2:142/178 c3:298/315 c4:237/285 c5:189/219

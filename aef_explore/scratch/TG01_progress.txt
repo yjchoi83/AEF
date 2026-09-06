@@ -1,0 +1,57 @@
+TG01 progress log 2026-09-03T22:39:06+09:00
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+TMF bands sample: ['Dec1990', 'Dec1991', 'Dec1992'] ...n= 35
+PA_novo AEFbands 64 S2scenes 584 TMFdec2021 share {'1': 0.9128, '3': 0.0525, '2': 0.0313, '4': 0.0016, '6': 0.001, '5': 0.0008}
+MT_arc AEFbands 64 S2scenes 620 TMFdec2021 share {'3': 0.356, '1': 0.3064, '2': 0.1754, '6': 0.0985, '4': 0.0413, '5': 0.0224}
+GH_lib AEFbands 64 S2scenes 737 TMFdec2021 share {'3': 0.2948, '4': 0.2189, '1': 0.1944, '2': 0.1216, '5': 0.1154, '6': 0.0549}
+LOOKUPS(4 used): arXiv:2409.01236 Spatial-Aware Conformal Prediction Hyperspectral [V] = strongest competitor;
+ arXiv:2006.15640 Valid model-free spatial prediction [V]; arXiv:2607.14906 conformal coverage recovery occupancy maps [V];
+ arXiv "conformal prediction"+"deforestation" = 0 hits [V-null]. Stage1 card: 10.1038/s41598-024-65954-w [V], arXiv:2608.16614 [V].
+GEE1: ROI pick = MT_arc [-55.4,-11.9,-54.4,-10.9] ~110km. TMF Dec2021 share 3:.356 1:.306 2:.175 6:.099 4:.041 5:.022. AEF64 ok, S2 620 scenes.
+ NOTE: GEE project in RESTRICTED MODE (noncommercial compute quota exceeded) -> keep calls small.
+PILOT1 sampling: n=9000, TMF Dec2021 share 1:.362 3:.355 2:.139 6:.114 4:.027 5:.003
+classbal(pool) {2: 0.371, 0: 0.362, 1: 0.141, 3: 0.126}
+AEF64 mond=0 a=0.10 rand cov=0.901(sd0.004) size=1.63 ccov=[0.979, 0.729, 0.933, 0.801] nfold=4
+AEF64 mond=0 a=0.10 spat cov=0.901(sd0.010) size=1.67 ccov=[0.977, 0.715, 0.897, 0.817] nfold=4
+AEF64 mond=0 a=0.20 rand cov=0.809(sd0.004) size=1.29 ccov=[0.963, 0.428, 0.862, 0.611] nfold=4
+AEF64 mond=0 a=0.20 spat cov=0.776(sd0.030) size=1.26 ccov=[0.958, 0.462, 0.801, 0.665] nfold=4
+AEF64 mond=1 a=0.10 rand cov=0.905(sd0.007) size=1.78 ccov=[0.881, 0.938, 0.932, 0.922] nfold=4
+AEF64 mond=1 a=0.10 spat cov=0.884(sd0.012) size=1.78 ccov=[0.93, 0.888, 0.853, 0.883] nfold=4
+AEF64 mond=1 a=0.20 rand cov=0.803(sd0.008) size=1.47 ccov=[0.774, 0.8, 0.821, 0.774] nfold=4
+AEF64 mond=1 a=0.20 spat cov=0.741(sd0.014) size=1.43 ccov=[0.833, 0.808, 0.661, 0.821] nfold=4
+AEF64 nTR=2760 nPOOL=5291 calib~2159 test~2248
+S2comp mond=0 a=0.10 rand cov=0.903(sd0.004) size=1.78 ccov=[0.991, 0.705, 0.948, 0.784] nfold=4
+S2comp mond=0 a=0.10 spat cov=0.910(sd0.021) size=1.83 ccov=[0.989, 0.692, 0.957, 0.79] nfold=4
+S2comp mond=0 a=0.20 rand cov=0.799(sd0.008) size=1.39 ccov=[0.988, 0.228, 0.925, 0.568] nfold=4
+S2comp mond=0 a=0.20 spat cov=0.807(sd0.031) size=1.43 ccov=[0.978, 0.272, 0.926, 0.658] nfold=4
+S2comp mond=1 a=0.10 rand cov=0.904(sd0.009) size=1.94 ccov=[0.901, 0.917, 0.928, 0.926] nfold=4
+S2comp mond=1 a=0.10 spat cov=0.903(sd0.010) size=1.99 ccov=[0.904, 0.862, 0.932, 0.914] nfold=4
+S2comp mond=1 a=0.20 rand cov=0.809(sd0.012) size=1.66 ccov=[0.773, 0.825, 0.834, 0.828] nfold=4
+S2comp mond=1 a=0.20 spat cov=0.775(sd0.013) size=1.65 ccov=[0.774, 0.74, 0.791, 0.805] nfold=4
+S2comp nTR=2760 nPOOL=5291 calib~2159 test~2248
+AEF64 n= 500 {'srs': np.float64(0.0216), 'mapclass': 0.01471, 'setsize': 0.0214, 'map x setsize': 0.01453, 'maxprob-q4': 0.02135} relSE_vs_mapclass {'srs': np.float64(1.468), 'mapclass': 1.0, 'setsize': 1.455, 'map x setsize': 0.988, 'maxprob-q4': 1.452}
+AEF64 n= 1000 {'srs': np.float64(0.01527), 'mapclass': 0.0104, 'setsize': 0.01513, 'map x setsize': 0.01029, 'maxprob-q4': 0.0151} relSE_vs_mapclass {'srs': np.float64(1.468), 'mapclass': 1.0, 'setsize': 1.455, 'map x setsize': 0.99, 'maxprob-q4': 1.452}
+AEF64 n= 2000 {'srs': np.float64(0.0108), 'mapclass': 0.00735, 'setsize': 0.0107, 'map x setsize': 0.00728, 'maxprob-q4': 0.01068} relSE_vs_mapclass {'srs': np.float64(1.468), 'mapclass': 1.0, 'setsize': 1.455, 'map x setsize': 0.99, 'maxprob-q4': 1.452}
+AEF64 P_true_deforested=0.3706 setsize dist {np.int64(1): np.int64(2236), np.int64(2): np.int64(2912), np.int64(3): np.int64(143)} nPOOL 5291
+S2comp n= 500 {'srs': np.float64(0.0216), 'mapclass': 0.01458, 'setsize': 0.01959, 'map x setsize': 0.01447, 'maxprob-q4': 0.01944} relSE_vs_mapclass {'srs': np.float64(1.481), 'mapclass': 1.0, 'setsize': 1.343, 'map x setsize': 0.992, 'maxprob-q4': 1.333}
+S2comp n= 1000 {'srs': np.float64(0.01527), 'mapclass': 0.01031, 'setsize': 0.01385, 'map x setsize': 0.01025, 'maxprob-q4': 0.01374} relSE_vs_mapclass {'srs': np.float64(1.481), 'mapclass': 1.0, 'setsize': 1.343, 'map x setsize': 0.994, 'maxprob-q4': 1.333}
+S2comp n= 2000 {'srs': np.float64(0.0108), 'mapclass': 0.00729, 'setsize': 0.0098, 'map x setsize': 0.00726, 'maxprob-q4': 0.00972} relSE_vs_mapclass {'srs': np.float64(1.481), 'mapclass': 1.0, 'setsize': 1.343, 'map x setsize': 0.995, 'maxprob-q4': 1.333}
+S2comp P_true_deforested=0.3706 setsize dist {np.int64(1): np.int64(1257), np.int64(2): np.int64(3757), np.int64(3): np.int64(277)} nPOOL 5291
+AEF64-angular nominal=0.900 overall_cov=0.905 ntest 1803 ncal 2570
+  Q1 dist[3.640,6.351] n=361 cov=0.900 size=1.37
+  Q2 dist[6.356,8.170] n=360 cov=0.933 size=1.67
+  Q3 dist[8.174,10.254] n=361 cov=0.895 size=1.76
+  Q4 dist[10.256,13.226] n=360 cov=0.875 size=1.73
+  Q5 dist[13.228,39.413] n=361 cov=0.922 size=1.64
+  corr(dist, covered)=-0.007  cov(Q1)-cov(Q5)=-0.022
+S2comp-euclid nominal=0.900 overall_cov=0.930 ntest 1803 ncal 2570
+  Q1 dist[0.024,0.074] n=361 cov=0.895 size=1.54
+  Q2 dist[0.074,0.110] n=360 cov=0.892 size=1.73
+  Q3 dist[0.110,0.205] n=361 cov=0.895 size=2.08
+  Q4 dist[0.205,0.300] n=360 cov=0.978 size=2.08
+  Q5 dist[0.300,1.610] n=361 cov=0.989 size=2.01
+  corr(dist, covered)=0.121  cov(Q1)-cov(Q5)=-0.094
+TG01.md written

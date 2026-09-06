@@ -1,0 +1,6 @@
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+AEF lat 0 cum 1882
+AEF lat 1 cum 3767

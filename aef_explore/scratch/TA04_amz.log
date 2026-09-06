@@ -1,0 +1,15 @@
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+AMZ points 2700
+AMZ chunk 0 tot 300
+AMZ chunk 300 tot 600
+AMZ chunk 600 tot 900
+AMZ chunk 900 tot 1200
+AMZ chunk 1200 tot 1500
+AMZ chunk 1500 tot 1800
+AMZ chunk 1800 tot 2100
+AMZ chunk 2100 tot 2400
+AMZ chunk 2400 tot 2700
+AMZ SAVED (2700, 75) {2: 900, 0: 900, 1: 900}

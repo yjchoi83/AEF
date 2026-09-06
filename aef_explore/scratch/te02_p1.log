@@ -1,0 +1,26 @@
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+ET_somali 1417
+/d/yj_projects/miniforge3/lUS_az 1351
+KE_marsa 707
+ZW_mata 1608
+(7719, 39)
+           a2019  a2020  a2021  a2022  a2023  a2024  a2025
+roi                                                       
+BR_caat    14.90  15.82  17.19  17.57  17.75  17.75  16.99
+ET_somali  19.67  18.48  12.01  10.48  18.63  16.87  14.96
+KE_marsa   23.38  25.75  19.34  14.03  25.49  27.80  20.77
+SN_ferlo   13.68  16.52  11.47   9.84  10.43  12.44   9.89
+US_az      18.01  15.75  21.74  12.34  18.99  13.45  22.69
+ZW_mata    14.28  14.07  22.77  18.21  10.90  12.76  22.54
+rcial_tiers#restricted_mode to learn more.
+  warnings.warn(
+SN_ferlo 815
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+US_az 1084
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+KE_marsa 573

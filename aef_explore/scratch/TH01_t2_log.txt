@@ -1,0 +1,22 @@
+CTX Jungpyong_gh_2019: dem=4 dw2017=4 controls_matched=8 used=6
+CTX Ryonpho_gh_2022: dem=2 dw2017=4 controls_matched=10 used=6
+CTX Hwasong_pyy_2022_24: dem=21 dw2017=1 controls_matched=5 used=5
+CTX Uiju_flood_2024: dem=91 dw2017=1 controls_matched=6 used=6
+  FAIL Jungpyong_gh_2019 S2 2022: User memory limit exceeded.
+  FAIL Jungpyong_gh_2019 S2 2023: User memory limit exceeded.
+  FAIL Jungpyong_gh_2019 S2 2024: User memory limit exceeded.
+  FAIL Jungpyong_gh_2019 S2 2025: User memory limit exceeded.
+Jungpyong_gh_2019 AEF: NO DATA
+Jungpyong_gh_2019 S2: NO DATA
+Ryonpho_gh_2022 AEF: NO DATA
+Ryonpho_gh_2022 S2: NO DATA
+Hwasong_pyy_2022_24 AEF: NO DATA
+Hwasong_pyy_2022_24 S2: NO DATA
+  FAIL Uiju_flood_2024 S2 2020: User memory limit exceeded.
+  FAIL Uiju_flood_2024 S2 2021: User memory limit exceeded.
+  FAIL Uiju_flood_2024 S2 2022: User memory limit exceeded.
+  FAIL Uiju_flood_2024 S2 2023: User memory limit exceeded.
+  FAIL Uiju_flood_2024 S2 2024: User memory limit exceeded.
+  FAIL Uiju_flood_2024 S2 2025: User memory limit exceeded.
+Uiju_flood_2024 AEF: NO DATA
+Uiju_flood_2024 S2: NO DATA

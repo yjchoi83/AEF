@@ -1,0 +1,31 @@
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py", line 361, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/d/yj_projects/miniforge3/lib/python3.13/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/d/yj_projects/miniforge3/lib/python3.13/site-packages/googleapiclient/http.py", line 1018, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 429 when requesting https://earthengine.googleapis.com/v1/projects/alpha-earth-app/algorithms?prettyPrint=false&alt=json returned "Too Many Requests: Exceeded Earth Engine concurrency limit. Your project is in Restricted Mode. Learn more at https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode". Details: "Too Many Requests: Exceeded Earth Engine concurrency limit. Your project is in Restricted Mode. Learn more at https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/d/yj_projects/workspace_yj/Alphaearth/aef_explore/scratch/te02_p2.py", line 2, in <module>
+    from aefkit import *
+  File "/d/yj_projects/workspace_yj/Alphaearth/aef_explore/scratch/aefkit.py", line 3, in <module>
+    ee.Initialize()
+    ~~~~~~~~~~~~~^^
+  File "/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/_utils.py", line 39, in wrapper
+    return func(*ar/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+US_az 900 {'sa2020': 3.98, 'sa2021': 4.21, 'sa2022': 4.63, 'sa2023': 6.52, 'sa2024': 5.0, 'sa2025': 8.16}
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+ZW_mata 900 {'sa2020': 6.09, 'sa2021': 12.26, 'sa2022': 6.89, 'sa2023': 6.91, 'sa2024': 4.74, 'sa2025': 11.06}
+merged 6
+oud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Too Many Requests: Exceeded Earth Engine concurrency limit. Your project is in Restricted Mode. Learn more at https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode

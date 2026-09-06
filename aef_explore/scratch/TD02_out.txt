@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  File [35m"/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py"[0m, line [35m361[0m, in [35m_execute_cloud_call[0m
+    return [31mcall.execute[0m[1;31m(num_retries=num_retries)[0m
+           [31m~~~~~~~~~~~~[0m[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  File [35m"/d/yj_projects/miniforge3/lib/python3.13/site-packages/googleapiclient/_helpers.py"[0m, line [35m130[0m, in [35mpositional_wrapper[0m
+    return wrapped(*args, **kwargs)
+  File [35m"/d/yj_projects/miniforge3/lib/python3.13/site-packages/googleapiclient/http.py"[0m, line [35m1018[0m, in [35mexecute[0m
+    raise HttpError(resp, content, uri=self.uri)
+[1;35mgoogleapiclient.errors.HttpError[0m: [35m<HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/alpha-earth-app/value:compute?prettyPrint=false&alt=json returned "User memory limit exceeded.". Details: "User memory limit exceeded.">[0m
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File [35m"/d/yj_projects/workspace_yj/Alphaearth/aef_explore/scratch/TD02_pilot.py"[0m, line [35m33[0m, in [35m<module>[0m
+    dA=ee.Dictionary(dA).getInfo(); dfA=pd.DataFrame(dA)
+  File [35m"/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/computedobject.py"[0m, line [35m108[0m, in [35mgetInfo[0m
+    return [31mdata.computeValue[0m[1;31m(self)[0m
+           [31m~~~~~~~~~~~~~~~~~[0m[1;31m^^^^^^[0m
+  File [35m"/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py"[0m, line [35m1082[0m, in [35mcomputeValue[0m
+    return [31m_execute_cloud_call[0m[1;31m([0m
+           [31m~~~~~~~~~~~~~~~~~~~[0m[1;31m^[0m
+        [1;31m_get_cloud_projects()[0m
+        [1;31m^^^^^^^^^^^^^^^^^^^^^[0m
+        [1;31m.value()[0m
+        [1;31m^^^^^^^^[0m
+        [1;31m.compute(body=body, project=_get_projects_path(), prettyPrint=False)[0m
+        [1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    [1;31m)[0m['result']
+    [1;31m^[0m
+  File [35m"/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py"[0m, line [35m363[0m, in [35m_execute_cloud_call[0m
+    [1;31mraise _translate_cloud_exception(e)[0m  # pylint: disable=raise-missing-from
+    [1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mee.ee_exception.EEException[0m: [35mUser memory limit exceeded.[0m

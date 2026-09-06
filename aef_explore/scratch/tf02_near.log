@@ -1,0 +1,14 @@
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+[KE_a] n=3180 bal={40: 0.574, 30: 0.202, 10: 0.134, 20: 0.09} box_deg=0.04
+  AEF64  rand=0.776(sd0.015,b5,k5) 50m=0.765(sd0.025,b2524,k5) 100m=0.765(sd0.014,b1393,k5) 200m=0.762(sd0.017,b403,k5) 500m=0.753(sd0.028,b67,k5) 1km=0.749(sd0.017,b19,k5) 2km=0.738(sd0.021,b8,k5)
+  S2     rand=0.615(sd0.024,b5,k5) 50m=0.615(sd0.045,b2524,k5) 100m=0.618(sd0.012,b1393,k5) 200m=0.615(sd0.021,b403,k5) 500m=0.611(sd0.027,b67,k5) 1km=0.611(sd0.026,b19,k5) 2km=0.604(sd0.039,b8,k5)
+  S2ctx  rand=0.666(sd0.023,b5,k5) 50m=0.660(sd0.045,b2524,k5) 100m=0.662(sd0.020,b1393,k5) 200m=0.652(sd0.029,b403,k5) 500m=0.649(sd0.019,b67,k5) 1km=0.644(sd0.024,b19,k5) 2km=0.623(sd0.035,b8,k5)
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+[MT_b] n=3197 bal={40: 0.475, 10: 0.473, 30: 0.051} box_deg=0.04
+  AEF64  rand=0.926(sd0.019,b5,k5) 50m=0.936(sd0.032,b2531,k5) 100m=0.936(sd0.008,b1396,k5) 200m=0.926(sd0.028,b404,k5) 500m=0.899(sd0.030,b68,k5) 1km=0.885(sd0.077,b20,k5) 2km=0.873(sd0.089,b7,k5)
+  S2     rand=0.886(sd0.015,b5,k5) 50m=0.885(sd0.040,b2531,k5) 100m=0.881(sd0.011,b1396,k5) 200m=0.884(sd0.030,b404,k5) 500m=0.845(sd0.040,b68,k5) 1km=0.826(sd0.096,b20,k5) 2km=0.807(sd0.098,b7,k5)
+  S2ctx  rand=0.930(sd0.024,b5,k5) 50m=0.930(sd0.025,b2531,k5) 100m=0.929(sd0.022,b1396,k5) 200m=0.934(sd0.017,b404,k5) 500m=0.910(sd0.030,b68,k5) 1km=0.899(sd0.057,b20,k5) 2km=0.915(sd0.069,b7,k5)

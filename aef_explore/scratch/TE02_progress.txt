@@ -1,0 +1,24 @@
+P1 done: panel 6 ROIs
+P1 analysis (AEF, level-anomaly): drift median severe 13.81 (IQR 5.65) < wet 17.93 (6.83); n=54033 py / 7719 px / 6 ROI
+partial R2 clim|obs = 0.175 (sd .03); obs|clim = 0.017 -> climate pathway SEPARATES from obs-count pathway
+per-ROI clim R2: ET .546 KE .436 ZW .481 SN .328 US .188 BR -.014 ; obs R2 US .312 SN .158 ZW .187
+FPR at 5%-calibrated threshold, drought years: 0.1-1.7% (BR 11.2%) -> DEFLATED not inflated
+P1 analysis v2 (dpz = year-to-year anomaly CHANGE; n=46314 py):
+ drift median by class: onset 16.42 (IQR 13.42-19.30) / break(recovery) 17.66 (14.58-21.58) / stable 14.68 / drying 13.70
+ -> elevated at climate TRANSITIONS (both onset and drought-break), not at drought level
+ partial R2: clim|obs 0.147 (sd .027), obs|clim 0.087 -> BOTH pathways identified, separable
+ per-ROI clim/obs R2: ET .466/.478 SN .604/.257 ZW .628/.473 KE .275/.286 US .18/.133 BR -.05/.02
+ FPR (5% nominal on |dpz|<0.5, tested |dpz|>=1): ET 76.7% SN 42.3% ZW 8.6% US 6.2% KE 1.3%
+ after climate regress-out: ET 21.9% SN 7.6% ZW 3.2% US 3.7% KE 2.0% -> correction WORKS
+P3 (genuine-change ref, DW mode 2019!=2020, normal year, stratified 300/class x 6 ROI, n=3600):
+ AEF angle median: no-change 17.06 (IQR 14.74-20.16) vs class-change 17.75 (15.07-21.51) -> +0.69 deg only
+ S2  angle median: no-change 4.82 vs change 5.53 -> +0.71 deg (relative +14.7% vs AEF +4.0%)
+ => drought-transition drift on STABLE land (+1.7 onset / +3.0 break) is 2.5-4x the genuine class-change signal
+P2 (S2 annual-composite 6-feature unit-vector angular drift, same 900px/ROI, n=5,107px):
+ sdrift median by dpz class: onset 5.79 / break 6.14 / stable 4.91 / drying 5.57 (rel +25.0% break vs stable; AEF +20.3%)
+ partial R2 clim|obs: AEF 0.147 (sd .027) vs S2 0.011 (sd .011); total R2 AEF 0.209 vs S2 0.018 -> AEF drift systematic, S2 noise-dominated
+ FPR (5% nominal) AEF vs S2: ET 76.7/34.4  SN 42.3/10.5  ZW 8.6/4.6  US 6.2/2.1  KE 1.3/19.2 -> AEF worse in 4/5
+ corrected  AEF vs S2: ET 21.9/16.7  SN 7.6/8.6  ZW 3.2/3.6  US 3.7/3.3  KE 2.0/11.5
+ SNR (genuine class-change delta / drought-break delta): AEF 0.69/2.98=0.23 vs S2 0.71/1.23=0.58 -> S2 2.5x better
+ BR_caat: n_nd=0 (no |dpz|<0.5 pixel-year) -> Caatinga has no calibratable "normal" year
+BUDGET USED: 6/6 lookups, 1/3 GEE checks, 3/3 pilot runs

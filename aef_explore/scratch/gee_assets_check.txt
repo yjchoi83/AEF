@@ -1,0 +1,6 @@
+AEF years: 
+n_images 97155
+sample idx ['x0003cu3yu4yezto0', 'x001gs19ypt8c0ntb', 'x002dlz1j9lnpvwzt']
+---CATALOG DESC (first 1200 chars)---
+
+---band count--- 64

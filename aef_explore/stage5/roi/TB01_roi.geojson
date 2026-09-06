@@ -1,0 +1,81 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "BoxA_BR163_Para",
+    "region": "Para (BR-163 corridor, dense dry-season observations)",
+    "deter_2021_count": 631,
+    "forest_frac_2020": 0.681,
+    "s2_clear_obs_2021": 32.7,
+    "area_km2": 6428.5
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -56.3,
+       -5.2
+      ],
+      [
+       -55.5788,
+       -5.2
+      ],
+      [
+       -55.5788,
+       -4.4765
+      ],
+      [
+       -56.3,
+       -4.4765
+      ],
+      [
+       -56.3,
+       -5.2
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "BoxB_Roraima",
+    "region": "Roraima (out-of-phase Dec-Mar dry season, low observation count)",
+    "deter_2021_count": 227,
+    "forest_frac_2020": 0.681,
+    "s2_clear_obs_2021": 30.4,
+    "area_km2": 6429.1
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -60.6,
+       0.6
+      ],
+      [
+       -59.8812,
+       0.6
+      ],
+      [
+       -59.8812,
+       1.3235
+      ],
+      [
+       -60.6,
+       1.3235
+      ],
+      [
+       -60.6,
+       0.6
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}

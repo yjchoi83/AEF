@@ -1,0 +1,40 @@
+OK   IMAGE UMD/hansen/global_forest_change_2024_v1_12
+OK   IMAGE UMD/hansen/global_forest_change_2023_v1_11
+OK   IMAGE_COLLECTION projects/JRC/TMF/v1_2023/AnnualChanges
+OK   IMAGE_COLLECTION projects/JRC/TMF/v1_2024/AnnualChanges
+OK   IMAGE_COLLECTION projects/JRC/TMF/v1_2022/DegradationYear
+OK   IMAGE_COLLECTION projects/radar-wur/raddalert/v1
+OK   IMAGE_COLLECTION projects/glad/alert/UpdResult
+OK   IMAGE projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_integration_v1
+FAIL projects/mapbiomas-public/assets/brazil/lulc/collection10/mapbiomas_collection10_integration_v1 | Asset 'projects/mapbiomas-public/assets/brazil/lulc/collection10/mapbi
+OK   IMAGE projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_secondary_vegetation_age_v1
+OK   IMAGE_COLLECTION GOOGLE/DYNAMICWORLD/V1
+OK   IMAGE_COLLECTION ESA/WorldCover/v200
+OK   IMAGE_COLLECTION JRC/GHSL/P2023A/GHS_BUILT_S
+OK   IMAGE_COLLECTION JRC/GHSL/P2023A/GHS_POP
+OK   IMAGE_COLLECTION GOOGLE/Research/open-buildings-temporal/v1
+OK   TABLE GOOGLE/Research/open-buildings/v3/polygons
+OK   IMAGE_COLLECTION LARSE/GEDI/GEDI02_A_002_MONTHLY
+OK   IMAGE_COLLECTION LARSE/GEDI/GEDI04_A_002_MONTHLY
+OK   IMAGE LARSE/GEDI/GEDI04_B_002
+OK   IMAGE users/nlang/ETH_GlobalCanopyHeight_2020_10m_v1
+OK   IMAGE_COLLECTION projects/meta-forest-monitoring-okw37/assets/CanopyHeight
+OK   IMAGE_COLLECTION MODIS/061/MCD64A1
+OK   IMAGE JRC/GSW1_4/GlobalSurfaceWater
+OK   IMAGE_COLLECTION ESA/WorldCereal/2021/MODELS/v100
+OK   IMAGE_COLLECTION COPERNICUS/S1_GRD
+OK   IMAGE_COLLECTION COPERNICUS/S2_SR_HARMONIZED
+OK   IMAGE_COLLECTION LANDSAT/LC08/C02/T1_L2
+OK   IMAGE_COLLECTION LANDSAT/LC09/C02/T1_L2
+OK   IMAGE_COLLECTION WorldPop/GP/100m/pop
+OK   IMAGE DLR/WSF/WSF2015/v1
+FAIL projects/sat-io/open-datasets/GMW/annual-extent | Asset "projects/earthengine-legacy/assets/projects/sat-io/open-dataset
+FAIL projects/sat-io/open-datasets/DEFORESTATION-DRIVERS-2023 | Asset "projects/earthengine-legacy/assets/projects/sat-io/open-dataset
+FAIL projects/sat-io/open-datasets/GFDP/cocoa | Asset "projects/earthengine-legacy/assets/projects/sat-io/open-dataset
+OK   IMAGE_COLLECTION projects/forestdatapartnership/assets/cocoa/model_2025b
+OK   IMAGE_COLLECTION projects/forestdatapartnership/assets/palm/model_2025b
+OK   IMAGE_COLLECTION projects/forestdatapartnership/assets/rubber/model_2025b
+OK   IMAGE_COLLECTION projects/forestdatapartnership/assets/coffee/model_2025b
+OK   IMAGE_COLLECTION COPERNICUS/DEM/GLO30
+OK   IMAGE_COLLECTION ECMWF/ERA5_LAND/MONTHLY_AGGR
+OK   IMAGE_COLLECTION NASA/GRACE/MASS_GRIDS_V04/MASCON

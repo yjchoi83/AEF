@@ -1,0 +1,137 @@
+== TB01 ax #0
+429GIVEUP|TB01#0
+== TB01 ax #1
+AX|TB01#1|all:"annual embedding" AND all:"change detection"|n=0
+== TB01 ax #2
+AX|TB01#2|all:"satellite embedding" AND all:"phenology"|n=0
+== TB01 ax #3
+AX|TB01#3|all:"within-year" AND all:"deforestation"|n=0
+== TB01 ss #4
+SS|TB01#4|annual satellite embedding within-year event timing|total=909
+  HIT|2026|BMC Infectious Diseases|10.1186/s12879-026-14282-7|The relationship between Neisseria gonorrhoeae diagnosis and the timing of HIV transmission events: a molecular epidemiology study
+  HIT|2026|Cancer Research|10.1158/1538-7445.am2026-4015|Abstract 4015: Whole-genome duplication predicts metastasis risk and timing across human cancers
+  HIT|2026|Earth System Science Data|arXiv:2601.11183|Democratizing planetary-scale analysis: An ultra-lightweight Earth embedding database for accurate and flexible global land monitoring
+  HIT|2026|Water Practice &amp; Technology|10.2166/wpt.2026.337|Assessing climate change impacts on streamflow characteristics, water availability, and aquatic ecosystem support in the Omo-Gibe River Basin, Ethiopia, using satellite-based hydrologic simulations
+== TB01 ss #r0
+HTTPFAIL|TB01#r0|last=429
+== TB01 ss #r1
+HTTPFAIL|TB01#r1|last=429
+== TB01 ss #r2
+HTTPFAIL|TB01#r2|last=429
+== TB01 ss #r3
+HTTPFAIL|TB01#r3|last=429
+== TB01 ax #r4
+AX|TB01#r4|all:"AlphaEarth"|n=15
+  HIT|2026|arXiv|arXiv:2609.03480v1|Tree species mapping in Denmark: A comparison of spectral-temporal features with geospatial foundation model embeddings
+  HIT|2026|arXiv|arXiv:2609.00661v1|Do Satellites See Commuters? A Critical Benchmark of Vision Foundation Models
+  HIT|2026|arXiv|arXiv:2608.29553v1|BEACON: Behavioral and Semantic Enrichment of AlphaEarth Embeddings through Tri-Modal Contrastive Learning
+  HIT|2026|arXiv|arXiv:2608.26088v1|Planetary Prediction Engine: Autonomous Geospatial Prediction via Intelligent Data Selection and Foundation Model Embeddings
+  HIT|2026|arXiv|arXiv:2608.16310v1|Cross-View Urban Sensing: Mapping Subjective Streetscape Perception via AlphaEarth Embeddings and Urban Context
+  HIT|2026|arXiv|arXiv:2608.12663v1|Evaluating AlphaEarth Foundations Embeddings for Wildfire Susceptibility Mapping
+  HIT|2026|arXiv|arXiv:2608.04792v1|Above-ground Biomass Estimation with Geospatial Foundation Models
+  HIT|2026|arXiv|arXiv:2607.19503v1|Tensor Network Machine Learning for Wildfire Susceptibility Mapping: from Grokking Dynamics to Quantum Mixedness of Class Representations
+  HIT|2026|arXiv|arXiv:2607.16050v1|DELUGE: Towards Continental-Scale Daily Pluvial Flood Damage Prediction via Interpretable Conditioning on Foundation Model Embeddings
+  HIT|2026|arXiv|arXiv:2607.08945v1|Is sub-metre resolution necessary for cocoa mapping? A landscape-stratified evaluation of very high resolution imagery, decametric Earth Observation inputs, and operational products in Cote d'Ivoire
+  HIT|2026|arXiv|arXiv:2607.01082v1|When Context Compensates for Sparse Event History: AlphaEarth for Spatio-Temporal Point-Process Forecasting
+  HIT|2026|arXiv|arXiv:2606.29134v1|Beyond Backscatter: AlphaEarth Land-Cover Priors for Rapid SAR Flood Segmentation Across Foundation Backbones
+  HIT|2026|arXiv|arXiv:2606.20034v1|Exploring the potential of AlphaEarth and TESSERA embeddings for Fine-scale Local Climate Zone Mapping: A case study across five cities in Switzerland
+  HIT|2026|arXiv|arXiv:2606.20697v1|AEF-Econ: Toward Plug-and-Play Socioeconomic Foundation Embeddings from AlphaEarth for Urban Remote Sensing
+  HIT|2026|arXiv|arXiv:2606.05368v2|Biomazon: A Multimodal Dataset for 3D Forest Structure and Biomass Modeling in the Amazon Basin
+== TB02 ax #r5
+AX|TB02#r5|all:"Sentinel-1B"|n=3
+== TB02 ax #r6
+AX|TB02#r6|all:"data gap" AND all:"SAR" AND all:"change detection"|n=0
+== TB02 ax #s0
+AX|TB02#s0|all:"observation availability" AND all:"change detection"|n=0
+== TB02 ax #s1
+AX|TB02#s1|all:"Sentinel-1" AND all:"outage"|n=0
+== TB02 ax #s2
+AX|TB02#s2|all:"missing observations" AND all:"land cover" AND all:"time series"|n=0
+== TB02 ax #s3
+AX|TB02#s3|all:"spurious" AND all:"change detection" AND all:"satellite"|n=0
+== TB02 ax #s4
+AX|TB02#s4|all:"embedding" AND all:"sensor" AND all:"availability"|n=20
+  HIT|2026|arXiv|arXiv:2608.27233v1|HALO: A Heterogeneity-Aware Language-Aligned IMU Foundation Model for Open-Set Human Activity Recognition
+  HIT|2026|arXiv|arXiv:2608.15418v1|Head Impact Characterization and Cellular Response of a Live-neuron cell-integrated Biomechanical Full-body Surrogate Model
+  HIT|2026|arXiv|arXiv:2608.06612v1|SLED: Scalable Location Encoding via Distillation
+  HIT|2026|arXiv|arXiv:2608.05697v1|A Low-Power Wearable Respiratory Sensor for Non-Invasive Stress Monitoring
+  HIT|2026|arXiv|arXiv:2608.03816v1|Design and Evaluation of an AI-Enabled Cloud-Edge Architecture for Connected Precision Agriculture Farms
+  HIT|2026|arXiv|arXiv:2608.01751v1|SPECTRA: Band-Routed Embedding and Stage-Wise LoRA for Cross-Sensor Fine-Tuning of Geospatial Foundation Models
+  HIT|2026|arXiv|arXiv:2608.14666v1|Cross-Domain Industrial Fault Detection by Causal Mechanism Monitoring
+  HIT|2026|arXiv|arXiv:2607.24056v1|Capacity-Aware Deep Learning for Generalizable Traffic Volume Estimation Across Links and Cities
+  HIT|2026|arXiv|arXiv:2607.23503v1|Impute On-Demand: Adaptive Correlated Time Series Imputation for Changing Environments
+  HIT|2026|arXiv|arXiv:2607.21526v1|Boosting Robustness for All-Weather Self-Supervised Depth Estimation in Autonomous Driving
+  HIT|2026|arXiv|arXiv:2607.15633v1|Scalable Open-Source Visuotactile Sensor for 6-Axis Contact Wrench Estimation in Tensegrity Robots
+  HIT|2026|arXiv|arXiv:2607.06349v2|TopoBrick: Agentic Topology Sampling of Exogenous Variables for Zero-Shot Building IoT Forecasting
+  HIT|2026|arXiv|arXiv:2608.07513v1|Democratizing Ski Safety: Real-Time Turn Segmentation with Smartphone IMU and Causal LSTM Networks
+  HIT|2026|arXiv|arXiv:2606.25386v1|Commerge: Communication-Efficient, Robust, and Fast LiDAR Map Merging Framework for Multi-Robot Coordination in Resource-Constrained Scenarios
+  HIT|2026|arXiv|arXiv:2606.24472v1|G$^3$VLA: Geometric inductive bias for Vision-Language-Action Models
+  HIT|2026|arXiv|arXiv:2606.23503v1|UniverSat: Resolution- and Modality-Agnostic Transformers for Earth Observation
+  HIT|2026|arXiv|arXiv:2606.23046v1|UECP: Uncertainty-Enhanced Collaborative Perception
+  HIT|2026|arXiv|arXiv:2606.15514v1|Reinforcement Learning-Guided Retrieval with Soft Fusion for Robust Multimodal Imitation Learning under Missing Modalities
+  HIT|2026|arXiv|arXiv:2606.14298v1|Compact Photonic Fibre-based Deformation Sensor Fabricated by Two-Photon Polymerization
+  HIT|2026|arXiv|arXiv:2606.13571v1|Existence Precedes Value: Joint Modeling of Observational Existence and Evolving States in Time Series Forecasting
+== TC01 ax #s5
+AX|TC01#s5|all:"geospatial foundation model" AND all:"terrain"|n=2
+  HIT|2026|arXiv|arXiv:2606.14081v3|Clay-CNN Hybrids: Leveraging Geospatial Foundation Models as Auxiliary Context for Landslide Detection
+  HIT|2025|arXiv|arXiv:2511.00073v1|Habitat and Land Cover Change Detection in Alpine Protected Areas: A Comparison of AI Architectures
+== TC01 ax #s6
+AX|TC01#s6|all:"shortcut learning" AND all:"remote sensing"|n=2
+  HIT|2026|arXiv|arXiv:2607.10841v1|Align and Segment: Unsupervised Learning for Building Segmentation From Misaligned Labels
+  HIT|2025|arXiv|arXiv:2508.13086v1|Checkmate: interpretable and explainable RSVQA is the endgame
+== TB02 ss #r7
+HTTPFAIL|TB02#r7|last=429
+== TB02 ss #r8
+HTTPFAIL|TB02#r8|last=429
+== TB02 ss #r9
+HTTPFAIL|TB02#r9|last=429
+== TB02 ss #r10
+SS|TB02#r10|sensor availability bias embedding change threshold|total=4519
+  HIT|2025|arXiv.org|arXiv:2509.21207|From Physics to Machine Learning and Back: Part II - Learning and Observational Bias in PHM
+  HIT|2025|Advances in Materials|10.1002/adma.202518105|Humidity‐Gated Memristive Dynamics Enabling Near‐Sensor Spiking Computation for Wind Direction and Noise‐Resilient Speech Recognition
+  HIT|2025|arXiv.org|arXiv:2510.19107|When Your AI Agent Succumbs to Peer-Pressure: Studying Opinion-Change Dynamics of LLMs
+== TC01 ax #s7
+AX|TC01#s7|all:"geographic generalization" AND all:"foundation model"|n=2
+  HIT|2026|arXiv|arXiv:2603.02080v2|From Pixels to Patches: Pooling Strategies for Earth Embeddings
+  HIT|2026|arXiv|arXiv:2602.18083v1|Comparative Assessment of Multimodal Earth Observation Data for Soil Moisture Estimation
+== TC01 ax #s8
+AX|TC01#s8|all:"domain shift" AND all:"embedding" AND all:"land cover"|n=1
+  HIT|2026|arXiv|arXiv:2608.10426v1|GeoSeg-OV: Bridging Geospatial Gaps with Structural Guidance for Open-Vocabulary Remote Sensing Segmentation
+== TC01 ax #r11
+AX|TC01#r11|all:"geospatial foundation model" AND all:"terrain"|n=2
+  HIT|2026|arXiv|arXiv:2606.14081v3|Clay-CNN Hybrids: Leveraging Geospatial Foundation Models as Auxiliary Context for Landslide Detection
+  HIT|2025|arXiv|arXiv:2511.00073v1|Habitat and Land Cover Change Detection in Alpine Protected Areas: A Comparison of AI Architectures
+== TC01 ax #s9
+AX|TC01#s9|all:"probing" AND all:"geospatial" AND all:"embedding"|n=7
+  HIT|2026|arXiv|arXiv:2608.29553v1|BEACON: Behavioral and Semantic Enrichment of AlphaEarth Embeddings through Tri-Modal Contrastive Learning
+  HIT|2026|arXiv|arXiv:2608.16614v1|Beyond Accuracy: Assessing Calibration of Geospatial Foundation Models and Their Sensitivity to Distribution Shifts
+  HIT|2026|arXiv|arXiv:2606.24677v1|One Index for Subsumption and Roll-up across Time, Geography, and Ontology
+  HIT|2026|arXiv|arXiv:2606.15838v1|Intelligent Multimodal Retrieval and Reasoning for Geospatial Knowledge Discovery on the I-GUIDE Platform
+  HIT|2026|arXiv|arXiv:2606.13896v1|How do Self-Supervised Remote Sensing Vision Models Transfer to Downstream Tasks?
+  HIT|2026|arXiv|arXiv:2605.14406v1|GeoViSTA: Geospatial Vision-Tabular Transformer for Multimodal Environment Representation
+== TC01 ax #r12
+AX|TC01#r12|all:"shortcut learning" AND all:"remote sensing"|n=2
+  HIT|2026|arXiv|arXiv:2607.10841v1|Align and Segment: Unsupervised Learning for Building Segmentation From Misaligned Labels
+  HIT|2025|arXiv|arXiv:2508.13086v1|Checkmate: interpretable and explainable RSVQA is the endgame
+== TC01 ax #s10
+AX|TC01#s10|all:"static covariate" AND all:"remote sensing"|n=0
+== TC01 ax #r13
+AX|TC01#r13|all:"geographic generalization" AND all:"foundation model"|n=2
+  HIT|2026|arXiv|arXiv:2603.02080v2|From Pixels to Patches: Pooling Strategies for Earth Embeddings
+  HIT|2026|arXiv|arXiv:2602.18083v1|Comparative Assessment of Multimodal Earth Observation Data for Soil Moisture Estimation
+== TB01 ax #s11
+AX|TB01#s11|all:"detection lag" AND all:"forest"|n=0
+== TB01 ax #s12
+AX|TB01#s12|all:"annual composite" AND all:"timing" AND all:"disturbance"|n=0
+BATCH2_DONE
+== TC01 ss #r14
+HTTPFAIL|TC01#r14|last=429
+== TC01 ss #r15
+HTTPFAIL|TC01#r15|last=429
+== TC01 ss #r16
+HTTPFAIL|TC01#r16|last=429
+== TC01 ss #r17
+HTTPFAIL|TC01#r17|last=429
+== TC01 ss #r18
+HTTPFAIL|TC01#r18|last=429
+BATCH_DONE

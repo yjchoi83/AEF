@@ -1,0 +1,26 @@
+n_points 3600
+chunk 0 900
+chunk 900 900
+chunk 1800 900
+chunk 2700 900
+n_final 3600 balance {'intact': 900, 'nonforest': 900, 'degrad': 900, 'clearing': 900} blocks 64
+ang_aef intact: n=900 mean=9.21 sd=1.42 med=9.13 | degrad: n=900 mean=15.72 sd=7.07 med=13.65 | clearing: n=900 mean=18.60 sd=9.45 med=16.13 | nonforest: n=900 mean=12.29 sd=2.17 med=12.13
+  rho=0.684 tau=0.543 AUC(deg>intact)=0.933 AUC(clr>deg)=0.611
+ang_s2 intact: n=900 mean=1.73 sd=0.85 med=1.59 | degrad: n=900 mean=5.37 sd=6.16 med=3.47 | clearing: n=900 mean=8.43 sd=10.92 med=4.37 | nonforest: n=900 mean=3.21 sd=2.05 med=2.63
+  rho=0.526 tau=0.409 AUC(deg>intact)=0.797 AUC(clr>deg)=0.589
+     AEF64 linprobe           f1_macro=0.765+/-0.031 [0.727, 0.732, 0.807, 0.783, 0.776]
+     AEF64 linprobe  balanced_accuracy=0.775+/-0.026 [0.741, 0.751, 0.811, 0.785, 0.785]
+     AEF64    kNN15           f1_macro=0.698+/-0.028 [0.702, 0.673, 0.749, 0.676, 0.692]
+     AEF64    kNN15  balanced_accuracy=0.720+/-0.022 [0.72, 0.719, 0.758, 0.688, 0.717]
+ AEF64+ang linprobe           f1_macro=0.773+/-0.035 [0.736, 0.731, 0.823, 0.788, 0.789]
+ AEF64+ang linprobe  balanced_accuracy=0.783+/-0.028 [0.747, 0.757, 0.826, 0.789, 0.796]
+ AEF64+ang    kNN15           f1_macro=0.703+/-0.027 [0.702, 0.681, 0.752, 0.673, 0.704]
+ AEF64+ang    kNN15  balanced_accuracy=0.724+/-0.024 [0.721, 0.727, 0.76, 0.685, 0.728]
+     S2_8b linprobe           f1_macro=0.547+/-0.033 [0.508, 0.51, 0.586, 0.552, 0.578]
+     S2_8b linprobe  balanced_accuracy=0.577+/-0.019 [0.562, 0.556, 0.607, 0.572, 0.59]
+     S2_8b    kNN15           f1_macro=0.509+/-0.043 [0.458, 0.457, 0.547, 0.548, 0.535]
+     S2_8b    kNN15  balanced_accuracy=0.563+/-0.008 [0.561, 0.549, 0.571, 0.571, 0.563]
+ S2_8b+ang linprobe           f1_macro=0.588+/-0.035 [0.554, 0.56, 0.634, 0.565, 0.629]
+ S2_8b+ang linprobe  balanced_accuracy=0.617+/-0.025 [0.605, 0.604, 0.65, 0.585, 0.641]
+ S2_8b+ang    kNN15           f1_macro=0.535+/-0.036 [0.492, 0.494, 0.583, 0.555, 0.552]
+ S2_8b+ang    kNN15  balanced_accuracy=0.582+/-0.011 [0.585, 0.573, 0.603, 0.574, 0.575]

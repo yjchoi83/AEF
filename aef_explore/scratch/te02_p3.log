@@ -1,0 +1,20 @@
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+ET_somali 600 {0: 18.21, 1: 19.59}
+BR_caat 600 {0: 16.36, 1: 17.39}
+SN_ferlo 600 {0: 16.14, 1: 15.46}
+US_az 600 {0: 16.44, 1: 17.14}
+KE_marsa 600 {0: 24.59, 1: 25.92}
+ZW_mata 600 {0: 14.43, 1: 14.94}
+AEF angle by strat:
+        count    25%    50%    75%
+strat                             
+0      1800.0  14.74  17.06  20.16
+1      1800.0  15.07  17.75  21.51
+S2  angle by strat:
+        count   25%   50%   75%
+strat                          
+0      1800.0  2.54  4.82  8.37
+1      1800.0  3.23  5.53  9.16

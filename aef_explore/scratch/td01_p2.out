@@ -1,0 +1,6 @@
+GEDI n= 3275 {0: 3000, 2: 158, 1: 117}
+cls 0 n 3000 rh98 med 24.8  hloss med 0.0  angle med 11.68
+cls 1 n 117 rh98 med 22.5  hloss med 2.3  angle med 15.89
+cls 2 n 158 rh98 med 5.6  hloss med 19.2  angle med 51.98
+spearman(angle,hloss) all=0.161  changed-only=0.755 (n=275)
+ridge rh98 from AEF? skipped (n small)

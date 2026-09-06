@@ -1,0 +1,23 @@
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+BRamz cum 600
+CGkasai cum 1197
+INpunjab cum 1788
+USiowa cum 2386
+ESduero cum 2985
+SNsahel cum 3585
+AUnsw cum 4185
+ZAhveld cum 4785
+(4785, 76)
+          size   mean
+roi                  
+AUnsw      600  0.500
+BRamz      600  0.500
+CGkasai    597  0.501
+ESduero    599  0.499
+INpunjab   591  0.494
+SNsahel    600  0.500
+USiowa     598  0.498
+ZAhveld    600  0.500

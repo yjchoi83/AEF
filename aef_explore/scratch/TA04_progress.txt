@@ -1,0 +1,25 @@
+Thu Sep  3 10:42:51 PM KST 2026
+ELDOR arXiv:2605.15397 [V] UAV orthomosaic 2500ha pixel labels, Amazon(Peru), 4 tasks, no satellite/label-efficiency/transfer
+Ecuador 10.5194/egusphere-2026-1854 [V] title confirmed 2026-04-10
+GEE chk1: sat-io global_mining_polygons getAsset OK (Maus); AEF imgs AMZ 2 / GHA 1 both years
+GEE chk1: Hansen loss18-24 frac AMZ_tapajos 0.073, GHA_ankobra 0.197; GSW occ>=20 frac 0.0024 / 0.0002
+WARN: GEE project in RESTRICTED MODE (noncommercial compute quota exceeded)
+GEE chk2 [KEY]: projects/sat-io/open-datasets/global-mining/global_mining_polygons IS READABLE
+  props AREA/COUNTRY_NA/ISO3_CODE; AMZ box(-58,-8,-54,-4) 42 polys 240.0 km2; GHA box(-3.2,4.9,-0.9,7.2) 245 polys 652.5 km2
+  => real reference labels (Maus et al. global mining polygons), not a proxy. Epoch ~2019.
+LIT: Maus 10.1038/s41597-022-01547-4 [V] SciData 'An update on global mining land use'; also 10.1016/j.jclepro.2025.147437 [V] commodity-specific mining land-use 2025
+P1 done: AMZ 2700 (900/900/900), GHA 2700 (900/900/900), AEF2019+S2_2019, 75 cols
+P2 (AUC, 5-fold GroupKFold 0.1deg, pos_frac 0.333, n=2700/region; AMZ 82 blocks, GHA 158 blocks):
+ AMZ in-region full: AEF 0.855(sd .027) | S2 0.638(sd .052)
+ AMZ curve AEF 25:.621 50:.686 100:.780 250:.810 500:.828 1000:.850 ; S2 25:.535 100:.573 500:.622 1000:.635
+ => AEF ~40 labels == S2 1000 labels (>=25x); S2 never reaches AEF@100
+ GHA in-region full: AEF 0.977(.008) | S2 0.867(.037); AEF@25=0.892 > S2@1000=0.865
+ Transfer AMZ->GHA: AEF 0.810(.024) drop .167 ; S2 0.702(.025) drop .165
+ Transfer GHA->AMZ: AEF 0.557(.014) drop .298 ; S2 0.586(.002) drop .052
+ T5 retrieval 10 AMZ seeds P@100 (base .333): AEF AMZ .376 / GHA .001 ; S2 AMZ .304 / GHA .162 -> retrieval FAILS
+P3: z-score AMZ->GHA AEF 0.794(.015) [worse than raw .810] ; S2 0.751(.033) [better than raw .702]
+P3 few-shot GHA (test = held-out GHA blocks, AUC):
+ AMZ-pool + k GHA labels: AEF 0:.813 10:.871 25:.875 50:.887 100:.892 250:.918 | S2 0:.716 25:.723 100:.741 250:.771
+ GHA-only k labels:       AEF 10:.831 25:.895 50:.920 100:.937 250:.957 | S2 10:.717 25:.814 100:.842 250:.856
+ => NEGATIVE TRANSFER for AEF at k>=25 (Amazon labels hurt once ~25 local labels exist)
+BUDGET USED: lit 6/6, GEE checks 2/3, pilots 3/3

@@ -1,0 +1,12 @@
+n_points 2000
+chunk 0 700
+chunk 700 700
+chunk 1400 600
+CONGO n 2000 {'intact': 500, 'nonforest': 500, 'degrad': 500, 'clearing': 500}
+ang_aef intact: n=500 mean=7.92 sd=1.86 | nonforest: n=500 mean=15.78 sd=5.77 | degrad: n=500 mean=29.02 sd=14.61 | clearing: n=500 mean=27.98 sd=11.97
+  rho=0.675 tau=0.513 AUC(deg>intact)=0.963 AUC(clr>deg)=0.490
+ang_s2 intact: n=500 mean=2.11 sd=1.30 | nonforest: n=500 mean=4.21 sd=3.72 | degrad: n=500 mean=9.62 sd=7.10 | clearing: n=500 mean=9.00 sd=6.31
+  rho=0.556 tau=0.423 AUC(deg>intact)=0.885 AUC(clr>deg)=0.488
+  AEF64 AMZ->COD  macroF1=0.292 balAcc=0.400
+  S2_8b AMZ->COD  macroF1=0.331 balAcc=0.335
+note: in-region Congo CV omitted (no coords retained); transfer drop vs Amazon in-region reported in card

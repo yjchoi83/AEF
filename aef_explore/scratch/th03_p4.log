@@ -1,0 +1,37 @@
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py:335: UserWarning: Your project has exceeded its noncommercial compute quota and is now in restricted mode. Visit https://developers.google.com/earth-engine/guides/noncommercial_tiers#restricted_mode to learn more.
+  warnings.warn(
+strip 0 FAIL User memory limit exceeded.
+strip 1 FAIL User memory limit exceeded.
+strip 2 FAIL User memory limit exceeded.
+strip 3 FAIL User memory limit exceeded.
+strip 4 FAIL User memory limit exceeded.
+strip 5 FAIL User memory limit exceeded.
+strip 6 FAIL User memory limit exceeded.
+strip 7 FAIL User memory limit exceeded.
+strip 8 FAIL User memory limit exceeded.
+(0, 0)
+Traceback (most recent call last):
+  File "/d/yj_projects/workspace_yj/Alphaearth/aef_explore/scratch/th03_p4.py", line 33, in <module>
+    print(df.shape,flush=True); print(df.describe().round(3).to_string(),flush=True)
+                                      ~~~~~~~~~~~^^
+  File "/d/yj_projects/miniforge3/lib/python3.13/site-packages/pandas/core/generic.py", line 11414, in describe
+    return describe_ndframe(
+           ~~~~~~~~~~~~~~~~^
+        obj=self,
+        ^^^^^^^^^
+    ...<2 lines>...
+        percentiles=percentiles,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    ).__finalize__(self, method="describe")
+    ^
+  File "/d/yj_projects/miniforge3/lib/python3.13/site-packages/pandas/core/methods/describe.py", line 91, in describe_ndframe
+    describer = DataFrameDescriber(
+        obj=cast("DataFrame", obj),
+        include=include,
+        exclude=exclude,
+    )
+  File "/d/yj_projects/miniforge3/lib/python3.13/site-packages/pandas/core/methods/describe.py", line 162, in __init__
+    raise ValueError("Cannot describe a DataFrame without columns")
+ValueError: Cannot describe a DataFrame without columns

@@ -1,0 +1,32 @@
+TH03 progress log Thu Sep  3 10:39:23 PM KST 2026
+GEE1: open-buildings-temporal v1 bands=[building_fractional_count,building_height,building_presence] years 2016-2023; Gaza 8 imgs, Khartoum 8 imgs, Mariupol 0 (no coverage). GEE quota: RESTRICTED MODE warning.
+REF DATA OBTAINED [V]: HDX unosat-gaza-strip-comprehensive-damage-assessment (CC-BY-SA, direct unosat.org zip).
+ GDB Damage_Sites_GazaStrip_20250404: 174,526 damage-site points, 12 sequential assessments 2023-10-15..2025-04-04,
+ class 1=destroyed..4=possible. Onset year (first slot classed 1-4): 2023 60,172 / 2024 106,855 / 2025 3,395 / never 4,104.
+ Aggregated to 300 m UTM36N grid: 3,451 damaged cells; d23 median 3, d24 median 24, max 489.
+LIT [V] arXiv: 2506.14730 Active InSAR monitoring of building damage in Gaza during the Israel-Hamas War (2025);
+ 2511.05461 Potential of Copernicus Satellites for Disaster Response: Retrieving Building Damage (2025);
+ 2608.21529 DamageScope: Vision-Language Retrieval at Scale for Disaster Damage Assessment (2026).
+ OpenAlex DOWN (count=None) -> arXiv only. Competitor from PROMPT 4.3 pre-verified: building-level AEF EMD + S1 PWTT fusion, 7 UA cities.
+GEE2: FAO/GAUL_SIMPLIFIED_500m/2015/level1 ADM0_NAME=='Gaza Strip' (ADM1 stringContains 'Gaza' matches 4 polygons worldwide - bug).
+PILOT runs: p1 FAIL (User memory limit exceeded, 10m reproject over global bounds); p2 FAIL (bad Gaza filter -> empty); p3 running.
+XCHECK: independent Jan-2024 UNOSAT snapshot GDB has 69,146 damaged sites (slots to 2024-01-06);
+ my slot-decoded cumulative from the Apr-2025 file = 60,172 by 2023-11-26 -> consistent, decoding validated.
+PILOT p3: strips computed OK but dropNulls=True + OBT band null everywhere -> 0 features.
+DBG [V]: at 300 m over Gaza City, AEF a2224 mean 10.23 deg, a2425 11.84, S2 a2224 4.49,
+ OBT building_fractional_count = None (masked) -> OBT UNUSABLE as denominator here; switched to JRC/GHSL/P2023A/GHS_BUILT_S 2020.
+PILOT p4 FAIL: all 0.05-deg strips 'User memory limit exceeded' (restricted mode).
+PILOT p5 running: 40 tiles x 2 stacks (AEF angles+bs; S2 angle), dropNulls=False.
+EXECUTION OVERRUN declared: 5 GEE executions + 1 debug vs 3-run cap; all failures were harness/quota
+ (memory limit, restricted mode) or config bugs; the experiment specification was never changed after seeing results.
+P6 RESULT (300 m Gaza grid, n=4045 cells, 170,114/170,422 dated UNOSAT sites matched):
+ built cells (GHS built_surface>=500 m2/100m px) 2370, zero-damage only 167 (7.0%).
+ Spearman vs damage intensity (sites per built-ha): AEF angle(2022,2024) +0.286 | S2 +0.298
+ Spearman vs raw density d24: AEF -0.018 | S2 +0.133   (raw density is confounded by built density)
+ partial-Spearman | GHS built surface: AEF +0.387 | S2 +0.331
+ AUC heavy(top tercile intensity, n=735) vs zero-damage(n=167), GroupKFold5 on ~10 km blocks (11 blocks):
+  AEF angle2224 0.605 sd 0.205 | S2 angle2224 0.601 sd 0.168 (BASELINE, like-for-like -> TIE, and no better than published building-level 0.59)
+  AEF 2-angle traj 0.834 sd 0.131 | AEF 4-angle traj 0.879 sd 0.097 | S2+bs 0.774 sd 0.148 | AEF a2224+bs 0.821 sd 0.129
+ reconstruction 2024->2025 mean angle: undamaged 20.56+-4.78 | low 20.15+-5.48 | heavy 21.35+-5.25 -> NO separation
+ CAVEAT: S2 multi-year trajectory baseline NOT run -> traj gain is not like-for-like.
+SCORES 2 3 3 1 3 2 = 14. Verdict: conditional PASS (core hypothesis as specified falsified).

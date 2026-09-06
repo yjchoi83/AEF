@@ -1,0 +1,41 @@
+sampling ROK...
+Traceback (most recent call last):
+  File [35m"/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py"[0m, line [35m361[0m, in [35m_execute_cloud_call[0m
+    return [31mcall.execute[0m[1;31m(num_retries=num_retries)[0m
+           [31m~~~~~~~~~~~~[0m[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  File [35m"/d/yj_projects/miniforge3/lib/python3.13/site-packages/googleapiclient/_helpers.py"[0m, line [35m130[0m, in [35mpositional_wrapper[0m
+    return wrapped(*args, **kwargs)
+  File [35m"/d/yj_projects/miniforge3/lib/python3.13/site-packages/googleapiclient/http.py"[0m, line [35m1018[0m, in [35mexecute[0m
+    raise HttpError(resp, content, uri=self.uri)
+[1;35mgoogleapiclient.errors.HttpError[0m: [35m<HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/alpha-earth-app/value:compute?prettyPrint=false&alt=json returned "Computation timed out.". Details: "Computation timed out.">[0m
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File [35m"/d/yj_projects/workspace_yj/Alphaearth/aef_explore/scratch/TH01_t3_transfer.py"[0m, line [35m35[0m, in [35m<module>[0m
+    print("sampling ROK..."); Xa, Xs, y, wc, g = [31mgrab[0m[1;31m(ROK, 700)[0m
+                                                 [31m~~~~[0m[1;31m^^^^^^^^^^[0m
+  File [35m"/d/yj_projects/workspace_yj/Alphaearth/aef_explore/scratch/TH01_t3_transfer.py"[0m, line [35m28[0m, in [35mgrab[0m
+    fs = [31ms.getInfo[0m[1;31m()[0m['features']; rows = []
+         [31m~~~~~~~~~[0m[1;31m^^[0m
+  File [35m"/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/collection.py"[0m, line [35m589[0m, in [35mgetInfo[0m
+    return [31msuper().getInfo[0m[1;31m()[0m
+           [31m~~~~~~~~~~~~~~~[0m[1;31m^^[0m
+  File [35m"/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/computedobject.py"[0m, line [35m108[0m, in [35mgetInfo[0m
+    return [31mdata.computeValue[0m[1;31m(self)[0m
+           [31m~~~~~~~~~~~~~~~~~[0m[1;31m^^^^^^[0m
+  File [35m"/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py"[0m, line [35m1082[0m, in [35mcomputeValue[0m
+    return [31m_execute_cloud_call[0m[1;31m([0m
+           [31m~~~~~~~~~~~~~~~~~~~[0m[1;31m^[0m
+        [1;31m_get_cloud_projects()[0m
+        [1;31m^^^^^^^^^^^^^^^^^^^^^[0m
+        [1;31m.value()[0m
+        [1;31m^^^^^^^^[0m
+        [1;31m.compute(body=body, project=_get_projects_path(), prettyPrint=False)[0m
+        [1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    [1;31m)[0m['result']
+    [1;31m^[0m
+  File [35m"/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py"[0m, line [35m363[0m, in [35m_execute_cloud_call[0m
+    [1;31mraise _translate_cloud_exception(e)[0m  # pylint: disable=raise-missing-from
+    [1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mee.ee_exception.EEException[0m: [35mComputation timed out.[0m

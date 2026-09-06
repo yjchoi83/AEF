@@ -1,0 +1,14 @@
+data/
+**/data/
+*.tif
+*.zip
+*.shp
+*.shx
+*.dbf
+*.prj
+*.nc
+*.gpkg
+*.parquet
+scratch/*.csv
+__pycache__/
+.netrc

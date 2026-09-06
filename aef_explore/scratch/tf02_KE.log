@@ -1,0 +1,43 @@
+[KEsmall/dense] n=3446 bal={40: 0.554, 10: 0.269, 20: 0.117, 30: 0.061} extent_deg=0.2
+  AEF64  rand=0.741(sd0.015,b5,k5)  0.2km=0.750(sd0.026,b2915,k5)  1km=0.739(sd0.028,b401,k5)  5km=0.714(sd0.007,b25,k5)  10km=0.723(sd0.031,b9,k5)
+  S2     rand=0.575(sd0.013,b5,k5)  0.2km=0.570(sd0.023,b2915,k5)  1km=0.570(sd0.022,b401,k5)  5km=0.570(sd0.027,b25,k5)  10km=0.550(sd0.021,b9,k5)
+  S2ctx  rand=0.604(sd0.020,b5,k5)  0.2km=0.602(sd0.020,b2915,k5)  1km=0.592(sd0.018,b401,k5)  5km=0.585(sd0.021,b25,k5)  10km=0.556(sd0.021,b9,k5)
+Traceback (most recent call last):
+  File "/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py", line 361, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/d/yj_projects/miniforge3/lib/python3.13/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/d/yj_projects/miniforge3/lib/python3.13/site-packages/googleapiclient/http.py", line 1018, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/alpha-earth-app/value:compute?prettyPrint=false&alt=json returned "Computation timed out.". Details: "Computation timed out.">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/d/yj_projects/workspace_yj/Alphaearth/aef_explore/scratch/tf02_pilot.py", line 25, in <module>
+    df = samp(stack(roi), roi, n=3500, seed=7)
+  File "/d/yj_projects/workspace_yj/Alphaearth/aef_explore/scratch/aefkit.py", line 36, in samp
+    rows = f.getInfo()['features']
+           ~~~~~~~~~^^
+  File "/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/collection.py", line 589, in getInfo
+    return super().getInfo()
+           ~~~~~~~~~~~~~~~^^
+  File "/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/computedobject.py", line 108, in getInfo
+    return data.computeValue(self)
+           ~~~~~~~~~~~~~~~~~^^^^^^
+  File "/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py", line 1082, in computeValue
+    return _execute_cloud_call(
+           ~~~~~~~~~~~~~~~~~~~^
+        _get_cloud_projects()
+        ^^^^^^^^^^^^^^^^^^^^^
+        .value()
+        ^^^^^^^^
+        .compute(body=body, project=_get_projects_path(), prettyPrint=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )['result']
+    ^
+  File "/d/yj_projects/miniforge3/lib/python3.13/site-packages/ee/data.py", line 363, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Computation timed out.
