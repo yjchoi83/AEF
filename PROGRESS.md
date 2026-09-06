@@ -5,7 +5,7 @@ Stages 1–5 (landscape → screen → feasibility → proposals → ranking →
 
 ## TB01 — Annual embedding: within-year event timing and detection lag
 
-**Batch verdict (P2–P4): CONDITIONAL GO, pending QC** — see `aef_explore/stage5/TB01/BATCH_SUMMARY.md`.
+**Batch verdict (P2–P4b): GO, effect size scoped per region-year** — see `aef_explore/stage5/TB01/BATCH_SUMMARY.md`.
 
 - [x] **P1 — expert-dated event set and registration curve** (`aef_explore/stage5/TB01/`)
       *Done, verdict FAIL.* 283 optical-bracketed events (A 252, B 31; both short of the 300
@@ -42,7 +42,15 @@ Stages 1–5 (landscape → screen → feasibility → proposals → ranking →
       survive their exclusion. 2020: 45,917 events, 39,772 dated; high-S1 low-optical stratum
       registers **0.626** [0.548, 0.712] (< 0.80, CI-upper < 0.85, below low-S1 0.883).
       H1″ gap +14.1 pp [11.6, 16.6] (2021: +34.4). ⚠ no RADD snapshot contemporaneous with 2020.
-- [ ] **P3 — deferral and attribution** — *starting* (unblocked by P2b)
-- [ ] **P4 — Congo replication** — *starting* (unblocked by P2b)
+- [x] **P3 — deferral and attribution** (`.../P3/`) — *H4 **PASS** both directions; H5 **not testable**.*
+      Deferral 0.940 [0.922, 0.957] (2020→2021) and 0.965 [0.953, 0.975] (2021→2022); only ~1 in 800
+      events register in neither year. H5's ground truth is degenerate (one true year per population),
+      so k = 0 is perfect by construction — reported as an artifact, not a pass. Naive dating
+      misattributes 2.78 %/3.48 %; a two-year window removes ~95 %; AUC(`clear_post`) 0.73/0.71.
+- [x] **P4 — Congo replication** (`.../P4/`) — ***not replicated** on the pre-registered criterion.*
+      5,243 TMF-2021 patches ≥ 1 ha in two DRC ROIs, 94.6 % RADD-dated, τ_CG = 16.31°. Gap
+      **5.34 pp** [2.91, 8.20] falls outside both Brazil CIs; not power-limited (n(0–2) = 202).
+      Direction replicates and H7(a) is the strongest of any region (2.19 [1.44, 2.84]).
+      ⚠ no 2021 africa RADD archive — dates come from 2024 snapshots.
 - [ ] **P5 — products** — pending (explicitly not started in this batch)
 - [ ] **P6** — pending
