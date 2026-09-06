@@ -26,8 +26,10 @@ Stages 1–5 (landscape → screen → feasibility → proposals → ranking →
       ≥ 5, gap **+33.3 pp** [8.4, 68.1] — but on only 23 events in the 0–2 bin, below the 30-event
       floor, so recorded **PASS (provisional, power-limited)**. **H3 PASS** (0.9855).
       Circularity check does not support the RADD/AEF-shared-input worry (B gap is negative).
-- [ ] **P2** — pending
-- [ ] **P3** — pending
-- [ ] **P4** — pending
-- [ ] **P5** — pending
+- [ ] **P2 — QC, Amazon-wide scale-up, decisive covariate** — *in progress*
+      Step 0 ✔ 53 QC chips + `qc_table.csv` (decisions blank → all verdicts **pending QC**).
+      Step 1 ✔ 37,689 DETER 2021 CR+VEG events ≥ 1 ha across 9 states.
+- [ ] **P3 — deferral and attribution** — pending (runs only if P2's decisive H7 passes)
+- [ ] **P4 — Congo replication** — pending (runs only if P2's decisive H7 passes)
+- [ ] **P5 — products** — pending (explicitly not started in this batch)
 - [ ] **P6** — pending

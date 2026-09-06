@@ -1,0 +1,54 @@
+id,region,clear_post,registered,decision,auto_note,ang_mean_deg,tau_deg,radd_any,area_ha
+A_105,A,2.0,1,,registered but <=2 post-event clear obs,34.4864,11.3934,2021-09-19,7.7109
+A_288,A,2.0,1,,registered but <=2 post-event clear obs,12.0802,11.3934,2021-10-07,6.5186
+A_298,A,2.0,1,,registered but <=2 post-event clear obs,15.494,11.3934,2021-10-13,13.6181
+A_309,A,2.0,1,,registered but <=2 post-event clear obs,12.6339,11.3934,2021-10-25,24.5429
+A_313,A,2.0,1,,registered but <=2 post-event clear obs,16.923,11.3934,2021-10-13,17.5751
+A_320,A,0.0,0,,UNREGISTERED: check whether clearing is visible at all,7.7654,11.3934,2021-11-18,10.4966
+A_327,A,2.0,1,,registered but <=2 post-event clear obs,11.5642,11.3934,2021-11-12,36.56
+A_328,A,2.0,0,,UNREGISTERED: check whether clearing is visible at all,8.1395,11.3934,2021-10-31,11.3427
+A_332,A,2.0,1,,registered but <=2 post-event clear obs,14.5229,11.3934,2021-11-24,6.6903
+A_336,A,2.0,0,,UNREGISTERED: check whether clearing is visible at all,9.8949,11.3934,2021-10-31,19.9019
+A_575,A,0.0,1,,registered but <=2 post-event clear obs,21.0684,11.3934,2022-03-24,6.9035
+A_1002,A,0.0,1,,registered but <=2 post-event clear obs,28.8525,11.3934,2022-02-28,10.4223
+B_53,B,0.0,1,,registered but <=2 post-event clear obs,31.3478,19.1314,2022-01-31,8.9851
+B_108,B,1.0,1,,registered but <=2 post-event clear obs,35.7029,19.1314,2021-11-19,23.9453
+B_122,B,1.0,1,,registered but <=2 post-event clear obs,35.085,19.1314,2021-12-21,17.6273
+B_123,B,1.0,1,,registered but <=2 post-event clear obs,25.6937,19.1314,2021-11-19,8.253
+B_125,B,1.0,1,,registered but <=2 post-event clear obs,19.6462,19.1314,2021-12-20,10.5317
+B_131,B,2.0,0,,UNREGISTERED: check whether clearing is visible at all,13.7597,19.1314,2021-11-21,7.7444
+B_134,B,2.0,0,,UNREGISTERED: check whether clearing is visible at all,12.8252,19.1314,2021-11-27,18.3958
+B_139,B,2.0,0,,UNREGISTERED: check whether clearing is visible at all,13.2741,19.1314,2021-11-27,28.4811
+B_140,B,1.0,0,,UNREGISTERED: check whether clearing is visible at all,12.2232,19.1314,2021-11-27,16.05
+B_141,B,2.0,0,,UNREGISTERED: check whether clearing is visible at all,13.4037,19.1314,2021-11-21,14.0305
+B_527,B,1.0,1,,registered but <=2 post-event clear obs,23.5361,19.1314,2021-12-20,46.4951
+A_1184,A,13.0,1,,registered control,22.8279,11.3934,2021-07-27,6.4517
+A_351,A,14.0,1,,registered control,32.6921,11.3934,2021-08-02,11.7902
+A_1117,A,14.0,1,,registered control,31.555,11.3934,2021-07-03,16.6109
+A_88,A,22.0,1,,registered control,29.1534,11.3934,2021-01-22,63.7346
+A_737,A,13.0,1,,registered control,44.9928,11.3934,2021-07-03,6.9645
+A_305,A,8.0,1,,registered control,18.9764,11.3934,2021-09-01,71.3672
+A_516,A,19.0,1,,registered control,60.4911,11.3934,2021-05-16,12.5812
+A_348,A,12.0,1,,registered control,42.5278,11.3934,2021-08-02,8.8025
+A_858,A,12.0,1,,registered control,38.5231,11.3934,2021-07-03,34.2522
+A_918,A,14.0,1,,registered control,49.9038,11.3934,2021-07-03,33.1709
+A_161,A,26.0,1,,registered control,20.0617,11.3934,2021-03-05,15.773
+A_991,A,28.0,1,,registered control,39.0096,11.3934,2021-01-16,17.1652
+A_263,A,8.0,1,,registered control,18.8442,11.3934,2021-09-01,6.7675
+A_889,A,26.0,1,,registered control,44.6202,11.3934,2021-05-28,12.7415
+A_1036,A,13.0,1,,registered control,39.9873,11.3934,2021-07-15,14.7876
+B_492,B,21.0,1,,registered control,35.6271,19.1314,2021-01-07,14.5172
+B_545,B,19.0,1,,registered control,53.8999,19.1314,2021-01-23,11.1944
+B_210,B,24.0,1,,registered control,47.6557,19.1314,2021-01-31,6.4803
+B_374,B,28.0,1,,registered control,43.3055,19.1314,2021-02-16,20.8206
+B_100,B,17.0,1,,registered control,22.7571,19.1314,2021-02-28,6.9546
+B_665,B,8.0,1,,registered control,46.1433,19.1314,2021-09-08,13.2952
+B_348,B,21.0,1,,registered control,48.5325,19.1314,2021-02-11,27.4842
+B_8,B,19.0,1,,registered control,32.2316,19.1314,2021-02-07,6.9784
+B_426,B,19.0,1,,registered control,36.7351,19.1314,2021-01-11,10.4188
+B_353,B,21.0,1,,registered control,34.7546,19.1314,2021-03-02,12.8497
+B_647,B,24.0,1,,registered control,40.9235,19.1314,2021-01-01,61.4994
+B_490,B,25.0,1,,registered control,65.7451,19.1314,2021-01-07,8.6645
+B_319,B,19.0,1,,registered control,65.4193,19.1314,2021-01-02,12.1421
+B_86,B,6.0,1,,registered control,20.8476,19.1314,2021-09-27,9.8651
+B_226,B,25.0,1,,registered control,46.3426,19.1314,2021-01-01,10.3207
