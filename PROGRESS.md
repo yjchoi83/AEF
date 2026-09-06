@@ -36,6 +36,9 @@ Stages 1–5 (landscape → screen → feasibility → proposals → ranking →
       H7(b) is *inestimable* (1 event in the stratum), not substantively failed — a
       timing-controlled diagnostic gives 0.523 [0.431, 0.626] and refutes "no observations, no change".
       ⚠ **Pending QC** — `qc_table.csv` decisions unfilled; all verdicts provisional.
+- [ ] **P2b — 2020 out-of-sample replication + re-pre-registered H7(b)′** — *in progress*
+      Step 1 ✔ offset check: 608/1,332 (45.7 %) of unregistered 2021 events are OFFSET_SUSPECT;
+      H1″ and H7(a) both still pass with them excluded (gap +28.0 pp [22.0, 34.4]).
 - [ ] **P3 — deferral and attribution** — **not run** (P2 STOP rule fired); PLAN written and ready
 - [ ] **P4 — Congo replication** — **not run** (P2 STOP rule fired); PLAN written and ready
 - [ ] **P5 — products** — pending (explicitly not started in this batch)
