@@ -1,0 +1,582 @@
+[
+ {
+  "cluster": 1,
+  "key": "brown2025alphaearth",
+  "doi": "10.48550/arXiv.2507.22291",
+  "role": "the embedding product under test",
+  "title": "AlphaEarth Foundations: An embedding field model for accurate and efficient global mapping from sparse label data",
+  "year": "2025",
+  "venue": "arXiv",
+  "author": "Brown, Christopher F. and Kazmierski, Michal R. and Pasquarella, Valerie J. and Rucklidge, William J. and Samsikova, Masha and Zhang, Chenhui and Shelhamer, Evan and Lahera, Estefania and Wiles, Olivia and Ilyushchenko, Simon and Gorelick, Noel and Zhang, Lihui Lydia and Alj, Sophia and Schechter, Emily and Askay, Sean and Guinan, Oliver and Moore, Rebecca and Boukouvalas, Alexis and Kohli, Pushmeet"
+ },
+ {
+  "cluster": 1,
+  "key": "jakubik2023prithvi",
+  "doi": "10.48550/arXiv.2310.18660",
+  "role": "geospatial foundation model",
+  "title": "Foundation Models for Generalist Geospatial Artificial Intelligence",
+  "year": "2023",
+  "venue": "arXiv",
+  "author": "Jakubik, Johannes and Roy, Sujit and Phillips, C. E. and Fraccaro, Paolo and Godwin, Denys and Zadrozny, Bianca and Szwarcman, Daniela and Gomes, Carlos and Nyirjesy, Gabby and Edwards, Blair and Kimura, Daiki and Simumba, Naomi and Chu, Linsong and Mukkavilli, S. Karthik and Lambhate, Devyani and Das, Kamal and Bangalore, Ranjini and Oliveira, Dario and Muszynski, Michal and Ankur, Kumar and Ramasubramanian, Muthukumaran and Gurung, Iksha and Khallaghi, Sam and Hanxi, and {Li} and Cecil, Michael and Ahmadi, Maryam and Kordi, Fatemeh and Alemohammad, Hamed and Maskey, Manil and Ganti, Raghu and Weldemariam, Kommy and Ramachandran, Rahul"
+ },
+ {
+  "cluster": 1,
+  "key": "cong2022satmae",
+  "doi": "10.48550/arXiv.2207.08051",
+  "role": "temporal masked autoencoding for EO",
+  "title": "SatMAE: Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery",
+  "year": "2022",
+  "venue": "arXiv",
+  "author": "Cong, Yezhen and Khanna, Samar and Meng, Chenlin and Liu, Patrick and Rozi, Erik and He, Yutong and Burke, Marshall and Lobell, David B. and Ermon, Stefano"
+ },
+ {
+  "cluster": 1,
+  "key": "marsocci2024pangaea",
+  "doi": "10.48550/arXiv.2412.04204",
+  "role": "benchmark for geospatial FMs",
+  "title": "PANGAEA: A Global and Inclusive Benchmark for Geospatial Foundation Models",
+  "year": "2024",
+  "venue": "arXiv",
+  "author": "Marsocci, Valerio and Jia, Yuru and Bellier, Georges Le and Kerekes, David and Zeng, Liang and Hafner, Sebastian and Gerard, Sebastian and Brune, Eric and Yadav, Ritu and Shibli, Ali and Fang, Heng and Ban, Yifang and Vergauwen, Maarten and Audebert, Nicolas and Nascetti, Andrea"
+ },
+ {
+  "cluster": 1,
+  "key": "hong2024spectralgpt",
+  "doi": "10.1109/TPAMI.2024.3362475",
+  "role": "spectral foundation model",
+  "title": "SpectralGPT: Spectral Remote Sensing Foundation Model",
+  "year": "2024",
+  "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+  "author": "Hong, Danfeng and Zhang, Bing and Li, Xuyang and Li, Yuxuan and Li, Chenyu and Yao, Jing and Yokoya, Naoto and Li, Hao and Ghamisi, Pedram and Jia, Xiuping and Plaza, Antonio and Gamba, Paolo and Benediktsson, Jon Atli and Chanussot, Jocelyn"
+ },
+ {
+  "cluster": 1,
+  "key": "sun2023ringmo",
+  "doi": "10.1109/TGRS.2022.3194732",
+  "role": "masked-image-modelling FM in TGRS",
+  "title": "RingMo: A Remote Sensing Foundation Model With Masked Image Modeling",
+  "year": "2023",
+  "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+  "author": "Sun, Xian and Wang, Peijin and Lu, Wanxuan and Zhu, Zicong and Lu, Xiaonan and He, Qibin and Li, Junxi and Rong, Xuee and Yang, Zhujun and Chang, Hao and He, Qinglin and Yang, Guang and Wang, Ruiping and Lu, Jiwen and Fu, Kun"
+ },
+ {
+  "cluster": 1,
+  "key": "szwarcman2026prithvi2",
+  "doi": "10.1109/TGRS.2025.3642610",
+  "role": "multitemporal FM successor",
+  "title": "Prithvi-EO-2.0: A Versatile Multitemporal Foundation Model for Earth Observation Applications",
+  "year": "2026",
+  "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+  "author": "Szwarcman, Daniela and Roy, Sujit and Fraccaro, Paolo and G\u00edslason, \u00deorsteinn El\u00ed and Blumenstiel, Benedikt and Ghosal, Rinki and de Oliveira, Pedro Henrique and de Sousa Almeida, Joao Lucas and Sedona, Rocco and Kang, Yanghui and Chakraborty, Srija and Wang, Sizhe and Gomes, Carlos and Kumar, Ankur and Gaur, Vishal and Truong, Myscon and Godwin, Denys and Khallaghi, Sam and Lee, Hyunho and Hsu, Chia-Yu and Asanjan, Ata Akbari and Mujeci, Besart and Shidham, Disha and Balogun, Rufai Omowunmi and Kolluru, Venkatesh and Keenan, Trevor and Arevalo, Paulo and Li, Wenwen and Alemohammad, Hamed and Olofsson, Pontus and Mayer, Timothy and Hain, Christopher and Kennedy, Robert and Zadrozny, Bianca and Bell, David and Cavallaro, Gabriele and Watson, Campbell and Maskey, Manil and Ramachandran, Rahul and Moreno, Juan Bernabe"
+ },
+ {
+  "cluster": 1,
+  "key": "manas2021seco",
+  "doi": "10.1109/ICCV48922.2021.00928",
+  "role": "seasonal contrast pretraining",
+  "title": "Seasonal Contrast: Unsupervised Pre-Training from Uncurated Remote Sensing Data",
+  "year": "2021",
+  "venue": "2021 IEEE/CVF International Conference on Computer Vision (ICCV)",
+  "author": "Manas, Oscar and Lacoste, Alexandre and Giro-i-Nieto, Xavier and Vazquez, David and Rodriguez, Pau"
+ },
+ {
+  "cluster": 2,
+  "key": "hansen2013forest",
+  "doi": "10.1126/science.1244693",
+  "role": "the annual forest-loss product family",
+  "title": "High-Resolution Global Maps of 21st-Century Forest Cover Change",
+  "year": "2013",
+  "venue": "Science",
+  "author": "Hansen, M. C. and Potapov, P. V. and Moore, R. and Hancher, M. and Turubanova, S. A. and Tyukavina, A. and Thau, D. and Stehman, S. V. and Goetz, S. J. and Loveland, T. R. and Kommareddy, A. and Egorov, A. and Chini, L. and Justice, C. O. and Townshend, J. R. G."
+ },
+ {
+  "cluster": 2,
+  "key": "brown2022dynamicworld",
+  "doi": "10.1038/s41597-022-01307-4",
+  "role": "near-real-time land cover",
+  "title": "Dynamic World, Near real-time global 10 m land use land cover mapping",
+  "year": "2022",
+  "venue": "Scientific Data",
+  "author": "Brown, Christopher F. and Brumby, Steven P. and Guzder-Williams, Brookie and Birch, Tanya and Hyde, Samantha Brooks and Mazzariello, Joseph and Czerwinski, Wanda and Pasquarella, Valerie J. and Haertel, Robert and Ilyushchenko, Simon and Schwehr, Kurt and Weisse, Mikaela and Stolle, Fred and Hanson, Craig and Guinan, Oliver and Moore, Rebecca and Tait, Alexander M."
+ },
+ {
+  "cluster": 2,
+  "key": "zhu2014ccdc",
+  "doi": "10.1016/J.RSE.2014.01.011",
+  "role": "continuous change detection",
+  "title": "Continuous change detection and classification of land cover using all available Landsat data",
+  "year": "2014",
+  "venue": "Remote Sensing of Environment",
+  "author": "Zhu, Zhe and Woodcock, Curtis E."
+ },
+ {
+  "cluster": 2,
+  "key": "verbesselt2010bfast",
+  "doi": "10.1016/J.RSE.2009.08.014",
+  "role": "break detection in time series",
+  "title": "Detecting trend and seasonal changes in satellite image time series",
+  "year": "2010",
+  "venue": "Remote Sensing of Environment",
+  "author": "Verbesselt, Jan and Hyndman, Rob and Newnham, Glenn and Culvenor, Darius"
+ },
+ {
+  "cluster": 2,
+  "key": "kennedy2010landtrendr",
+  "doi": "10.1016/J.RSE.2010.07.008",
+  "role": "temporal segmentation",
+  "title": "Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1. LandTrendr \u2014 Temporal segmentation algorithms",
+  "year": "2010",
+  "venue": "Remote Sensing of Environment",
+  "author": "Kennedy, Robert E. and Yang, Zhiqiang and Cohen, Warren B."
+ },
+ {
+  "cluster": 2,
+  "key": "zhu2020cold",
+  "doi": "10.1016/J.RSE.2019.03.009",
+  "role": "continuous land-disturbance monitoring",
+  "title": "Continuous monitoring of land disturbance based on Landsat time series",
+  "year": "2020",
+  "venue": "Remote Sensing of Environment",
+  "author": "Zhu, Zhe and Zhang, Junxue and Yang, Zhiqiang and Aljaddani, Amal H. and Cohen, Warren B. and Qiu, Shi and Zhou, Congliang"
+ },
+ {
+  "cluster": 2,
+  "key": "bogaert2022hmm",
+  "doi": "10.1109/TGRS.2021.3123738",
+  "role": "temporal consistency of annual maps",
+  "title": "Hidden Markov Models for Annual Land Cover Mapping\u2014Increasing Temporal Consistency and Completeness",
+  "year": "2022",
+  "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+  "author": "Bogaert, Patrick and Lamarche, Celine and Defourny, Pierre"
+ },
+ {
+  "cluster": 2,
+  "key": "zhang2020thirtym",
+  "doi": "10.1016/j.isprsjprs.2020.01.012",
+  "role": "annual land-surface change detection",
+  "title": "Development and evaluation of a new algorithm for detecting 30 m land surface phenology from VIIRS and HLS time series",
+  "year": "2020",
+  "venue": "ISPRS Journal of Photogrammetry and Remote Sensing",
+  "author": "Zhang, Xiaoyang and Wang, Jianmin and Henebry, Geoffrey M. and Gao, Feng"
+ },
+ {
+  "cluster": 3,
+  "key": "reiche2021radd",
+  "doi": "10.1088/1748-9326/abd0a8",
+  "role": "the alert product used for dating",
+  "title": "Forest disturbance alerts for the Congo Basin using Sentinel-1",
+  "year": "2021",
+  "venue": "Environmental Research Letters",
+  "author": "Reiche, Johannes and Mullissa, Adugna and Slagter, Bart and Gou, Yaqing and Tsendbazar, Nandin-Erdene and Odongo-Braun, Christelle and Vollrath, Andreas and Weisse, Mikaela J and Stolle, Fred and Pickens, Amy and Donchyts, Gennadii and Clinton, Nicholas and Gorelick, Noel and Herold, Martin"
+ },
+ {
+  "cluster": 3,
+  "key": "hansen2016glad",
+  "doi": "10.1088/1748-9326/11/3/034008",
+  "role": "Landsat-based alerts",
+  "title": "Humid tropical forest disturbance alerts using Landsat data",
+  "year": "2016",
+  "venue": "Environmental Research Letters",
+  "author": "Hansen, Matthew C and Krylov, Alexander and Tyukavina, Alexandra and Potapov, Peter V and Turubanova, Svetlana and Zutta, Bryan and Ifo, Suspense and Margono, Belinda and Stolle, Fred and Moore, Rebecca"
+ },
+ {
+  "cluster": 3,
+  "key": "diniz2015deterb",
+  "doi": "10.1109/JSTARS.2015.2437075",
+  "role": "the reference map used here",
+  "title": "DETER-B: The New Amazon Near Real-Time Deforestation Detection System",
+  "year": "2015",
+  "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+  "author": "Diniz, Cesar Guerreiro and Souza, Arleson Antonio de Almeida and Santos, Diogo Correa and Dias, Mirian Correa and Luz, Nelton Cavalcante da and Moraes, Douglas Rafael Vidal de and Maia, Janaina Sant Ana and Gomes, Alessandra Rodrigues and Narvaes, Igor da Silva and Valeriano, Dalton M. and Maurano, Luis Eduardo Pinheiro and Adami, Marcos"
+ },
+ {
+  "cluster": 3,
+  "key": "doblas2022deterr",
+  "doi": "10.3390/rs14153658",
+  "role": "radar-based operational alerts",
+  "title": "DETER-R: An Operational Near-Real Time Tropical Forest Disturbance Warning System Based on Sentinel-1 Time Series Analysis",
+  "year": "2022",
+  "venue": "Remote Sensing",
+  "author": "Doblas, Juan and Reis, Mariane S. and Belluzzo, Amanda P. and Quadros, Camila B. and Moraes, Douglas R. V. and Almeida, Claudio A. and Maurano, Luis E. P. and Carvalho, Andr\u00e9 F. A. and Sant\u2019Anna, Sidnei J. S. and Shimabukuro, Yosio E."
+ },
+ {
+  "cluster": 3,
+  "key": "reiche2024integrating",
+  "doi": "10.1088/1748-9326/ad2d82",
+  "role": "alert integration and timeliness",
+  "title": "Integrating satellite-based forest disturbance alerts improves detection timeliness and confidence",
+  "year": "2024",
+  "venue": "Environmental Research Letters",
+  "author": "Reiche, Johannes and Balling, Johannes and Pickens, Amy Hudson and Masolele, Robert N and Berger, Anika and Weisse, Mikaela J and Mannarino, Daniel and Gou, Yaqing and Slagter, Bart and Donchyts, Gennadii and Carter, Sarah"
+ },
+ {
+  "cluster": 3,
+  "key": "tang2019nrt",
+  "doi": "10.1016/J.RSE.2019.02.003",
+  "role": "near-real-time algorithms and assessment",
+  "title": "Near real-time monitoring of tropical forest disturbance: New algorithms and assessment framework",
+  "year": "2019",
+  "venue": "Remote Sensing of Environment",
+  "author": "Tang, Xiaojing and Bullock, Eric L. and Olofsson, Pontus and Estel, Stephan and Woodcock, Curtis E."
+ },
+ {
+  "cluster": 3,
+  "key": "bullock2022timeliness",
+  "doi": "10.1016/j.rse.2022.113043",
+  "role": "timeliness assessment framework",
+  "title": "Timeliness in forest change monitoring: A new assessment framework demonstrated using Sentinel-1 and a continuous change detection algorithm",
+  "year": "2022",
+  "venue": "Remote Sensing of Environment",
+  "author": "Bullock, Eric L. and Healey, Sean P. and Yang, Zhiqiang and Houborg, Rasmus and Gorelick, Noel and Tang, Xiaojing and Andrianirina, Carole"
+ },
+ {
+  "cluster": 3,
+  "key": "assis2019terrabrasilis",
+  "doi": "10.3390/ijgi8110513",
+  "role": "the DETER/PRODES data infrastructure",
+  "title": "TerraBrasilis: A Spatial Data Analytics Infrastructure for Large-Scale Thematic Mapping",
+  "year": "2019",
+  "venue": "ISPRS International Journal of Geo-Information",
+  "author": "F. G. Assis, Luiz Fernando and Ferreira, Karine Reis and Vinhas, Lubia and Maurano, Luis and Almeida, Claudio and Carvalho, Andre and Rodrigues, Jether and Maciel, Adeline and Camargo, Claudinei"
+ },
+ {
+  "cluster": 4,
+  "key": "whitcraft2015cloud",
+  "doi": "10.1016/J.RSE.2014.10.009",
+  "role": "cloud cover and optical observability",
+  "title": "Cloud cover throughout the agricultural growing season: Impacts on passive optical earth observations",
+  "year": "2015",
+  "venue": "Remote Sensing of Environment",
+  "author": "Whitcraft, Alyssa K. and Vermote, Eric F. and Becker-Reshef, Inbal and Justice, Christopher O."
+ },
+ {
+  "cluster": 4,
+  "key": "sudmanns2019coverage",
+  "doi": "10.1080/17538947.2019.1572799",
+  "role": "Sentinel-2 coverage dynamics",
+  "title": "Assessing global Sentinel-2 coverage dynamics and data availability for operational Earth observation (EO) applications using the EO-Compass",
+  "year": "2019",
+  "venue": "International Journal of Digital Earth",
+  "author": "Sudmanns, Martin and Tiede, Dirk and Augustin, Hannah and Lang, Stefan"
+ },
+ {
+  "cluster": 4,
+  "key": "prudente2020limitations",
+  "doi": "10.1016/J.RSASE.2020.100414",
+  "role": "cloud limits in South America",
+  "title": "Limitations of cloud cover for optical remote sensing of agricultural areas across South America",
+  "year": "2020",
+  "venue": "Remote Sensing Applications: Society and Environment",
+  "author": "Prudente, Victor Hugo Rohden and Martins, Vitor Souza and Vieira, Denis Corte and Silva, Nildson Rodrigues de Fran\u00e7a e and Adami, Marcos and Sanches, Ieda Del\u2019Arco"
+ },
+ {
+  "cluster": 4,
+  "key": "huang2026optical",
+  "doi": "10.1109/JSTARS.2026.3701406",
+  "role": "working around optical observation gaps",
+  "title": "Overcoming Optical Observation Limitations: Automatic Dense Time-Series Mapping of Impervious Surfaces in Cloudy and Snow-Covered Regions",
+  "year": "2026",
+  "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+  "author": "Huang, Min and Li, Huanfen and Chen, Nengcheng and Lin, Hui and Zhu, Daoye and Gong, Daohong and Chen, Yong and Altan, Orhan and Gong, Jianya"
+ },
+ {
+  "cluster": 5,
+  "key": "reiche2018improving",
+  "doi": "10.1016/J.RSE.2017.10.034",
+  "role": "SAR-optical fusion for alerts",
+  "title": "Improving near-real time deforestation monitoring in tropical dry forests by combining dense Sentinel-1 time series with Landsat and ALOS-2 PALSAR-2",
+  "year": "2018",
+  "venue": "Remote Sensing of Environment",
+  "author": "Reiche, Johannes and Hamunyela, Eliakim and Verbesselt, Jan and Hoekman, Dirk and Herold, Martin"
+ },
+ {
+  "cluster": 5,
+  "key": "ballere2021sar",
+  "doi": "10.1016/j.rse.2020.112159",
+  "role": "SAR benefit over optical in the tropics",
+  "title": "SAR data for tropical forest disturbance alerts in French Guiana: Benefit over optical imagery",
+  "year": "2021",
+  "venue": "Remote Sensing of Environment",
+  "author": "Ball\u00e8re, Marie and Bouvet, Alexandre and Mermoz, St\u00e9phane and Le Toan, Thuy and Koleck, Thierry and Bedeau, Caroline and Andr\u00e9, Mathilde and Forestier, Elodie and Frison, Pierre-Louis and Lardeux, C\u00e9dric"
+ },
+ {
+  "cluster": 5,
+  "key": "hoekman2020widearea",
+  "doi": "10.3390/rs12193263",
+  "role": "wide-area SAR monitoring",
+  "title": "Wide-Area Near-Real-Time Monitoring of Tropical Forest Degradation and Deforestation Using Sentinel-1",
+  "year": "2020",
+  "venue": "Remote Sensing",
+  "author": "Hoekman, Dirk and Kooij, Boris and Qui\u00f1ones, Marcela and Vellekoop, Sam and Carolita, Ita and Budhiman, Syarif and Arief, Rahmat and Roswintiarti, Orbita"
+ },
+ {
+  "cluster": 5,
+  "key": "ygorra2021cusum",
+  "doi": "10.1016/j.jag.2021.102532",
+  "role": "Sentinel-1 CuSum forest-cover loss",
+  "title": "Monitoring loss of tropical forest cover from Sentinel-1 time-series: A CuSum-based approach",
+  "year": "2021",
+  "venue": "International Journal of Applied Earth Observation and Geoinformation",
+  "author": "Ygorra, B. and Frappart, F. and Wigneron, J.P. and Moisy, C. and Catry, T. and Baup, F. and Hamunyela, E. and Riazanoff, S."
+ },
+ {
+  "cluster": 6,
+  "key": "curtis2018drivers",
+  "doi": "10.1126/science.aau3445",
+  "role": "why loss year and driver matter",
+  "title": "Classifying drivers of global forest loss",
+  "year": "2018",
+  "venue": "Science",
+  "author": "Curtis, Philip G. and Slay, Christy M. and Harris, Nancy L. and Tyukavina, Alexandra and Hansen, Matthew C."
+ },
+ {
+  "cluster": 6,
+  "key": "lambin2023supplychains",
+  "doi": "10.1146/annurev-environ-112321-121436",
+  "role": "supply-chain cut-off dates",
+  "title": "Deforestation-Free Commodity Supply Chains: Myth or Reality?",
+  "year": "2023",
+  "venue": "Annual Review of Environment and Resources",
+  "author": "Lambin, Eric F. and Furumo, Paul R."
+ },
+ {
+  "cluster": 6,
+  "key": "tyukavina2018congo",
+  "doi": "10.1126/sciadv.aat2993",
+  "role": "Congo Basin loss attribution",
+  "title": "Congo Basin forest loss dominated by increasing smallholder clearing",
+  "year": "2018",
+  "venue": "Science Advances",
+  "author": "Tyukavina, Alexandra and Hansen, Matthew C. and Potapov, Peter and Parker, Diana and Okpa, Chima and Stehman, Stephen V. and Kommareddy, Indrani and Turubanova, Svetlana"
+ },
+ {
+  "cluster": 7,
+  "key": "roberts2017crossvalidation",
+  "doi": "10.1111/ECOG.02881",
+  "role": "blocked validation with autocorrelation",
+  "title": "Cross\u2010validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure",
+  "year": "2017",
+  "venue": "Ecography",
+  "author": "Roberts, David R. and Bahn, Volker and Ciuti, Simone and Boyce, Mark S. and Elith, Jane and Guillera\u2010Arroita, Gurutzeta and Hauenstein, Severin and Lahoz\u2010Monfort, Jos\u00e9 J. and Schr\u00f6der, Boris and Thuiller, Wilfried and Warton, David I. and Wintle, Brendan A. and Hartig, Florian and Dormann, Carsten F."
+ },
+ {
+  "cluster": 7,
+  "key": "ploton2020spatial",
+  "doi": "10.1038/s41467-020-18321-y",
+  "role": "spatial validation of large-scale models",
+  "title": "Spatial validation reveals poor predictive performance of large-scale ecological mapping models",
+  "year": "2020",
+  "venue": "Nature Communications",
+  "author": "Ploton, Pierre and Mortier, Fr\u00e9d\u00e9ric and R\u00e9jou-M\u00e9chain, Maxime and Barbier, Nicolas and Picard, Nicolas and Rossi, Vivien and Dormann, Carsten and Cornu, Guillaume and Viennois, Ga\u00eblle and Bayol, Nicolas and Lyapustin, Alexei and Gourlet-Fleury, Sylvie and P\u00e9lissier, Rapha\u00ebl"
+ },
+ {
+  "cluster": 7,
+  "key": "meyer2022machine",
+  "doi": "10.1038/s41467-022-29838-9",
+  "role": "assessing global ML maps",
+  "title": "Machine learning-based global maps of ecological variables and the challenge of assessing them",
+  "year": "2022",
+  "venue": "Nature Communications",
+  "author": "Meyer, Hanna and Pebesma, Edzer"
+ },
+ {
+  "cluster": 7,
+  "key": "valavi2018blockcv",
+  "doi": "10.1111/2041-210X.13107",
+  "role": "spatial block cross-validation tooling",
+  "title": "<scp>block</scp> <scp>CV</scp> : An <scp>r</scp> package for generating spatially or environmentally separated folds for <i>k</i> \u2010fold cross\u2010validation of species distribution models",
+  "year": "2018",
+  "venue": "Methods in Ecology and Evolution",
+  "author": "Valavi, Roozbeh and Elith, Jane and Lahoz\u2010Monfort, Jos\u00e9 J. and Guillera\u2010Arroita, Gurutzeta"
+ },
+ {
+  "cluster": 8,
+  "key": "olofsson2014good",
+  "doi": "10.1016/J.RSE.2014.02.015",
+  "role": "area estimation and accuracy practice",
+  "title": "Good practices for estimating area and assessing accuracy of land change",
+  "year": "2014",
+  "venue": "Remote Sensing of Environment",
+  "author": "Olofsson, Pontus and Foody, Giles M. and Herold, Martin and Stehman, Stephen V. and Woodcock, Curtis E. and Wulder, Michael A."
+ },
+ {
+  "cluster": 8,
+  "key": "stehman2019key",
+  "doi": "10.1016/J.RSE.2019.05.018",
+  "role": "rigorous accuracy assessment",
+  "title": "Key issues in rigorous accuracy assessment of land cover products",
+  "year": "2019",
+  "venue": "Remote Sensing of Environment",
+  "author": "Stehman, Stephen V. and Foody, Giles M."
+ },
+ {
+  "cluster": 8,
+  "key": "mcroberts2018imperfect",
+  "doi": "10.1016/J.ISPRSJPRS.2018.06.002",
+  "role": "imperfect reference data",
+  "title": "The effects of imperfect reference data on remote sensing-assisted estimators of land cover class proportions",
+  "year": "2018",
+  "venue": "ISPRS Journal of Photogrammetry and Remote Sensing",
+  "author": "McRoberts, Ronald E. and Stehman, Stephen V. and Liknes, Greg C. and N\u00e6sset, Erik and Sannier, Christophe and Walters, Brian F."
+ },
+ {
+  "cluster": 8,
+  "key": "ye2018obia",
+  "doi": "10.1016/J.ISPRSJPRS.2018.04.002",
+  "role": "object-based accuracy assessment",
+  "title": "A review of accuracy assessment for object-based image analysis: From per-pixel to per-polygon approaches",
+  "year": "2018",
+  "venue": "ISPRS Journal of Photogrammetry and Remote Sensing",
+  "author": "Ye, Su and Pontius, Robert Gilmore and Rakshit, Rahul"
+ },
+ {
+  "cluster": 9,
+  "key": "chen2022bit",
+  "doi": "10.1109/TGRS.2021.3095166",
+  "role": "transformer change detection",
+  "title": "Remote Sensing Image Change Detection With Transformers",
+  "year": "2022",
+  "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+  "author": "Chen, Hao and Qi, Zipeng and Shi, Zhenwei"
+ },
+ {
+  "cluster": 9,
+  "key": "saha2019dcva",
+  "doi": "10.1109/TGRS.2018.2886643",
+  "role": "unsupervised deep change vector analysis",
+  "title": "Unsupervised Deep Change Vector Analysis for Multiple-Change Detection in VHR Images",
+  "year": "2019",
+  "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+  "author": "Saha, Sudipan and Bovolo, Francesca and Bruzzone, Lorenzo"
+ },
+ {
+  "cluster": 9,
+  "key": "daudt2018siamese",
+  "doi": "10.1109/ICIP.2018.8451652",
+  "role": "siamese change detection",
+  "title": "Fully Convolutional Siamese Networks for Change Detection",
+  "year": "2018",
+  "venue": "2018 25th IEEE International Conference on Image Processing (ICIP)",
+  "author": "Caye Daudt, Rodrigo and Le Saux, Bertr and Boulch, Alexandre"
+ },
+ {
+  "cluster": 9,
+  "key": "chen2021dasnet",
+  "doi": "10.1109/JSTARS.2020.3037893",
+  "role": "attention-based change detection",
+  "title": "DASNet: Dual Attentive Fully Convolutional Siamese Networks for Change Detection in High-Resolution Satellite Images",
+  "year": "2021",
+  "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+  "author": "Chen, Jie and Yuan, Ziyang and Peng, Jian and Chen, Li and Huang, Haozhe and Zhu, Jiawei and Liu, Yu and Li, Haifeng"
+ },
+ {
+  "cluster": 9,
+  "key": "chen2024changemamba",
+  "doi": "10.1109/TGRS.2024.3417253",
+  "role": "state-space change detection",
+  "title": "ChangeMamba: Remote Sensing Change Detection With Spatiotemporal State Space Model",
+  "year": "2024",
+  "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+  "author": "Chen, Hongruixuan and Song, Jian and Han, Chengxi and Xia, Junshi and Yokoya, Naoto"
+ },
+ {
+  "cluster": 9,
+  "key": "li2023sartscc",
+  "doi": "10.1109/TGRS.2023.3243900",
+  "role": "SAR time-series change detection",
+  "title": "SAR-TSCC: A Novel Approach for Long Time Series SAR Image Change Detection and Pattern Analysis",
+  "year": "2023",
+  "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+  "author": "Li, Weisong and Ma, Peifeng and Wang, Haipeng and Fang, Chaoyang"
+ },
+ {
+  "cluster": 9,
+  "key": "li2022contrastive",
+  "doi": "10.1109/TGRS.2022.3147513",
+  "role": "contrastive representations for RS",
+  "title": "Global and Local Contrastive Self-Supervised Learning for Semantic Segmentation of HR Remote Sensing Images",
+  "year": "2022",
+  "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+  "author": "Li, Haifeng and Li, Yi and Zhang, Guo and Liu, Ruoyun and Huang, Haozhe and Zhu, Qing and Tao, Chao"
+ },
+ {
+  "cluster": 9,
+  "key": "tian2022largescale",
+  "doi": "10.1016/j.isprsjprs.2022.08.012",
+  "role": "large-scale deep change detection",
+  "title": "Large-scale deep learning based binary and semantic change detection in ultra high resolution remote sensing imagery: From benchmark datasets to urban application",
+  "year": "2022",
+  "venue": "ISPRS Journal of Photogrammetry and Remote Sensing",
+  "author": "Tian, Shiqi and Zhong, Yanfei and Zheng, Zhuo and Ma, Ailong and Tan, Xicheng and Zhang, Liangpei"
+ },
+ {
+  "cluster": 3,
+  "key": "yuan2020lstm",
+  "doi": "10.1109/JSTARS.2020.2988324",
+  "role": "sequence models for near-real-time disturbance",
+  "title": "Using An Attention-Based LSTM Encoder\u2013Decoder Network for Near Real-Time Disturbance Detection",
+  "year": "2020",
+  "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+  "author": "Yuan, Yuan and Lin, Lei and Huo, Lian-Zhi and Kong, Yun-Long and Zhou, Zeng-Guang and Wu, Bin and Jia, Yan"
+ },
+ {
+  "cluster": 9,
+  "key": "lin2024transformermad",
+  "doi": "10.1109/JSTARS.2024.3349775",
+  "role": "unsupervised multivariate alteration detection",
+  "title": "An Unsupervised Transformer-Based Multivariate Alteration Detection Approach for Change Detection in VHR Remote Sensing Images",
+  "year": "2024",
+  "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+  "author": "Lin, Yizhang and Liu, Sicong and Zheng, Yongjie and Tong, Xiaohua and Xie, Huan and Zhu, Hongming and Du, Kecheng and Zhao, Hui and Zhang, Jie"
+ },
+ {
+  "cluster": 10,
+  "key": "kalamandeen2018pervasive",
+  "doi": "10.1038/s41598-018-19358-2",
+  "role": "small-clearing dynamics in Amazonia",
+  "title": "Pervasive Rise of Small-scale Deforestation in Amazonia",
+  "year": "2018",
+  "venue": "Scientific Reports",
+  "author": "Kalamandeen, Michelle and Gloor, Emanuel and Mitchard, Edward and Quincey, Duncan and Ziv, Guy and Spracklen, Dominick and Spracklen, Benedict and Adami, Marcos and Arag\u00e3o, Luiz E. O. C. and Galbraith, David"
+ },
+ {
+  "cluster": 10,
+  "key": "picoli2018bigearth",
+  "doi": "10.1016/J.ISPRSJPRS.2018.08.007",
+  "role": "Brazilian time-series monitoring",
+  "title": "Big earth observation time series analysis for monitoring Brazilian agriculture",
+  "year": "2018",
+  "venue": "ISPRS Journal of Photogrammetry and Remote Sensing",
+  "author": "Picoli, Michelle Cristina Araujo and Camara, Gilberto and Sanches, Ieda and Sim\u00f5es, Rolf and Carvalho, Alexandre and Maciel, Adeline and Coutinho, Alexandre and Esquerdo, Julio and Antunes, Jo\u00e3o and Begotti, Rodrigo Anzolin and Arvor, Damien and Almeida, Claudio"
+ },
+ {
+  "cluster": 10,
+  "key": "santos2021quality",
+  "doi": "10.1016/J.ISPRSJPRS.2021.04.014",
+  "role": "class noise in image time series",
+  "title": "Quality control and class noise reduction of satellite image time series",
+  "year": "2021",
+  "venue": "ISPRS Journal of Photogrammetry and Remote Sensing",
+  "author": "Santos, Lorena A. and Ferreira, Karine R. and Camara, Gilberto and Picoli, Michelle C.A. and Simoes, Rolf E."
+ },
+ {
+  "cluster": 11,
+  "key": "vancutsem2021tmf",
+  "doi": "10.1126/sciadv.abe1603",
+  "role": "the Congo event set",
+  "title": "Long-term (1990\u20132019) monitoring of forest cover changes in the humid tropics",
+  "year": "2021",
+  "venue": "Science Advances",
+  "author": "Vancutsem, C. and Achard, F. and Pekel, J.-F. and Vieilledent, G. and Carboni, S. and Simonetti, D. and Gallego, J. and Arag\u00e3o, L. E. O. C. and Nasi, R."
+ },
+ {
+  "cluster": 12,
+  "key": "carroll2006measurement",
+  "doi": "10.1201/9781420010138",
+  "role": "attenuation from covariate error",
+  "title": "Measurement Error in Nonlinear Models",
+  "year": "2006",
+  "venue": "Chapman and Hall/CRC",
+  "author": "Carroll, Raymond J. and Ruppert, David and Stefanski, Leonard A. and Crainiceanu, Ciprian M."
+ }
+]
