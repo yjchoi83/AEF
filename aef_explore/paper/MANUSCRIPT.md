@@ -19,7 +19,7 @@ followed by five or more clear Sentinel-2 observations, and falls to 51.0 % and 
 events followed by two or fewer, a gap of 46.5 percentage points [39.0, 53.6] and 37.5
 [31.3, 43.9]. The deficit is specifically optical: among low-observation events, registration
 is lowest where Sentinel-1 coverage is densest, so radar acquisition does not compensate.
-Unregistered events are deferred rather than missed, 94.0 % and 96.5 % registering the
+Unregistered events are deferred rather than missed, 94.1 % and 96.5 % registering the
 following year. For nearly half of unregistered events the change signal exceeds the
 threshold in a 50–150 m ring around the polygon but not inside it. A Congo Basin comparison cannot presently answer the
 same question: the low-observation stratum available for testing is an artefact of the alert
@@ -480,12 +480,16 @@ that includes zero.
 | main (τ = state p90) | 0.083 [0.000, 0.172] | 0.112 [0.010, 0.252] |
 | τ = state p85 | ✘ 0.069 [−0.024, 0.160] | 0.138 [0.012, 0.296] |
 | τ = state p95 | ✘ 0.059 [−0.009, 0.135] | 0.120 [0.022, 0.232] |
-| high-confidence alerts only | 0.113 [0.034, 0.199] | not available |
+| high-confidence alerts only | 0.113 [0.034, 0.199] | not available † |
 | RADD-only dating | 0.217 [0.111, 0.327] | 0.318 [0.221, 0.419] |
 | excluding optically late events | 0.252 [0.107, 0.428] | 0.289 [0.150, 0.455] |
 | area < 5 ha (n low bin = 2 / 5) | ✘ 0.003 [−0.788, 0.961] | ✘ 0.476 [−0.331, 1.126] |
 | area 5–25 ha | 0.165 [0.058, 0.273] | 0.197 [0.085, 0.345] |
 | area ≥ 25 ha | 0.146 [0.035, 0.279] | 0.181 [0.059, 0.402] |
+
+† The high-confidence variant cannot be computed for 2020. The 2020 event table records the
+high-confidence alert date but `clear_post` was never extracted under it, and recomputing it
+would require re-running the monthly observation extraction for that year.
 
 The coefficient is positive in every variant of both years and its interval excludes zero in
 thirteen of sixteen estimable cases; the exceptions are the two threshold variants in 2021 and
@@ -498,8 +502,10 @@ on the quartile pattern, not on the partial coefficient.
 
 Events that fail to register in their own year almost always register in the next. Of the 2021
 events unregistered in 2021, 96.5 % [95.3, 97.4] register in 2022 against a separately
-estimated 2021–2022 threshold; of the 2020 events unregistered in 2020, 94.0 % [92.2, 95.7]
-register in 2021 (Fig. 3). Roughly one event in 800 registers in neither year. Because
+estimated 2021–2022 threshold; of the 1,107 events unregistered in 2020, 94.1 %
+[92.3, 95.7] register in 2021 (Fig. 3). Both directions are re-derived here, the 2020
+direction by refetching the reference polygons and recomputing the 2020–2021 angular change
+against the next year's own state threshold. Roughly one event in 800 registers in neither year. Because
 registration does not depend on the event date, this result is invariant to the dating rule.
 
 The residual matters for how the result should be described. An event that registers in
@@ -818,7 +824,7 @@ governed by the supply of clear optical observation after the event. Registratio
 Radar acquisition does not compensate: among low-observation events, registration falls as
 Sentinel-1 density rises, in both years and in a test pre-registered on one of them.
 
-The failure is a deferral rather than an omission. Between 94.0 % and 96.5 % of events not
+The failure is a deferral rather than an omission. Between 94.1 % and 96.5 % of events not
 registered in their own year register in the next, and roughly one in 800 registers in
 neither. Users therefore lose a year, not an event — but they lose it selectively, in the last
 quarter of the year and in the cloudiest places, which is precisely the structure that
@@ -849,8 +855,8 @@ into within-month radar-density quartiles. Both panels use the primary dating ru
 and intervals are 0.5° block bootstraps. Double column.
 
 **Fig. 3.** Deferral rather than omission: the share of events unregistered in year *Y* that
-register in *Y*+1, against an independently estimated next-year threshold. The 2021→2022 value
-is re-derived here; the 2020→2021 value is carried from the earlier stage. Single column.
+register in *Y*+1, against an independently estimated next-year threshold. Both directions are
+re-derived, with 0.5° block-bootstrap intervals. Single column.
 
 **Fig. 4.** Clearings that the reference map records late. (a) Registration for events DETER
 mapped in the target year against events it mapped only the following year but that RADD

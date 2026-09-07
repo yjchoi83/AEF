@@ -126,17 +126,17 @@ def f2():
 def f3():
     n = numbers()
     fig, ax = plt.subplots(figsize=(W1, W1 * 0.78))
-    h = n["h4"]["share"]
-    vals = [("2020 → 2021", 0.940, 0.922, 0.957, C["2020"], "P3 (cited)"),
-            ("2021 → 2022", h["point"], h["lo"], h["hi"], C["2021"], "re-derived")]
-    for i, (lab, v, lo, hi, col, src) in enumerate(vals):
+    h21, h20 = n["h4"]["share"], n["h4_2020"]["share"]
+    vals = [("2020 → 2021", h20["point"], h20["lo"], h20["hi"], C["2020"], n["h4_2020"]["n"]),
+            ("2021 → 2022", h21["point"], h21["lo"], h21["hi"], C["2021"], n["h4"]["n"])]
+    for i, (lab, v, lo, hi, col, nn) in enumerate(vals):
         ax.barh(i, v, 0.5, color=col)
         ax.errorbar(v, i, xerr=[[v - lo], [hi - v]], color=INK, lw=0.8, capsize=1.8)
         ax.annotate(f"{v * 100:.1f}%  [{lo * 100:.1f}, {hi * 100:.1f}]", (v, i),
                     textcoords="offset points", xytext=(-4, 0), ha="right", va="center",
                     fontsize=6.6, color="white")
     ax.set_yticks(range(len(vals)))
-    ax.set_yticklabels([v[0] for v in vals])
+    ax.set_yticklabels([f"{v[0]}\n(n = {v[5]:,})" for v in vals])
     ax.set_xlim(0, 1.0)
     ax.set_xlabel("share of year-Y unregistered events registering in Y+1")
     ax.set_title("deferral, not miss", color=INK)

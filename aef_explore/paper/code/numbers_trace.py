@@ -110,10 +110,21 @@ def main():
           "| quantity | value | key |", "|---|---|---|"]
     for q, v, k in rows_primary():
         L.append(f"| {q} | **{v}** | {k} |")
+    d20 = N["h4_2020"]["share"]
+    d21 = N["h4"]["share"]
     L += ["",
+          "### Deferral, both directions re-derived", "",
+          "| direction | n | share registering the next year | source |", "|---|---|---|---|",
+          f"| 2020 → 2021 | {N['h4_2020']['n']:,} | **{d20['point']*100:.1f} % "
+          f"[{d20['lo']*100:.1f}, {d20['hi']*100:.1f}]** | `code/deferral_2020.py`, "
+          f"`code/deferral_ci.py` (P3 reported 94.0 % [92.2, 95.7]) |",
+          f"| 2021 → 2022 | {N['h4']['n']:,} | **{d21['point']*100:.1f} % "
+          f"[{d21['lo']*100:.1f}, {d21['hi']*100:.1f}]** | `numbers.json:h4` "
+          f"(P3 reported 96.5 % [95.3, 97.5]) |",
+          "",
           "## 3. Package values carried over (not re-derived)", "",
           "| quantity | value | package |", "|---|---|---|",
-          f"| 2020-unregistered events registering in 2021 | 94.0 % [92.2, 95.7] | `P3/P3_results.md` (raw 2020 deferral table not retained) |",
+
           f"| naive first-registration misattribution, 2020 / 2021 | 2.78 % / 3.48 % | `P3/P3_results.md` |",
           f"| two-year window residual misattribution | 0.12 % | `P3/P3_results.md` |",
           f"| clear_post AUC for non-registration, 2020 / 2021 | 0.729 / 0.712 | `P3/P3_results.md` |",
@@ -149,6 +160,12 @@ def main():
           "(2021), and 0.620 on 389 with 0.500 on 50 gives 0.606 on 439 (2020). Bins are now "
           "written in interval notation in the text, the figure and Table S2. | ambiguous "
           "wording |",
+          "| P7 item 4 | The 2020 \u2192 2021 deferral rate was cited from P3 because that "
+          "package's per-event table was not retained. It is now re-derived from scratch "
+          "(polygons refetched, 2020\u20132021 angular change recomputed against the next "
+          "year's state threshold): **94.1 % [92.3, 95.7]** on 1,107 events, against P3's "
+          "94.0 % [92.2, 95.7]. Fig. 3 no longer labels either direction as cited. | both "
+          "directions now re-derived |",
           "| P7 item 3 | Four wording changes, no numbers: the abstract now states the offset "
           "finding as the change signal exceeding the threshold in a 50-150 m ring but not "
           "inside the polygon; Section 1.1 says the embedding draws on optical, radar and "

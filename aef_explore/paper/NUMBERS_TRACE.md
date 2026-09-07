@@ -56,11 +56,17 @@ Point estimates reproduce throughout; the bootstrap intervals do not always, and
 | 2020 H7(b)′ SAR-sparse stratum | **0.648 [0.573, 0.714] (n = 270)** | `2020_date_upper.h7b_prime.lo` |
 | 2020 zero bin | **0.500 (n = 50)** | `2020_date_upper.curve[0]` |
 
+### Deferral, both directions re-derived
+
+| direction | n | share registering the next year | source |
+|---|---|---|---|
+| 2020 → 2021 | 1,107 | **94.1 % [92.3, 95.7]** | `code/deferral_2020.py`, `code/deferral_ci.py` (P3 reported 94.0 % [92.2, 95.7]) |
+| 2021 → 2022 | 1,332 | **96.5 % [95.3, 97.4]** | `numbers.json:h4` (P3 reported 96.5 % [95.3, 97.5]) |
+
 ## 3. Package values carried over (not re-derived)
 
 | quantity | value | package |
 |---|---|---|
-| 2020-unregistered events registering in 2021 | 94.0 % [92.2, 95.7] | `P3/P3_results.md` (raw 2020 deferral table not retained) |
 | naive first-registration misattribution, 2020 / 2021 | 2.78 % / 3.48 % | `P3/P3_results.md` |
 | two-year window residual misattribution | 0.12 % | `P3/P3_results.md` |
 | clear_post AUC for non-registration, 2020 / 2021 | 0.729 / 0.712 | `P3/P3_results.md` |
@@ -88,6 +94,7 @@ Point estimates reproduce throughout; the bootstrap intervals do not always, and
 |---|---|---|
 | P7 item 1 | Section 4.4 said that excluding optically late events *raises* the 2021 gap from 46.5 to 40.6 points. It lowers it. The value 40.6 (`robust_2021_date_upper`, row `no radd_only`) is unchanged; only the direction word was wrong. | 40.6 < 46.5 |
 | P7 item 2 | The sentence reporting the curve bin by bin did not say that the plotted bins exclude the exactly-zero stratum, so 0.536 for the first plotted bin appeared to contradict the H1″ value of 0.510 for `clear_post` ≤ 2. No number changed: 0.536 on 323 events pooled with 0.289 on 38 gives 0.510 on 361 (2021), and 0.620 on 389 with 0.500 on 50 gives 0.606 on 439 (2020). Bins are now written in interval notation in the text, the figure and Table S2. | ambiguous wording |
+| P7 item 4 | The 2020 → 2021 deferral rate was cited from P3 because that package's per-event table was not retained. It is now re-derived from scratch (polygons refetched, 2020–2021 angular change recomputed against the next year's state threshold): **94.1 % [92.3, 95.7]** on 1,107 events, against P3's 94.0 % [92.2, 95.7]. Fig. 3 no longer labels either direction as cited. | both directions now re-derived |
 | P7 item 3 | Four wording changes, no numbers: the abstract now states the offset finding as the change signal exceeding the threshold in a 50-150 m ring but not inside the polygon; Section 1.1 says the embedding draws on optical, radar and ancillary inputs rather than asserting optical dominance before the evidence in Section 4.2; Section 4.2 explains the radar-density pattern by the fixed acquisition plan and orbit overlap instead of orbital latitude; Section 3.1 marks the RADD re-detection account as an untested hypothesis. | claims outrunning evidence |
 | P7 item 7 | Title set to "When does an annual embedding register a clearing? Optical observation supply and the temporal fidelity of AlphaEarth annual embeddings in the Brazilian Amazon, 2020-2021"; the three candidates were removed from the manuscript comment. | author's choice |
 | P7 item 1 | Discussion sections renumbered: two sections were both numbered 5.4. "Relation to the alert-latency literature" is now 5.5 and "What an annual embedding field is, and is not, for" is now 5.6. No cross-reference in the text pointed at either. | duplicate numbering |
