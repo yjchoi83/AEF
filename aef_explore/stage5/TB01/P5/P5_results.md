@@ -5,7 +5,17 @@ Two regions — **ParaBR163** `-56.8409, -5.7426, -55.0379, -3.9339` (τ = 12.73
 `-61.30, 1.20, -60.30, 2.10` (τ = 19.54°) — each with five layers:
 (a) 2020→2021 angular change, (b) registration `change > τ_state`, (c) 2021 clear S2 observation count, (d) **attribution confidence** `p = σ(β₀ + β₁·clear_count)` with **β₀ = 2.1413, β₁ = 0.0552** fitted on the 38,303 dated 2021 events (`clear_post` only; stored in `p5_mapmodel.json`), (e) 2021→2022 deferral for pixels unregistered in 2021.
 
-**Deviation from the brief, and why.** The PNG plates render the native 10 m sources, but the distributable GeoTIFFs are **30 m** (angular change, registration, deferral) and **60 m** (clear count, confidence), tiled 4 × 4 (Pará) / 2 × 2 (Roraima). `getDownloadURL` caps a request at 50 MB and the 10 m Pará angular-change grid is 404 MB; `Export.image.toDrive` is not reachable here.
+**Deviation from the brief, and why.** The PNG plates render the native 10 m sources, but the
+distributable GeoTIFFs are coarser. `getDownloadURL` caps a request at 50 MB (the 10 m Pará
+angular-change grid is 404 MB) and `Export.image.toDrive` is not reachable here. A 30 m tiled
+retry then failed on a *different* limit — every embedding-derived tile returned
+`"User memory limit exceeded"`, because mosaicking the 64-band annual embedding and taking `acos`
+over a tile exceeds the interactive memory budget regardless of output size. The three
+embedding-derived layers therefore export at **100 m**, tiled 4 × 4 (Pará) and 2 × 2 (Roraima);
+the two Sentinel-2-derived layers export whole-region at **60 m**. Final state: **64 GeoTIFFs,
+23 MB, zero failures** — `*_ang2021_x100_100m_r*c*.tif` (angular change × 100, Int16),
+`*_reg2021_100m_r*c*.tif`, `*_defer2022_100m_r*c*.tif`, plus `*_clear2021.tif` and `*_pconf.tif`.
+Resolution is in every filename.
 
 **Worth reading off plates (c)/(d):** Sentinel-2 orbit-overlap striping is directly visible — the observation supply is banded, and so is confidence in the annual label. The paper's argument, rendered as a map.
 
@@ -42,4 +52,6 @@ Replaces the degenerate H5. Pool both years (**77,962** events registering in Y 
 115 lines: title, 256-word abstract, sections 1–8 with figure/table pointers, the six claims (97.5–98.2 % ceiling; optical dominance not SAR-compensated; 94.0–96.5 % deferral; 45.7 % offset share; AUC 0.71–0.73 predictability; effect size as a lower bound set by dating accuracy), six limitations, the §7 negative result, and RSE as target.
 
 ## 5. Compute / compliance
-GEE within the 40 EECU-h ceiling. **Exports used, as permitted**: GeoTIFFs in `data/products/` (git-ignored; `.gitignore` already excludes `data/` and `*.tif`). The whole-region 60 m clear-count and confidence rasters for both regions completed; the tiled 30 m angular-change / registration / deferral set was still downloading tile-by-tile when this was written — the PNG plates are the authoritative deliverable and are complete. PNG figures committed; no shapefiles or credentials committed.
+GEE within the 40 EECU-h ceiling. **Exports used, as permitted**: 64 GeoTIFFs (23 MB) in
+`data/products/`, git-ignored — `.gitignore` already excludes both `data/` and `*.tif`, and the
+working tree was verified clean of them. PNG figures committed; no shapefiles or credentials committed.
