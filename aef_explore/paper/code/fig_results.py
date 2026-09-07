@@ -148,8 +148,8 @@ def f3():
 def f4():
     d = pd.read_csv(P2)
     d = d[d["clear_post_date_upper"].notna()]
-    fig, axes = plt.subplots(1, 2, figsize=(W2, W2 * 0.32))
-    fig.subplots_adjust(wspace=0.28)
+    fig, axes = plt.subplots(1, 2, figsize=(W2, W2 * 0.34))
+    fig.subplots_adjust(wspace=0.28, top=0.84)
     ax = axes[0]
     grp = d.groupby("radd_only")["registered"]
     for i, (k, lab) in enumerate(((0, "DETER-mapped in 2021"), (1, "optically late\n(DETER 2022)"))):
@@ -164,7 +164,7 @@ def f4():
                     color=INK)
     ax.set_xticks([0, 1]); ax.set_xticklabels(["DETER-mapped\nin 2021", "optically late\n(DETER 2022)"])
     ax.set_ylim(0, 1.08); ax.set_ylabel("P(registered)")
-    ax.set_title("registration by reference-map timing", color=INK)
+    ax.set_title("registration by reference-map timing", color=INK, pad=6)
     tidy(ax)
     ax = axes[1]
     bins = np.arange(0, 80, 2.5)
@@ -174,10 +174,11 @@ def f4():
                 density=True, histtype="step", lw=1.2, color=col, label=lab)
     ax.set_xlabel("post-event clear observations (date_upper)")
     ax.set_ylabel("density")
-    ax.set_title("optically late events are observation-poor", color=INK)
+    ax.set_title("similar observation supply, very different registration",
+                 color=INK, pad=6)
     ax.legend(frameon=False, handlelength=1.4)
     tidy(ax)
-    panel_tag(axes[0], "(a)"); panel_tag(axes[1], "(b)")
+    panel_tag(axes[0], "(a)", dy=1.16); panel_tag(axes[1], "(b)", dy=1.16)
     save(fig, "F4_optically_late.png")
 
 
