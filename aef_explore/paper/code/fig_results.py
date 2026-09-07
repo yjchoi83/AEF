@@ -34,8 +34,8 @@ def _bin_ci(d, cp, reg, nboot=400):
 
 # ------------------------------------------------------------------ F1
 def f1():
-    fig, axes = plt.subplots(1, 2, figsize=(W2, W2 * 0.36))
-    fig.subplots_adjust(wspace=0.20)
+    fig, axes = plt.subplots(1, 2, figsize=(W2, W2 * 0.37))
+    fig.subplots_adjust(wspace=0.20, top=0.86)
     x = np.arange(len(LBL))
     for ax, (year, path, extra) in zip(axes, (("2021", P2, None),
                                               ("2020", P2B, pd.read_csv(S1_2020)))):
@@ -71,7 +71,10 @@ def f1():
     for ax in axes:
         ax.annotate("exactly\nzero", (0.0, 1.005), xycoords=("data", "axes fraction"),
                     ha="center", va="bottom", fontsize=6.2, color=INK2)
-    panel_tag(axes[0], "(a)"); panel_tag(axes[1], "(b)")
+    # the panel letters sit in the left margin, clear of the "exactly zero" label that
+    # annotates the shaded stratum at x = 0
+    panel_tag(axes[0], "(a)", dx=-0.135, dy=1.20)
+    panel_tag(axes[1], "(b)", dx=-0.135, dy=1.20)
     save(fig, "F2_registration_curve.png")
 
 
