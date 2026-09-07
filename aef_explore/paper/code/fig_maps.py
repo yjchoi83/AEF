@@ -10,7 +10,7 @@ import rasterio
 from rasterio.merge import merge
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap, ListedColormap
-from matplotlib.patches import Rectangle
+from matplotlib.patches import Rectangle, Patch
 from figstyle import W2, C, INK, INK2, SEQ_BLUE, save, panel_tag
 
 PROD = "data/products"
@@ -127,13 +127,13 @@ def plate(tag, cfg):
     dfr, _ = mosaic(f"{key}_defer2022_100m_r*.tif")
     ang = np.where(ang <= -32000, np.nan, ang / 100.0)
     aspect = (ext[3] - ext[2]) / (ext[1] - ext[0])
-    fig = plt.figure(figsize=(W2, W2 * aspect / 3 * 1.28))
+    fig = plt.figure(figsize=(W2, W2 * aspect / 3 * 1.30))
     segs = outlines()
     panels = [("a", ang, "2020→2021 angular change (°)"),
               ("b", reg, f"registered (change > τ = {cfg['tau']:.2f}°)"),
               ("c", dfr, "registers in 2022 (unregistered in 2021)")]
     for i, (t, arr, title) in enumerate(panels):
-        ax = fig.add_axes([0.045 + i * 0.288, 0.10, 0.268, 0.80])
+        ax = fig.add_axes([0.045 + i * 0.300, 0.165, 0.245, 0.760])
         if t == "a":
             im = ax.imshow(arr, extent=ext, cmap=ANG, vmin=0, vmax=30,
                            interpolation="nearest", zorder=1)
@@ -150,12 +150,29 @@ def plate(tag, cfg):
         ax.set_title(title, fontsize=7.5, color=INK, pad=2.5)
         panel_tag(ax, f"({t})", dx=-0.01, dy=1.13)
         if t == "a":
-            cb = fig.colorbar(im, ax=ax, fraction=0.032, pad=0.012)
-            cb.ax.tick_params(labelsize=6, length=1.5)
-            cb.outline.set_visible(False)
+            first = (ax, im)
+        if t == "c":
+            ax.legend(handles=[Patch(facecolor=C["congo"], edgecolor="none",
+                                     label="registers in 2022")],
+                      frameon=True, facecolor="white", edgecolor="#cdd3d9", framealpha=0.85,
+                      loc="lower right", fontsize=6.2, handlelength=1.1,
+                      borderpad=0.35, handletextpad=0.5).get_frame().set_linewidth(0.4)
         ax.set_xlim(ext[0], ext[1]); ax.set_ylim(ext[2], ext[3])
-    locator(fig, [0.898, 0.345, 0.085, 0.31], cfg["inset"], ext, segs)
-    fig.text(0.045, 0.965, f"{tag}  {cfg['label']}   {ext[0]:.2f}–{ext[1]:.2f}°E, "
+        if t == "c":
+            axes_c = ax
+    # the panels keep their geographic aspect, so matplotlib shrinks each axes box to fit;
+    # read the settled geometry back before hanging the colourbar and the locator off it
+    fig.canvas.draw()
+    pos_a = first[0].get_position()
+    pos_c = axes_c.get_position()
+    cax = fig.add_axes([pos_a.x0, max(pos_a.y0 - 0.105, 0.02), pos_a.width, 0.020])
+    cb = fig.colorbar(first[1], cax=cax, orientation="horizontal")
+    cb.set_label("angular change (°)", fontsize=6.3, color=INK2, labelpad=1.5)
+    cb.ax.tick_params(labelsize=6, length=1.5, pad=1.5)
+    cb.outline.set_visible(False)
+    locator(fig, [0.905, pos_c.y0 + pos_c.height * 0.30, 0.080,
+                  pos_c.height * 0.55], cfg["inset"], ext, segs)
+    fig.text(0.045, 0.972, f"{tag}  {cfg['label']}   {ext[0]:.2f}–{ext[1]:.2f}°E, "
              f"{ext[2]:.2f}–{ext[3]:.2f}°N   (100 m)", fontsize=8, color=INK)
     save(fig, f"{tag}_{key}.png")
 
