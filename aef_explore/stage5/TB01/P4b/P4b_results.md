@@ -1,4 +1,16 @@
-# TB01-P4b — Congo re-dating: STOPPED, Congo marked **dating-limited**
+# TB01-P4b — Congo re-dating
+
+> **SUPERSEDED BY P5b ITEM 4 (2026-09-07).** `GFW_API_KEY` was supplied, route 1 below returned
+> HTTP 200 for both tiles, and the re-dating **was performed** — see `../P5b/ITEM4_congo_redate.md`.
+> Outcome: 2021-vintage coverage **90.4 %** (against 94.4 %), **11.0 %** of patches move by more
+> than 30 days, and the low-observation bin collapses from **n(0–2) = 202 to 8** because P4's bin
+> was built out of 2024-vintage dates falling in **2022**. The pre-registered n ≥ 100 floor is not
+> met, so the three-way scale cannot be applied: **not testable under 2021-vintage dating**.
+> H7(a) still replicates (0.737 [0.190, 1.349]). The record below is kept as written, for the
+> access-route findings; its "P4's verdict stands" conclusion is no longer current.
+
+## Original record (2026-09-07, before the key was supplied)
+
 
 > **Pre-registered fallback fired: "If GFW/WUR RADD 2021 for Africa is not obtainable, stop and
 > mark Congo dating-limited."** A 2021-vintage RADD Africa raster is **not obtainable from this

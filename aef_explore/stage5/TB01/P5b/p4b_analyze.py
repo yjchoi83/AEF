@@ -100,8 +100,15 @@ def main(redated_csv, out_json):
     m = m.drop_duplicates("p4_event_id", keep="first")
     out = {"patches_regenerated": int(len(r)), "matched_to_P4": int(len(m)),
            "P4_events": int(len(p4)),
-           "coverage_2021_vintage": float((m.first_2021 > 0).mean()),
-           "coverage_2024_vintage": float(m.radd_old.notna().mean())}
+           # coverage on the whole regenerated set, comparable to P4's 94.6 %
+           "coverage_2021_vintage_all": float((r.first_2021 > 0).mean()),
+           "coverage_2024_vintage_P4": float(len(p4) / len(r)),
+           # what the 2021 vintage censors, among patches P4 could date
+           "lost_n": int((m.first_2021 <= 0).sum()),
+           "lost_share": float((m.first_2021 <= 0).mean()),
+           "lost_share_cp_old_le2": float((m.loc[m.first_2021 <= 0, "clear_post_old"] <= 2).mean()),
+           "old_dates_in_2022_share": float(
+               (pd.to_datetime(m.radd_old).dt.year == 2022).mean())}
 
     m = m[(m.first_2021 > 0) & m.radd_old.notna()].copy()
     m["date_new"] = [EPOCH + dt.timedelta(days=int(x)) for x in m.first_2021]
@@ -130,13 +137,19 @@ def main(redated_csv, out_json):
     out["p_lo"] = float(m[m.clear_post <= 2]["registered"].mean())
     out["p_hi"] = float(m[m.clear_post >= 5]["registered"].mean())
     out["gap_pp"] = float(stat(m))
+    out["n_floor_met"] = bool(out["n_lo"] >= 100)
+    out["reg_by_month"] = {int(k): [float(v.mean()), int(len(v))]
+                           for k, v in m.groupby("event_month")["registered"]}
     with Pool(24) as pool:
         out["gap_ci"] = ci(m, "gap", pool)
         out["h7a_coef"] = float(fit(design(m), m["registered"].values.astype(float)))
         out["h7a_ci"] = ci(m, "coef", pool)
 
     lo, hi = out["gap_ci"]
-    if hi >= BR21_CI[0]:
+    if not out["n_floor_met"]:
+        # the pre-registered scale presumes an estimable low-observation bin (n(0-2) >= 100)
+        verdict = "not testable - n(0-2) floor not met"
+    elif hi >= BR21_CI[0]:
         verdict = "replicated"
     elif lo > 0:
         verdict = "attenuated but consistent"
