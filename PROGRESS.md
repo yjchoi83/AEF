@@ -52,5 +52,9 @@ Stages 1–5 (landscape → screen → feasibility → proposals → ranking →
       **5.34 pp** [2.91, 8.20] falls outside both Brazil CIs; not power-limited (n(0–2) = 202).
       Direction replicates and H7(a) is the strongest of any region (2.19 [1.44, 2.84]).
       ⚠ no 2021 africa RADD archive — dates come from 2024 snapshots.
+- [x] **P4b — Congo re-dating** (`.../P4b/`) — ***STOPPED**, Congo marked **dating-limited**.*
+      `wur_radd_alerts/v20220109` is the right source but needs a GFW API key; 8 access routes
+      tried (S3 private, WUR host firewalled, tile cache only z=8, no GEE 2021 africa archive).
+      Congo's 5.34 pp stands as a **lower bound**; coverage and date-shift remain unmeasured.
 - [ ] **P5 — products** — pending (explicitly not started in this batch)
 - [ ] **P6** — pending
