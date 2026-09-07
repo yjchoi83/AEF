@@ -5,7 +5,7 @@ unregistered events that are not flagged, each shown as a pre-event Sentinel-2 c
 post-event composite and the 2019->2020 angular-change field, with the DETER polygon and its
 ring drawn on top.
 """
-import io, json, sys, time, urllib.parse, urllib.request
+import hashlib, io, json, os, sys, time, urllib.parse, urllib.request
 import numpy as np
 import pandas as pd
 import ee
@@ -21,6 +21,8 @@ OFFSETS = "aef_explore/paper/code/offset_2020.csv"
 EVENTS = "aef_explore/stage5/TB01/P2b/P2b_events_2020.csv"
 ANG = LinearSegmentedColormap.from_list("ang", SEQ_BLUE)
 PAD = 0.006
+ANG_MAX = 40.0                      # degrees, the stretch used for the angular-change row
+CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "cache", "thumbs")
 
 
 def polygon(row):
@@ -53,12 +55,20 @@ def rings(geom):
     return [np.asarray(r) for p in geom["coordinates"] for r in p]
 
 
-def thumb(img, region, vis, dims=340):
+def thumb(img, region, vis, dims=340, tag=""):
+    """Fetch a thumbnail, caching it on disk so re-rendering the figure is free."""
+    os.makedirs(CACHE, exist_ok=True)
+    key = hashlib.sha1((tag + json.dumps(vis, sort_keys=True) + str(dims)).encode()).hexdigest()[:20]
+    fp = os.path.join(CACHE, key + ".png")
+    if os.path.exists(fp):
+        return np.asarray(Image.open(fp).convert("RGB")) / 255.0
     url = img.getThumbURL(dict(region=region, dimensions=dims, format="png", **vis))
     for a in range(4):
         try:
             with urllib.request.urlopen(url, timeout=120) as r:
-                return np.asarray(Image.open(io.BytesIO(r.read())).convert("RGB")) / 255.0
+                raw = r.read()
+            open(fp, "wb").write(raw)
+            return np.asarray(Image.open(io.BytesIO(raw)).convert("RGB")) / 255.0
         except Exception:
             time.sleep(4 * (a + 1))
     raise RuntimeError("thumb failed")
@@ -88,7 +98,8 @@ def main():
     cln = off[(off.offset_suspect == 0)].sort_values("interior_ang_deg").head(2)
     sel = pd.concat([sus, cln])
     fig, axes = plt.subplots(3, 4, figsize=(W2, W2 * 0.80))
-    fig.subplots_adjust(wspace=0.06, hspace=0.10, left=0.055, right=0.985, top=0.90, bottom=0.03)
+    fig.subplots_adjust(wspace=0.06, hspace=0.10, left=0.055, right=0.925, top=0.90,
+                        bottom=0.03)
     for j, row in enumerate(sel.itertuples()):
         geom = polygon(row)
         rr = rings(geom)
@@ -96,11 +107,14 @@ def main():
         ext = (xs.min() - PAD, xs.max() + PAD, ys.min() - PAD, ys.max() + PAD)
         region = ee.Geometry.Rectangle([ext[0], ext[2], ext[1], ext[3]])
         pre = thumb(s2_median(2019, 6, 9, region), region,
-                    dict(min=200, max=2200, bands=["B4", "B3", "B2"]))
+                    dict(min=200, max=2200, bands=["B4", "B3", "B2"]),
+                    tag=f"{row.event_id}-pre")
         post = thumb(s2_median(2020, 6, 9, region), region,
-                     dict(min=200, max=2200, bands=["B4", "B3", "B2"]))
+                     dict(min=200, max=2200, bands=["B4", "B3", "B2"]),
+                     tag=f"{row.event_id}-post")
         a = thumb(ang_img(2019, 2020, region), region,
-                  dict(min=0, max=40, palette=[c.lstrip("#") for c in SEQ_BLUE]))
+                  dict(min=0, max=ANG_MAX, palette=[c.lstrip("#") for c in SEQ_BLUE]),
+                  tag=f"{row.event_id}-ang")
         for i, (arr, lab) in enumerate(((pre, "2019 dry-season S2"),
                                         (post, "2020 dry-season S2"),
                                         (a, "2019→2020 angular change"))):
@@ -128,6 +142,14 @@ def main():
                              f"{row.ring_50_150m_ang_deg:.1f}° · τ {row.tau_p90:.1f}°\n{flag}",
                              fontsize=6.2,
                              color=C["flag"] if row.offset_suspect else INK2, pad=3)
+    # colour key for the angular-change row only; the two Sentinel-2 rows are true colour
+    row3 = axes[2][3].get_position()
+    cax = fig.add_axes([0.935, row3.y0, 0.012, row3.height])
+    sm = plt.cm.ScalarMappable(cmap=ANG, norm=plt.Normalize(0, ANG_MAX))
+    cb = fig.colorbar(sm, cax=cax)
+    cb.set_label("2019→2020 angular change (°)", fontsize=6.4, color=INK2, labelpad=2)
+    cb.ax.tick_params(labelsize=6, length=1.5)
+    cb.outline.set_visible(False)
     fig.text(0.055, 0.965, "Polygon interior (solid) and 50–150 m ring (dotted)", fontsize=7.5,
              color=INK)
     save(fig, "F7_offset_examples.png")
