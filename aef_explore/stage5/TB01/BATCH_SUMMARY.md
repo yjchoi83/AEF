@@ -1,5 +1,15 @@
 # TB01 batch P2–P5b — summary and revised GO statement
 
+> **P6 (2026-09-07) changes the primary dating rule, and with it every headline number below.**
+> The manuscript adopts `date_upper = min(RADD first alert inside polygon, DETER view_date)` as the
+> primary event date — a post-hoc, diagnosis-driven redefinition justified by P5b item 1 — and
+> reports RADD-only dating as a sensitivity. Under the new rule the 2021 gap is **46.5 pp
+> [39.0, 53.6]** and the 2020 gap **37.5 pp [31.3, 43.9]**, so the two years agree and the
+> apparent year-to-year difference recorded below was largely a dating artefact. H1″ and H3 pass
+> in both years and H7(b)′ passes in both; **H7(a) weakens sharply** (0.083 [0.000, 0.172] in
+> 2021). See `aef_explore/paper/NUMBERS_TRACE.md` for published-versus-re-derived values and
+> `aef_explore/paper/MANUSCRIPT.md` for the write-up.
+>
 > **P5b (2026-09-07) revises three numbers below.** (i) The `clear_post = 0` bin is a **dating
 > artifact**, not a low-observation stratum, so the Brazilian gap is a conservative estimate.
 > (ii) The Congo entry changes from "not replicated, 5.34 pp" to **"not testable"** — re-dated on

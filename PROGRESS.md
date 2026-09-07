@@ -70,4 +70,15 @@ Stages 1–5 (landscape → screen → feasibility → proposals → ranking →
       to `P2_results.md` §6b, three variants marked. (4) Congo re-dated on `wur_radd_alerts
       v20220109` — n(0–2) collapses 202 → 8, so the replication scale cannot be applied:
       **not testable**, not "not replicated"; H7(a) still replicates (0.737 [0.190, 1.349]).
-- [ ] **P6** — pending: Congo on a `v2022040x` vintage with 2021→2022 registration; H5 redesign
+- [x] **P6 — manuscript, bibliography and submission files** (`aef_explore/paper/`) — *done.*
+      Reconstructed the lost P2 fitting script and re-derived every P2/P2b number (all point
+      estimates reproduce; two bootstrap CIs do not, and are recorded). Adopted
+      `date_upper = min(RADD, DETER view_date)` as the primary event date: the 2021 gap becomes
+      **46.5 pp** [39.0, 53.6] and the 2020 gap **37.5 pp** [31.3, 43.9], so **the two years agree
+      and the old 34.4-vs-14.1 split was a dating artefact**; H7(a) weakens to 0.083 [0.000, 0.172]
+      and the SAR claim now rests on the stratified test. `MANUSCRIPT.md` 8,560 words with 62
+      DOI-verified references (RSE 12, TGRS 8, ISPRS JPRS 6, JSTARS 5, MDPI 3), ten figures at
+      submission specification, supplementary tables, highlights, build instructions, and a
+      novelty pass that found no prior measurement of annual-embedding temporal fidelity.
+- [ ] **P7** — pending: title and authorship; a DOI archive for tables and code; Congo on a
+      `v2022040x` vintage with 2021→2022 registration; H5 redesign

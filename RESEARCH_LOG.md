@@ -105,3 +105,53 @@
 - **Next**: P6 — a Congo event set dated on `v20220403`/`v20220704` with registration also measured
   against the 2021→2022 embedding pair, so late-year events are neither censored nor mis-dated;
   and the H5 redesign already on record.
+
+## 2026-09-07 — TB01-P6: manuscript, bibliography and submission files (`aef_explore/paper/`)
+- **Section 0 — reproducibility.** The P2/P2b fitting script was never retained, so it was rebuilt
+  as `paper/code/p2_model.py` from `P2/PLAN.md` step 5 and pinned by reproducing P2's two reported
+  coefficients (solo 0.211 → **0.213**, joint 0.219 → **0.217**). `run_numbers.py` then re-derives
+  every P2/P2b curve, gap, stratum and coefficient under both dating rules. **All point estimates
+  reproduce** (2021 gap 34.4 → 34.4, p_lo .631 → .631, n(0–2) 518 → 518; 2020 gap 14.1 → 14.1,
+  H7(b)′ .626 → .626). Two bootstrap intervals do not: the 2021 joint coefficient CI
+  [0.046, 0.429] → **[0.111, 0.327]** and the 2020 one [0.129, 0.732] → **[0.221, 0.419]**. The
+  cause cannot be attributed without the original code; the manuscript prints the re-derived
+  intervals and records that the published ones were wider. `NUMBERS_TRACE.md` tabulates all of it.
+- **Section 1 — dating.** `date_upper = min(RADD first alert inside polygon, DETER view_date)` is
+  now the primary event date, RADD-only the sensitivity, stated in the manuscript as a **post-hoc,
+  diagnosis-driven redefinition**. Consequences: 2021 gap **34.4 → 46.5 pp** [39.0, 53.6],
+  n(0–2) 518 → 361, zero bin .699 → **.289** (n 173 → 38); 2020 gap **14.1 → 37.5 pp**
+  [31.3, 43.9], n(0–2) 1,508 → 439, zero bin .899 → **.500** (n 1,011 → 50). **The two years now
+  agree**, so the 34.4-vs-14.1 discrepancy was a dating artefact, not a year effect. The curve is
+  monotone from zero upward in both years and 97.8 % of the 2021 low bin falls in Oct–Dec.
+  H1″ and H3 pass in both; **H7(b)′ passes in both** (SAR-dense strata .447 [.348, .554] and
+  .538 [.436, .646]); **H7(a) weakens sharply** — 0.083 [0.0001, 0.172] in 2021 and
+  0.112 [0.010, 0.252] in 2020, crossing zero under τ p85 and p95 in 2021 — because `date_upper`
+  raises `clear_post` and `s1_post` together and increases their collinearity. The paper therefore
+  rests the SAR claim on the stratified test and the quartile pattern, not the partial coefficient.
+  New work required for this: monthly Sentinel-1 counts at the 2020 centroids
+  (`extract_s1_2020.py`, 39,664 of 39,772 events) and the offset check extended to 2020
+  (`offset_2020.py`, 1,102 unregistered events, **48.0 %** suspect against 2021's 45.6 %).
+  H4 is dating-invariant by construction; re-derived at 96.5 % [95.3, 97.4] for 2021→2022.
+- **Section 2 — bibliography.** 62 references across the 12 required clusters, every one resolved
+  by DOI content negotiation from doi.org so the metadata is registered rather than transcribed;
+  candidates found through the Semantic Scholar Graph API (cached, 1 req/s, backoff). Venue quotas
+  met: **RSE 12** (≥ 8), **TGRS 8** (≥ 6), **ISPRS JPRS 6** (≥ 5), **JSTARS 5** (≥ 4),
+  **MDPI 3** (≤ 5). `LITERATURE_CLUSTERS.md` states what each cluster settles and leaves open.
+- **Section 3 — manuscript.** `MANUSCRIPT.md`, **8,560 words** of main text, 248-word abstract,
+  RSE style, every one of the 62 references cited and no dangling keys. Title left as
+  `[TITLE TBD]` with three candidates in a comment.
+- **Section 4 — figures.** F1–F8 plus map plates M1/M2 at 300 dpi, 90/190 mm, ≥ 7 pt, maps with
+  graticule, scale bar, north arrow and locator inset. Map and supply figures are drawn from the
+  GeoTIFFs already in `data/products/`, so they cost no new Earth Engine work.
+- **Section 5 — submission files.** `HIGHLIGHTS.md` (five statements, each verified ≤ 85 chars,
+  plus a graphical-abstract specification), `SUPPLEMENTARY.md` (ten generated tables), `build.md`
+  (pandoc/CSL commands, word-count and citation checks, figure and number regeneration).
+- **Section 6 — novelty pass.** Eight searches on the four specified questions and four adjacent
+  ones. **No prior work measures the temporal fidelity of an annual embedding field.** Four
+  adjacent works were found and added: AlphaEarth downstream benchmarking, which itself states the
+  evaluation record is "mostly about land cover and land use classification"; a paper using AEF
+  embeddings as **cloud-robust priors** — the one result pointing the other way, now cited and
+  reconciled in §1.3; a Brazilian operational-product intercomparison; and time-series work on
+  what governs detectability, cited where the rival "harder events" explanation is tested.
+- **Next**: choose the title, fill authors and acknowledgements, and archive the event tables and
+  code at a DOI before submission.
