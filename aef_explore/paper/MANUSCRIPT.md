@@ -1,15 +1,4 @@
-# [TITLE TBD]
-
-<!--
-Title candidates:
- 1. Descriptive, with region and years — "What an annual embedding registers: post-event
-    optical observation supply governs which 2020 and 2021 clearings appear in the AlphaEarth
-    annual embedding across the Brazilian Legal Amazon"
- 2. Argument-first — "Annual is not blind, but it is optical: observation supply, not radar
-    coverage, decides which clearings an annual embedding records"
- 3. Product-facing — "Reading the year label: deferral, dating error and observation supply in
-    a global annual embedding field"
--->
+# When does an annual embedding register a clearing? Optical observation supply and the temporal fidelity of AlphaEarth annual embeddings in the Brazilian Amazon, 2020–2021
 
 **Authors.** [AUTHORS TBD]
 
