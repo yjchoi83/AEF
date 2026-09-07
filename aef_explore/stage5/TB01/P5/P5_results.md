@@ -1,5 +1,13 @@
 # TB01-P5 — Products, figures and paper skeleton
 
+> **Amended by P5b (2026-09-07).** Map layer **(d) is retired** — it fed a model fitted on
+> post-event counts the *annual* count (AUC 0.599, §3 below) through a raw-count link that
+> predicts .91 registration where one clear observation gives .59. Both `M_*.png` plates are
+> stamped and the GeoTIFFs renamed `*_RETIRED_midyear_prior_pconf_60m.tif`; the replacements are
+> `../P5b/figures/F7_obs_supply.png` and `F8_deferral_risk.png`. **F5 was rebuilt**: the Congo
+> gap is not estimable on 2021-vintage dating (P5b item 4). The F1 note below is now explained —
+> the zero bin is a dating artifact (P5b item 1) and must be drawn as a separate stratum.
+
 ## 1. Map products (`figures/M_*.png` committed; GeoTIFFs in `data/products/`, **not** committed)
 Two regions — **ParaBR163** `-56.8409, -5.7426, -55.0379, -3.9339` (τ = 12.73°) and **Roraima_S**
 `-61.30, 1.20, -60.30, 2.10` (τ = 19.54°) — each with five layers:

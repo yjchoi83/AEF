@@ -57,3 +57,51 @@
 - **Figures done**: F1 registration curve (2021 + 2020, bootstrap bands), F2 SAR stratification, F3 deferral, F4 optically-late events, F5 region-year gap with Congo marked dating-limited, F6 offset examples. F1 note: the *exactly-zero* bin sits **higher** than the 1–2 bin (0.699/0.899) — late-December events are a distinct population and must be described separately.
 - **Step 3 — attribution on the mixed 2020+2021 population: FAIL, informatively.** 77,962 attributable events, 2,326 deferred. Restricting the rule to variables computable **without** the event date, the annual clear-observation count of the candidate prior year does not separate deferred from direct events (median **34.0 vs 35.0**, AUC **0.599**); `k* = 0`, so the rule never fires and reduces misattribution by **0.0 %** [0.0, 0.0] against the naive first-registration rule on the 38,256-event held-out year. **Why it matters:** `clear_post` predicts non-registration at AUC 0.71–0.73 but is unavailable at attribution time — computing it requires the date being inferred. **Observation supply cannot repair year attribution**; the two-year window (3.48 % → 0.12 %) is what works.
 - **`PAPER_OUTLINE.md`** (115 lines): title, 256-word abstract, sections 1–8 with figure/table pointers, six claims, six limitations, the §7 negative result, RSE target.
+
+## 2026-09-07 — TB01-P5b: fixes before drafting (four items, GEE well under the 15 EECU-h ceiling)
+- **Item 1 — the `clear_post = 0` bin is a dating artifact.** Refetched the DETER polygons for all
+  1,184 zero-bin events (1,176 matched via WFS) and re-extracted prior-year angular change and
+  monthly clear counts; the extraction reproduces P2/P2b registration exactly (event-year τ
+  exceedance 69.8 % / 90.0 % vs stored .699 / .899). **83.8 % (2021) and 96.8 % (2020) of these
+  events carry a RADD date *after* the DETER `view_date`** — median 142 / 339 days — against
+  8.4 % / 15.0 % in the population; recomputed from the DETER detection only **31.0 % / 8.9 %**
+  are still observation-poor, and under `date_upper` only 22.0 % / 4.9 % stay at zero (the
+  non-monotone lift disappears). **Pre-event disturbance is excluded**: non-registering zero-bin
+  events exceed τ in the prior year only 3.8 % / 19.8 % of the time — quiet in *both* years, the
+  opposite of that hypothesis's signature — while the already-disturbed ones register. **December
+  truncation is excluded**: December is 18.5 % / 4.7 % of the bin and dropping it *raises* the
+  zero-bin rate (.699 → .723, .899 → .908). The bin is a mixture of a mis-dated well-observed
+  majority (registers) and a genuinely unobserved minority (does not; median recomputed
+  `clear_post` 0.96 vs 6.84). **Consequence: H1″'s gap is understated, not inflated.**
+- **Item 2 — map layer (d) retired.** It fed `σ(β₀+β₁·count)`, fitted on *post-event* counts, the
+  *annual* count (measured skill AUC 0.599), and its raw-count link is mis-calibrated at the low
+  end (predicts .91 where the data give .59). Plates stamped, GeoTIFFs renamed. Replacements from
+  the 2019–2021 monthly S2 record: **F7** expected clear-observation supply by calendar month —
+  Pará peaks 6.5 (Jul) / floors 1.0 (Feb), Roraima peaks 4.4 (Mar) / floors 1.3 (Jun), i.e. the two
+  regions are **out of phase**, and orbit-overlap striping gives p90/p10 ≈ 3× within every month —
+  and **F8** deferral risk by event month under a refitted log link (β₀ = −0.180, β₁ = 1.240,
+  which tracks the empirical curve), ≈ .02 for Jan–Aug events rising to **.354 / .306** in December.
+- **Item 3 — H7(a) sensitivity table** added as `P2_results.md` §6b: coefficient and CI for all nine
+  variants, τ p85 / `date_upper` / size ≥ 25 ha marked as crossing zero. The P2 fitting script was
+  not retained; the model was rebuilt from `P2/PLAN.md` step 5 and calibrated to P2's two reported
+  coefficients (solo 0.211 → 0.213, joint 0.219 → 0.217). Point estimates reproduce, refit CIs are
+  narrower, and the table is marked on the **pre-registered** CIs as the conservative reading.
+- **Item 4 — Congo re-dated; the test is NOT TESTABLE, not failed.** `GFW_API_KEY` supplied →
+  route 1 of P4b returns HTTP 200; tiles `10N_020E` and `00N_020E` of `wur_radd_alerts/v20220109`
+  downloaded (72 MB each, `date_conf`) and the P4 patch set regenerated (5,252 patches, 4,951
+  matched within 200 m) so both vintages are compared on identical footprints. Coverage **90.4 %**
+  vs 94.4 %; **11.0 %** of dates move by > 30 days (3.8 % by > 90; median shift 0; 25.8 % move
+  earlier, none later). **260 matched patches (5.3 %) lose their date, and 58.5 % of those sat in
+  P4's low-observation bin** — the 2021 vintage censors late-2021 clearings not yet confirmed by
+  its 2022-01-09 cutoff. Conversely **3.4 % of P4's 2024-vintage dates fall in 2022**, after the
+  observation year, forcing `clear_post` to zero: that is what built P4's low bin. Re-dated,
+  **n(0–2) falls 202 → 8**, below the pre-registered floor of 100, so the three-way replication
+  scale cannot be applied. Restricting P4's *own* dates to the commonly-dated patches already
+  destroys the result (n(0–2) = 50, gap 5.91 pp [−0.07, 10.85]). **H7(a) replicates** on the
+  re-dated set (0.737 [0.190, 1.349]). F5 rebuilt to show "no estimate" for the Congo.
+- **Documents updated**: `PAPER_OUTLINE.md` (new §4.1a, rewritten §4.6 and §5, limitations 2/6/7/8,
+  figure and table lists), `BATCH_SUMMARY.md` (Congo entry, GO statement, limitations),
+  `P5_results.md` (amendment banner), `P4b_results.md` (superseded banner, access record kept).
+- **Next**: P6 — a Congo event set dated on `v20220403`/`v20220704` with registration also measured
+  against the 2021→2022 embedding pair, so late-year events are neither censored nor mis-dated;
+  and the H5 redesign already on record.

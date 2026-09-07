@@ -61,4 +61,13 @@ Stages 1–5 (landscape → screen → feasibility → proposals → ranking →
       256-word abstract, RSE target). Step 3 attribution test **FAILS** honestly: without the event
       date the prior-year observation count cannot predict deferral (AUC 0.599, 0.0 % reduction) —
       observation supply cannot repair year attribution; the two-year window (3.48 % → 0.12 %) can.
-- [ ] **P6** — pending
+- [x] **P5b — fixes before drafting** (`.../P5b/`) — *done.* (1) The `clear_post = 0` bin is a
+      **dating artifact** — 83.8 %/96.8 % of its events are dated after the DETER detection and only
+      31 %/9 % are observation-poor when measured from it; pre-event disturbance and December
+      truncation are both excluded, so H1″'s gap is understated. (2) Map layer (d) **retired**
+      (fed the annual count to a post-event model, AUC 0.599, mis-calibrated at low counts);
+      replaced by F7 observation supply and F8 deferral risk. (3) H7(a) coefficient/CI table added
+      to `P2_results.md` §6b, three variants marked. (4) Congo re-dated on `wur_radd_alerts
+      v20220109` — n(0–2) collapses 202 → 8, so the replication scale cannot be applied:
+      **not testable**, not "not replicated"; H7(a) still replicates (0.737 [0.190, 1.349]).
+- [ ] **P6** — pending: Congo on a `v2022040x` vintage with 2021→2022 registration; H5 redesign

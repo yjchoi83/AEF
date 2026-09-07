@@ -1,4 +1,11 @@
-# TB01 batch P2–P4 — summary and revised GO statement
+# TB01 batch P2–P5b — summary and revised GO statement
+
+> **P5b (2026-09-07) revises three numbers below.** (i) The `clear_post = 0` bin is a **dating
+> artifact**, not a low-observation stratum, so the Brazilian gap is a conservative estimate.
+> (ii) The Congo entry changes from "not replicated, 5.34 pp" to **"not testable"** — re-dated on
+> a 2021-vintage RADD raster its low-observation bin holds 8 events, and P4's bin was built from
+> 2024-vintage dates falling in 2022. (iii) H7(a) now has a full coefficient table
+> (`P2_results.md` §6b). Details in `P5b/P5b_results.md`.
 
 > **QC COMPLETE.** All 53 chips adjudicated — `P2/qc_decisions.md`, `P2/qc_table.csv`.
 > **STOP LIFTED BY P2b.** H7(b) was re-pre-registered in timing-controlled form and **passes on
@@ -53,19 +60,25 @@ A timing-controlled diagnostic (**not pre-registered, not a substitute**) answer
   pre-registered rule is perfect at k = 0 by construction. Reported instead: naive first-registration
   dating misattributes 2.78 %/3.48 % of events (2020/2021), a two-year window removes ~95 % of that,
   and `clear_post` predicts non-registration with AUC 0.729/0.712.
-- **P4 (Congo).** 5,243 TMF-2021 patches ≥ 1 ha in two DRC ROIs, 94.6 % RADD-dated, τ_CG = 16.31°.
-  Gap **5.34 pp** [2.91, 8.20] lies outside both Brazil CIs → **not replicated** on the
-  pre-registered criterion, and not power-limited (n(0–2) = 202). Direction replicates and
-  **H7(a) replicates most strongly of any region** (coef 2.19 [1.44, 2.84]). Congo registration
-  barely falls in the low-observation bin (.945).
+- **P4 (Congo), as revised by P5b.** 5,243 TMF-2021 patches ≥ 1 ha in two DRC ROIs, τ_CG = 16.31°.
+  On the 2024-vintage RADD dating available to P4 the gap is 5.34 pp [2.91, 8.20] — but **3.4 % of
+  those dates fall in 2022**, after the observation year, which manufactures the low-observation bin
+  the estimate rests on. Re-dated on `wur_radd_alerts v20220109` (P5b item 4): coverage 90.4 % vs
+  94.4 %, 11.0 % of dates move > 30 days, and **n(0–2) falls from 202 to 8**, below the
+  pre-registered floor of 100. **Verdict: not testable**, not "not replicated" — the Congo effect
+  size has never been measured on trustworthy dates. **H7(a) replicates** on the re-dated set
+  (0.737 [0.190, 1.349]).
 
 ## Revised GO statement
-**GO, with the effect size scoped per region and per year.** The core claim is stronger than at any earlier stage: the annual AlphaEarth embedding registers essentially every clearing that is optically re-observed (0.975 at ≥ 5 clear observations) and misses roughly a third of those that are not (0.631 at ≤ 2), on 38,303 events, with tight CIs and robustness across nine variants. This is **not** "no observations, no change" — S1 density does not explain it. The paper is not downgraded on the evidence, Both earlier conditions are **met**: QC cleared the label-noise worry, and H7(b)′ was re-pre-registered and **passes out of sample on 2020**. What must change in the write-up is scope, not direction: the gap is **+34.4 pp (Brazil 2021), +14.1 pp (Brazil 2020), +5.3 pp (Congo)** and must be presented as three region-year estimates, never as one global number. H4 adds that the embedding defers rather than misses (~1 in 800 truly missed). H5 needs a redesign before it can be claimed at all.
+**GO, with the effect size scoped per region and per year, and the Congo quoted as unmeasured.** The core claim is stronger than at any earlier stage: the annual AlphaEarth embedding registers essentially every clearing that is optically re-observed (0.975 at ≥ 5 clear observations) and misses roughly a third of those that are not (0.631 at ≤ 2), on 38,303 events, with tight CIs and robustness across nine variants. This is **not** "no observations, no change" — S1 density does not explain it. The paper is not downgraded on the evidence, Both earlier conditions are **met**: QC cleared the label-noise worry, and H7(b)′ was re-pre-registered and **passes out of sample on 2020**. What must change in the write-up is scope, not direction: the gap is **+34.4 pp (Brazil 2021)** and **+14.1 pp (Brazil 2020)** — two region-year estimates, never one global number — with the **Congo reported as a qualitative replication whose magnitude is not estimable** (P5b item 4). H4 adds that the embedding defers rather than misses (~1 in 800 truly missed). H5 needs a redesign before it can be claimed at all.
 
 ## Known limitations recorded now
 - MA (1,268 px) and TO (251 px) missed the ≥ 2,000-px stable-forest floor; their τ is provisional (356 events, 0.9 %).
 - H7(a) is not uniformly robust — the joint coefficient CI crosses 0 under τ p85, `date_upper`, size ≥ 25 ha.
 - `clear_post` moved from P1d's exact per-scene dates to monthly counts prorated in the event month, forced by running Amazon-wide.
 - H5 (attribution) is not testable on a single-true-year population; a valid test needs `clear_post` in the year of first registration.
-- Congo dating rests on RADD snapshots 2+ years post-event (no 2021 africa archive), which attenuates its gap.
-- P5 (products) not started, as instructed.
+- ~~Congo dating rests on RADD snapshots 2+ years post-event~~ — **resolved and worse than assumed**: P5b item 4 obtained the 2021 vintage and found P4's low-observation bin to be a dating artifact; the Congo gap is not estimable on either vintage.
+- The `clear_post = 0` bin is a dating stratum (P5b item 1): 83.8 % / 96.8 % of its events are dated after the DETER detection, and only 31 % / 9 % are observation-poor when measured from that detection.
+- H7(a)'s coefficient CI crosses zero in three pre-registered variants; the full table is `P2_results.md` §6b.
+- P5 delivered products, figures and `PAPER_OUTLINE.md`; **P5b retired map layer (d)** in favour of
+  observation-supply and deferral-risk plates (F7, F8) and rebuilt F5.
