@@ -3,9 +3,16 @@ supply stacks so no Earth Engine work is repeated per panel.
 
 F7  expected observation supply: mean clear Sentinel-2 observations per pixel per
     calendar month (2019-2021 mean), 2 regions x 12 months, one sequential hue.
-F8  deferral risk by event month: 1 - sigmoid(2.1413 + 0.0552 * E_m), where E_m is the
+F8  deferral risk by event month: 1 - sigmoid(b0 + b1 * ln(1 + E_m)), where E_m is the
     expected post-event clear count for an event in month m under the same proration
     rule P2 used for `clear_post`.
+
+The link is refitted here rather than reused from P5. P5's map layer (d) used
+sigmoid(2.1413 + 0.0552 * count), linear in the raw count, which is badly mis-calibrated
+where it matters: it predicts 0.91 registration at one post-event clear observation, where
+the data show 0.59. Logit-linear in ln(1 + clear_post) tracks the empirical curve to within
+a few points across the whole range. The exactly-zero bin is excluded from the fit, being a
+dating artifact rather than an observation state (item 1).
 """
 import json
 import numpy as np
@@ -15,7 +22,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 
-B0, B1 = 2.1413, 0.0552
+P2_CSV = "aef_explore/stage5/TB01/P2/P2_events.csv"
 MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 REG = ["ParaBR163", "Roraima_S"]
 LBL = {"ParaBR163": "Pará / BR-163", "Roraima_S": "Roraima (south)"}
@@ -25,6 +32,33 @@ INK, INK2 = "#1f2328", "#57606a"
 BLUE = LinearSegmentedColormap.from_list("blue", ["#f2f7fb", "#cfe0ef", "#8ab4d8", "#3d7ebc", "#12436d"])
 RED = LinearSegmentedColormap.from_list("red", ["#fdf4f2", "#f7d3c9", "#e79c86", "#c85f3f", "#7d2b12"])
 SERIES = {"ParaBR163": "#12436d", "Roraima_S": "#a8560c"}
+
+
+def fit_link():
+    """logit P(registered) = b0 + b1 * ln(1 + clear_post), on the 2021 dated events."""
+    import pandas as pd
+    d = pd.read_csv(P2_CSV).dropna(subset=["clear_post_radd_any"])
+    d = d[d["clear_post_radd_any"] > 0]
+    y = d["registered"].values.astype(float)
+    X = np.column_stack([np.ones(len(y)), np.log1p(d["clear_post_radd_any"].values)])
+    b = np.zeros(2)
+    for _ in range(100):
+        p = 1 / (1 + np.exp(-X @ b))
+        W = np.clip(p * (1 - p), 1e-9, None)
+        step = np.linalg.solve(X.T @ (X * W[:, None]) + 1e-9 * np.eye(2), X.T @ (y - p))
+        b = b + step
+        if np.abs(step).max() < 1e-10:
+            break
+    cal = []
+    edges = [0, 1, 2, 3, 4, 6, 9, 14, 25, 50, 1e9]
+    cp = d["clear_post_radd_any"].values
+    for a, c in zip(edges[:-1], edges[1:]):
+        m = (cp > a) & (cp <= c)
+        if m.sum() > 20:
+            cal.append(dict(bin=f"({a:g},{c:g}]", n=int(m.sum()),
+                            emp=round(float(y[m].mean()), 3),
+                            pred=round(float(1 / (1 + np.exp(-(b[0] + b[1] * np.log1p(cp[m]).mean())))), 3)))
+    return float(b[0]), float(b[1]), cal
 
 
 def load(tmp, name):
@@ -40,8 +74,8 @@ def expected(sup):
     return out
 
 
-def risk(e):
-    return 1.0 - 1.0 / (1.0 + np.exp(-(B0 + B1 * e)))
+def risk(e, b0, b1):
+    return 1.0 - 1.0 / (1.0 + np.exp(-(b0 + b1 * np.log1p(e))))
 
 
 def plate_supply(data, path):
@@ -96,7 +130,7 @@ def plate_supply(data, path):
 
 def plate_risk(data, path):
     cols = [2, 5, 8, 11]  # Mar, Jun, Sep, Dec
-    vmax = 0.20
+    vmax = 0.60
     fig = plt.figure(figsize=(11.2, 7.0))
     gs = fig.add_gridspec(3, 4, height_ratios=[1.0, 1.0, 0.9], hspace=0.16, wspace=0.06,
                           left=0.07, right=0.88, top=0.90, bottom=0.08)
@@ -143,11 +177,14 @@ def plate_risk(data, path):
 
 
 def main(tmp):
-    data, stats = {}, {}
+    b0, b1 = 0.0, 0.0
+    b0, b1, cal = fit_link()
+    print("link b0=%.4f b1=%.4f" % (b0, b1))
+    data, stats = {}, {"_link": dict(b0=b0, b1=b1, calibration=cal)}
     for name in REG:
         sup = load(tmp, name)
         e = expected(sup)
-        rk = risk(e)
+        rk = risk(e, b0, b1)
         data[name] = dict(sup=sup, e=e, risk=rk)
         stats[name] = dict(
             supply_mean=[round(float(x), 3) for x in np.nanmean(sup, axis=(0, 1))],
@@ -160,7 +197,7 @@ def main(tmp):
     plate_supply(data, f"{OUT}/F7_obs_supply.png")
     plate_risk(data, f"{OUT}/F8_deferral_risk.png")
     json.dump(stats, open("aef_explore/stage5/TB01/P5b/obs_supply_stats.json", "w"), indent=1)
-    for k, v in stats.items():
+    for k, v in list(stats.items())[1:]:
         print(k, "annual", v["annual_mean"], "risk Jan/Dec",
               v["risk_mean"][0], v["risk_mean"][11])
 
