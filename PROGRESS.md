@@ -56,5 +56,9 @@ Stages 1–5 (landscape → screen → feasibility → proposals → ranking →
       `wur_radd_alerts/v20220109` is the right source but needs a GFW API key; 8 access routes
       tried (S3 private, WUR host firewalled, tile cache only z=8, no GEE 2021 africa archive).
       Congo's 5.34 pp stands as a **lower bound**; coverage and date-shift remain unmeasured.
-- [ ] **P5 — products** — pending (explicitly not started in this batch)
+- [x] **P5 — products and paper skeleton** (`.../P5/`) — *done.* 2 regions × 5 map layers (PNG
+      committed, GeoTIFF to git-ignored `data/products/`), 6 figures, `PAPER_OUTLINE.md` (115 lines,
+      256-word abstract, RSE target). Step 3 attribution test **FAILS** honestly: without the event
+      date the prior-year observation count cannot predict deferral (AUC 0.599, 0.0 % reduction) —
+      observation supply cannot repair year attribution; the two-year window (3.48 % → 0.12 %) can.
 - [ ] **P6** — pending
