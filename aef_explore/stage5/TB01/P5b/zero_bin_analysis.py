@@ -14,7 +14,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-GEE = "/tmp/claude-1002/-d-yj-projects-workspace-yj-Alphaearth/b067b941-d951-4d64-87ce-af50dbd6f8bb/scratchpad/zero_bin_gee.csv"
+GEE = "aef_explore/stage5/TB01/P5b/zero_bin_gee_extract.csv"  # output of zero_bin_gee.py
 OUT = "aef_explore/stage5/TB01/P5b"
 INK, INK2 = "#1f2328", "#57606a"
 C21, C20 = "#12436d", "#a8560c"

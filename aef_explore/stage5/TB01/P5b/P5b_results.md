@@ -66,10 +66,13 @@ the Brazilian gap a conservative estimate rather than an inflated one.
 
 ## Compute / compliance
 
-Earth Engine: two region passes for the monthly supply climatology, 1,176 single-event
-extractions for item 1, and one patch-regeneration pass with per-patch monthly counts for
-item 4 — comfortably inside the 15 EECU-hour ceiling; no batch exports, all downloads via
-`getDownloadURL`/`getThumbURL`. The two 72 MB RADD tiles and the intermediate CSV/JSON stay in
+Earth Engine, in full: two region passes for the monthly supply climatology (12 monthly means
+× 3 years each, plus one NPY and one GeoTIFF download per region), 1,176 single-event
+`reduceRegion` calls for item 1, and one patch-regeneration pass for item 4 (32 `reduceToVectors`
+tiles with 24 monthly count layers reduced over ~5,250 patches). No batch exports and no
+`Export.*`; every download went through `getDownloadURL`. EECU is not metered from the client,
+so the ceiling claim is an operation-count and wall-clock argument — the whole package ran in
+about 25 minutes of interactive request time — not a reading. The two 72 MB RADD tiles and the intermediate CSV/JSON stay in
 the session scratchpad; only scripts, result documents, figures, `h7a_sensitivity.csv`,
 `P4b_events_redated.csv` and the stats JSONs are committed. No credentials, no `data/`, no
 shapefiles.
