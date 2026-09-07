@@ -95,12 +95,15 @@ def f2():
             ax.errorbar(k + (j - 0.5) * w, v["point"],
                         yerr=[[v["point"] - v["lo"]], [v["hi"] - v["point"]]],
                         color=INK, lw=0.8, capsize=1.8)
-            ax.annotate(f"n={h['n_lo' if j == 0 else 'n_hi']}",
-                        (k + (j - 0.5) * w, 0.025), ha="center", fontsize=5.6, color="white")
+            ax.annotate(f"n = {h['n_lo' if j == 0 else 'n_hi']}",
+                        (k + (j - 0.5) * w, v["hi"]), textcoords="offset points",
+                        xytext=(0, 3), ha="center", fontsize=6, color=INK2)
     ax.axhline(0.80, color=C["flag"], lw=0.8, ls=":")
-    ax.annotate("H7(b)′ bar 0.80", (-0.45, 0.812), ha="left", fontsize=6.2, color=C["flag"])
+    ax.annotate("H7(b)′ bar 0.80", (1.47, 0.812), ha="right", va="bottom", fontsize=6.2,
+                color=C["flag"])
     ax.set_xticks(xs); ax.set_xticklabels(["2021", "2020"])
-    ax.set_ylim(0, 1.0)
+    ax.set_xlim(-0.55, 1.62)
+    ax.set_ylim(0, 1.08)
     ax.set_ylabel("P(registered), clear_post ≤ 2")
     ax.set_title("registration by within-month SAR density", color=INK, pad=6)
     ax.legend(frameon=False, loc="upper left", handlelength=1.4)
@@ -116,9 +119,9 @@ def f2():
                             xytext=(0, 4), ha="center", fontsize=6, color=INK2)
     ax.set_xticks([1, 2, 3, 4])
     ax.set_xticklabels(["Q1\nsparsest", "Q2", "Q3", "Q4\ndensest"])
-    ax.set_xlabel("within-month Sentinel-1 density quartile")
     ax.set_ylabel("P(registered), clear_post ≤ 2")
-    ax.set_title("more radar does not mean more registration", color=INK, pad=6)
+    ax.set_title("registration by within-month Sentinel-1 density quartile",
+                 color=INK, pad=6)
     ax.legend(frameon=False, loc="upper right", handlelength=1.4)
     tidy(ax)
     panel_tag(axes[0], "(a)", dy=1.16); panel_tag(axes[1], "(b)", dy=1.16)

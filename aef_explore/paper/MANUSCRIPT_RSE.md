@@ -433,8 +433,12 @@ register *less* often, not more.
 
 The monotone version of the same statement is Fig. 3b. Sorting low-observation events into
 quartiles of within-month radar density, registration in 2021 runs 0.593, 0.556, 0.467, 0.422
-from sparsest to densest, and in 2020 0.627, 0.718, 0.541, 0.537. The relationship is negative
-in both years. The explanation is not that radar destroys information. Sentinel-1 acquisition follows a
+from sparsest to densest, and in 2020 0.627, 0.718, 0.541, 0.537. The 2021 series declines
+monotonically; the 2020 series peaks in the second quartile at 0.718 before falling, so the
+relationship is not monotone in both years. What is common to both is the end point that
+matters for the argument: the densest radar quartile registers lowest of the four, at 0.422 in
+2021 and 0.537 in 2020, and in neither year does it approach the rate of the well-observed
+population. The explanation is not that radar destroys information. Sentinel-1 acquisition follows a
 fixed observation plan, so within-month radar density is set almost entirely by where a pixel
 sits relative to the overlap of adjacent orbit swaths, and is close to independent of the
 weather that governs optical supply. Conditioning on it therefore does not select
