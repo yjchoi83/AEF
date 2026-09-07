@@ -8,8 +8,8 @@ import ee, json
 ee.Initialize()
 COUNTRIES = ["Brazil", "Peru", "Colombia", "Venezuela", "Bolivia", "Guyana", "Suriname",
              "French Guiana", "Ecuador", "Paraguay", "Argentina", "Chile", "Uruguay",
-             "Congo (Kinshasa)", "Congo (Brazzaville)", "Gabon", "Cameroon",
-             "Central African Republic", "Uganda", "Rwanda", "Burundi", "Tanzania",
+             "Dem Rep of the Congo", "Rep of the Congo", "Gabon", "Cameroon",
+             "Central African Rep", "Uganda", "Rwanda", "Burundi", "Tanzania",
              "Angola", "Zambia", "South Sudan", "Equatorial Guinea"]
 
 fc = (ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")

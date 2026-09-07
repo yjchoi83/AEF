@@ -81,9 +81,13 @@ Figures are already at submission specification and need no conversion: 300 dpi,
 (single column) or 190 mm (double column), all type at 7 pt or larger, maps carrying a
 graticule, scale bar, north arrow and locator inset. To regenerate them from source:
 
+    OMP_NUM_THREADS=1 PYTHONPATH=code python code/fig_study_area.py   # Fig. 1
     OMP_NUM_THREADS=1 PYTHONPATH=code python code/fig_results.py f1 f2 f3 f4 f5 f7 f8
-    OMP_NUM_THREADS=1 PYTHONPATH=code python code/fig_maps.py
-    OMP_NUM_THREADS=1 PYTHONPATH=code python code/fig_offset.py       # needs Earth Engine
+    OMP_NUM_THREADS=1 PYTHONPATH=code python code/fig_maps.py         # M1, M2
+    OMP_NUM_THREADS=1 PYTHONPATH=code python code/fig_offset.py       # Fig. 7, needs Earth Engine
+
+The function names inside `fig_results.py` (`f1` … `f8`) predate the renumbering and refer to
+the figure's subject, not its number; each writes the correctly numbered file.
 
 `OMP_NUM_THREADS=1` matters: the block bootstrap runs one process per core and multithreaded
 BLAS inside each of them slows the whole thing by an order of magnitude.

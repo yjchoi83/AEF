@@ -1,4 +1,4 @@
-# When does an annual embedding register a clearing? Optical observation supply and the temporal fidelity of AlphaEarth annual embeddings in the Brazilian Amazon, 2020–2021
+# When does an annual embedding register a clearing? Observation supply and temporal fidelity of AlphaEarth embeddings in the Brazilian Amazon, 2020–2021
 
 **Authors.** [AUTHORS TBD]
 
@@ -174,6 +174,7 @@ Brazilian Legal Amazon, for calendar years 2020 and 2021, obtained from the Terr
 analyst delineates a polygon on an image acquired on a recorded date (`view_date`), which we
 use both as an upper bound on the event date and as evidence about the event's own visibility.
 The 2021 population contains 37,689 polygons across nine states, the 2020 population 43,316.
+Fig. 1 maps their density and locates the two demonstration regions used later for map products.
 The distribution is heavily uneven — Pará contributes 14,565 events in 2021, Amazonas 7,801 and
 Rondônia 6,108, while Amapá contributes 33 — and this matters because the states differ in
 cloud regime as well as in clearing regime. Roraima, the state with the sparsest optical
@@ -383,7 +384,7 @@ one post-event clear observation actually yields 59 %.
 ### 4.1 The registration curve
 
 Registration rises monotonically with the number of clear optical observations following the
-event, in both years and under both dating rules (Fig. 1). Under the primary rule, in 2021 an
+event, in both years and under both dating rules (Fig. 2). Under the primary rule, in 2021 an
 event followed by at least five clear observations registers with probability 0.975
 [0.972, 0.978], and one followed by two or fewer registers with probability 0.510
 [0.438, 0.584]; the gap is **46.5 percentage points [39.0, 53.6]** on 361 low-observation
@@ -391,7 +392,7 @@ events out of 38,303. In 2020 the corresponding values are 0.981 [0.979, 0.984],
 [0.541, 0.669] and a gap of **37.5 points [31.3, 43.9]** on 439 of 39,664. H1″ and H3 are met
 in both years.
 
-The bins plotted in Fig. 1 exclude the exactly-zero stratum, which is reported separately for
+The bins plotted in Fig. 2 exclude the exactly-zero stratum, which is reported separately for
 the reason given in Section 3.1, so the leftmost plotted bin is the half-open interval (0, 2]
 rather than the closed interval [0, 2] used for the H1″ statistic. Bin by bin the 2021 curve
 runs 0.536, 0.743, 0.861, 0.920, 0.968 and 0.981 over (0, 2], (2, 4], (4, 6], (6, 9], (9, 14]
@@ -432,13 +433,13 @@ unaffected by cloud and acquires on a fixed orbit schedule — would fill the ga
 The pre-registered stratified test, re-specified as H7(b)′ after the original form selected an
 empty stratum (Section 3.5) and confirmed out of sample on 2020, compares low-observation
 events whose radar density is at or above their own month's median with those below it
-(Fig. 2a). In 2021 the radar-dense stratum registers 0.447 [0.348, 0.554] on 152 events,
+(Fig. 3a). In 2021 the radar-dense stratum registers 0.447 [0.348, 0.554] on 152 events,
 against 0.555 on the radar-sparse stratum; in 2020, 0.538 [0.436, 0.646] on 169 events against
 0.648. Both satisfy the criterion in all three of its parts: below the 0.80 bar, an upper
 interval bound below 0.85, and below the radar-sparse stratum. Radar-rich low-optical events
 register *less* often, not more.
 
-The monotone version of the same statement is Fig. 2b. Sorting low-observation events into
+The monotone version of the same statement is Fig. 3b. Sorting low-observation events into
 quartiles of within-month radar density, registration in 2021 runs 0.593, 0.556, 0.467, 0.422
 from sparsest to densest, and in 2020 0.627, 0.718, 0.541, 0.537. The relationship is negative
 in both years. The explanation is not that radar destroys information. Sentinel-1 acquisition follows a
@@ -503,7 +504,7 @@ on the quartile pattern, not on the partial coefficient.
 Events that fail to register in their own year almost always register in the next. Of the 2021
 events unregistered in 2021, 96.5 % [95.3, 97.4] register in 2022 against a separately
 estimated 2021–2022 threshold; of the 1,107 events unregistered in 2020, 94.1 %
-[92.3, 95.7] register in 2021 (Fig. 3). Both directions are re-derived here, the 2020
+[92.3, 95.7] register in 2021 (Fig. 4). Both directions are re-derived here, the 2020
 direction by refetching the reference polygons and recomputing the 2020–2021 angular change
 against the next year's own state threshold. Roughly one event in 800 registers in neither year. Because
 registration does not depend on the event date, this result is invariant to the dating rule.
@@ -526,12 +527,12 @@ minority of them in the wrong year, with the minority concentrated in the last q
 
 Clearings that DETER mapped only in the following year, but that RADD confirms within the
 target year, register at 0.753 in 2021 and 0.776 in 2020, against 0.984 and 0.986 for events
-DETER mapped contemporaneously (Fig. 4a). This is a population invisible to any study anchored
+DETER mapped contemporaneously (Fig. 5a). This is a population invisible to any study anchored
 solely on an annual reference map, and it is large: 3,082 and 2,591 events.
 
 Under the primary dating rule these events are only mildly observation-poor. Their median
 post-event clear count is 23.0 against 23.7 for contemporaneously mapped events, though they
-are five times more likely to fall in the low-observation bin (3.8 % against 0.7 %; Fig. 4b).
+are five times more likely to fall in the low-observation bin (3.8 % against 0.7 %; Fig. 5b).
 Observation scarcity therefore explains only a small part of a 23-point registration
 difference. What distinguishes them is more likely to be the property that made the analyst
 late in the first place: a clearing that was incomplete, partially vegetated or ambiguous
@@ -546,12 +547,12 @@ conditional coefficient from 0.083 to 0.252.
 Among unregistered events, the change signal frequently sits beside the mapped polygon rather
 than inside it: 45.6 % of the 1,332 unregistered 2021 events and 48.0 % of the 1,102
 unregistered 2020 events are offset-suspect, with a ring exceeding τ and an interior that does
-not (Fig. 6). Removing them from the 2021 population lowers the gap from 46.5 to 39.3 points
+not (Fig. 7). Removing them from the 2021 population lowers the gap from 46.5 to 39.3 points
 [31.2, 47.0] and raises the conditional coefficient from 0.083 to 0.211 [0.090, 0.340]. The
 diagnostic is a positional-error check in the tradition of reference-data quality assessment
 [@olofsson2014good; @mcroberts2018imperfect], and the conclusion is that geometric mismatch
 between a hand-drawn polygon and a 10 m embedding explains part but not most of the deficit.
-The worked examples in Fig. 6 also show the other kind of residual: unregistered events where
+The worked examples in Fig. 7 also show the other kind of residual: unregistered events where
 neither the interior nor the ring exceeds τ, that is, where nothing the embedding can see
 happened at all.
 
@@ -567,7 +568,7 @@ a 2021-contemporaneous alert vintage obtained from the Global Forest Watch Data 
 that stratum: 3.4 % of the later-vintage dates fall in 2022, after the observation year, which
 forces the post-event count to zero mechanically and manufactures most of the low-observation
 bin the estimate rested on. Under the contemporaneous vintage the low-observation bin holds
-eight patches, below the pre-registered floor of 100, and no gap is estimable (Fig. 5).
+eight patches, below the pre-registered floor of 100, and no gap is estimable (Fig. 6).
 
 The vintage also censors in the opposite direction. Coverage falls from 94.4 % to 90.4 %, and
 of the 260 patches that lose their date entirely, 58.5 % had been in the low-observation bin —
@@ -585,7 +586,7 @@ like this can measure is bounded by the reference map and the alert archive it c
 ### 4.7 Products, and a negative result on year attribution
 
 For two demonstration regions we publish the expected clear-observation supply by calendar
-month (Fig. 7) and the deferral risk it implies for each event month (Fig. 8), together with
+month (Fig. 8) and the deferral risk it implies for each event month (Fig. 9), together with
 angular change, registration and deferral layers at 100 m (Figs. M1, M2). The supply
 climatology is strongly seasonal and, importantly, the two regions are out of phase: the
 Pará region peaks in July at 6.5 clear observations and floors in February at 1.0, while the
@@ -840,7 +841,15 @@ observation count that went into each annual vector.
 
 ## Figure captions
 
-**Fig. 1.** Registration probability against the number of clear Sentinel-2 observations
+**Fig. 1.** Study area. Density of 2021 DETER clearing events across the Brazilian Legal
+Amazon, counted on a 0.25° grid and divided by each cell's true ground area, with the Legal
+Amazon limit in black and state boundaries in grey; the nine states contributing events are
+labelled. Red boxes mark the two demonstration regions whose map products appear in Figs. 8, 9,
+M1 and M2. The upper inset locates the Legal Amazon in South America; the lower inset shows the
+two Congo Basin boxes of Section 4.6 within the Democratic Republic of the Congo. EPSG:4326.
+Double column.
+
+**Fig. 2.** Registration probability against the number of clear Sentinel-2 observations
 following the event, for (a) 2021 and (b) 2020. Solid lines and shaded bands are the primary
 `date_upper` dating rule with 0.5° block-bootstrap intervals; dashed lines with open markers
 are the RADD-only sensitivity. The exactly-zero stratum is drawn separately, on the shaded
@@ -848,24 +857,24 @@ band at the left, because under RADD-only dating it is a dating artefact rather 
 end of the curve (Section 3.1). Sample sizes are printed beside the zero stratum; the dotted
 line is the pre-registered 0.95 floor for H3. Double column.
 
-**Fig. 2.** Radar does not compensate for optical scarcity. (a) Registration among events with
+**Fig. 3.** Radar does not compensate for optical scarcity. (a) Registration among events with
 two or fewer post-event clear observations, split at the median Sentinel-1 density *of the
 event's own calendar month*, with the pre-registered 0.80 bar. (b) The same population sorted
 into within-month radar-density quartiles. Both panels use the primary dating rule; error bars
 and intervals are 0.5° block bootstraps. Double column.
 
-**Fig. 3.** Deferral rather than omission: the share of events unregistered in year *Y* that
+**Fig. 4.** Deferral rather than omission: the share of events unregistered in year *Y* that
 register in *Y*+1, against an independently estimated next-year threshold. Both directions are
 re-derived, with 0.5° block-bootstrap intervals. Single column.
 
-**Fig. 4.** Clearings that the reference map records late. (a) Registration for events DETER
+**Fig. 5.** Clearings that the reference map records late. (a) Registration for events DETER
 mapped in the target year against events it mapped only the following year but that RADD
 confirms within the target year. (b) Distribution of post-event clear observations for the two
 groups under the primary dating rule: the late group is more often in the low-observation tail
 but has a similar median, so observation scarcity explains only part of the difference in (a).
 Double column.
 
-**Fig. 5.** Reference selection decides what is measurable. (a) The share of events falling in
+**Fig. 6.** Reference selection decides what is measurable. (a) The share of events falling in
 the low-observation bin, for the two Brazilian years and for the Congo patches under two alert
 vintages. (b) What the alert vintage does to the Congo event set: dating coverage under each
 vintage, the share of dates that move by more than 30 days, and the share that lose their date
@@ -873,18 +882,18 @@ entirely. (c) The registration gap where it is estimable; the Congo panel is emp
 low-observation bin holds eight patches under contemporaneous dating, below the pre-registered
 floor of 100. Double column.
 
-**Fig. 6.** The polygon-offset diagnostic, four worked examples. Columns are individual events;
+**Fig. 7.** The polygon-offset diagnostic, four worked examples. Columns are individual events;
 rows are a pre-event Sentinel-2 composite, a post-event composite and the annual angular-change
 field. The DETER polygon is solid, the 50–150 m ring dotted. The two left-hand events are
 flagged offset-suspect — the change signal lies beside the polygon — while the two right-hand
 events show no change above threshold anywhere, the other kind of residual. Double column.
 
-**Fig. 7.** Expected clear Sentinel-2 observation supply by calendar month, 2019–2021 mean, for
+**Fig. 8.** Expected clear Sentinel-2 observation supply by calendar month, 2019–2021 mean, for
 the two demonstration regions. Sentinel-2 orbit overlaps are directly visible as bands of
 roughly doubled supply. The lower panel gives the region means; the two regions are out of
 phase. Double column.
 
-**Fig. 8.** Deferral risk implied by the supply climatology for an event occurring in each of
+**Fig. 9.** Deferral risk implied by the supply climatology for an event occurring in each of
 four months, and the full monthly profile below. Risk is one minus the fitted registration
 probability at the expected remaining clear count. Double column.
 

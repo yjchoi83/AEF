@@ -130,7 +130,7 @@ def main():
                              color=C["flag"] if row.offset_suspect else INK2, pad=3)
     fig.text(0.055, 0.965, "Polygon interior (solid) and 50–150 m ring (dotted)", fontsize=7.5,
              color=INK)
-    save(fig, "F6_offset_examples.png")
+    save(fig, "F7_offset_examples.png")
 
 
 if __name__ == "__main__":

@@ -184,8 +184,9 @@ def main():
           "",
           "## 6. Figures", "",
           "| figure | script | inputs |", "|---|---|---|",
-          "| F1, F2, F3, F4, F5, F7, F8 | `code/fig_results.py` | `numbers.json`, event tables, `data/products/*.tif` |",
-          "| F6 | `code/fig_offset.py` | `code/offset_2020.csv`, DETER WFS, Earth Engine |",
+          "| F1 (study area) | `code/fig_study_area.py` | `P2_events.csv`, Legal Amazon WFS layers, `code/outlines.geojson` |",
+          "| F2–F6, F8, F9 | `code/fig_results.py` | `numbers.json`, event tables, `data/products/*.tif` |",
+          "| F7 | `code/fig_offset.py` | `code/offset_2020.csv`, DETER WFS, Earth Engine |",
           "| M1, M2 | `code/fig_maps.py` | `data/products/*.tif`, `code/outlines.geojson` |",
           ""]
     open("aef_explore/paper/NUMBERS_TRACE.md", "w").write("\n".join(L) + "\n")

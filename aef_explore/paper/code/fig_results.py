@@ -72,7 +72,7 @@ def f1():
         ax.annotate("exactly\nzero", (0.0, 1.005), xycoords=("data", "axes fraction"),
                     ha="center", va="bottom", fontsize=6.2, color=INK2)
     panel_tag(axes[0], "(a)"); panel_tag(axes[1], "(b)")
-    save(fig, "F1_registration_curve.png")
+    save(fig, "F2_registration_curve.png")
 
 
 # ------------------------------------------------------------------ F2
@@ -119,7 +119,7 @@ def f2():
     ax.legend(frameon=False, loc="upper right", handlelength=1.4)
     tidy(ax)
     panel_tag(axes[0], "(a)", dy=1.16); panel_tag(axes[1], "(b)", dy=1.16)
-    save(fig, "F2_sar_stratification.png")
+    save(fig, "F3_sar_stratification.png")
 
 
 # ------------------------------------------------------------------ F3
@@ -141,7 +141,7 @@ def f3():
     ax.set_xlabel("share of year-Y unregistered events registering in Y+1")
     ax.set_title("deferral, not miss", color=INK)
     tidy(ax, grid="x")
-    save(fig, "F3_deferral.png")
+    save(fig, "F4_deferral.png")
 
 
 # ------------------------------------------------------------------ F4
@@ -179,7 +179,7 @@ def f4():
     ax.legend(frameon=False, handlelength=1.4)
     tidy(ax)
     panel_tag(axes[0], "(a)", dy=1.16); panel_tag(axes[1], "(b)", dy=1.16)
-    save(fig, "F4_optically_late.png")
+    save(fig, "F5_optically_late.png")
 
 
 # ------------------------------------------------------------------ F5
@@ -237,7 +237,7 @@ def f5():
     tidy(ax)
     for a, t in zip(axes, ("(a)", "(b)", "(c)")):
         panel_tag(a, t, dy=1.20)
-    save(fig, "F5_reference_selection.png")
+    save(fig, "F6_reference_selection.png")
 
 
 # ------------------------------------------------------------------ F7, F8
@@ -303,7 +303,7 @@ def f7():
     ax.set_ylabel("region mean", fontsize=6.5)
     ax.legend(frameon=False, loc="upper left", fontsize=6.4, ncol=2, handlelength=1.4)
     tidy(ax)
-    save(fig, "F7_observation_supply.png")
+    save(fig, "F8_observation_supply.png")
 
 
 def f8():
@@ -349,7 +349,7 @@ def f8():
     ax.set_ylabel("mean risk", fontsize=6.5)
     ax.legend(frameon=False, loc="upper left", fontsize=6.4, ncol=2, handlelength=1.4)
     tidy(ax)
-    save(fig, "F8_deferral_risk.png")
+    save(fig, "F9_deferral_risk.png")
 
 
 if __name__ == "__main__":
