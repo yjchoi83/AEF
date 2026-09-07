@@ -163,7 +163,7 @@ def f4():
         d["r"] = d[angcol] / d["tau_p90"]
         frames[year] = d
     fig, axes = plt.subplots(1, 3, figsize=(W2, W2 * 0.34))
-    fig.subplots_adjust(wspace=0.30, top=0.84, bottom=0.20)
+    fig.subplots_adjust(wspace=0.42, top=0.84, bottom=0.20)
 
     ax = axes[0]
     w = 0.34
@@ -189,21 +189,26 @@ def f4():
         for late, col in ((0, C[year]), (1, C["alt"])):
             ax.hist(d.loc[d.radd_only == late, "r"].clip(0, 6), bins=bins, density=True,
                     histtype="step", lw=1.1, ls=ls, color=col)
+    # a right-hand margin holds the key and the medians, so nothing sits over the curves
+    ax.set_xlim(0, 9.2)
+    top = ax.get_ylim()[1]
     ax.axvline(1.0, color=C["flag"], lw=0.8, ls=":")
-    ax.annotate("τ", (1.0, ax.get_ylim()[1] * 0.96), fontsize=7, color=C["flag"],
-                ha="left", va="top", xytext=(2, 0), textcoords="offset points")
-    for year, y in (("2021", 0.97), ("2020", 0.88)):
+    ax.annotate("τ", (1.0, top * 0.99), fontsize=7, color=C["flag"], ha="left", va="top",
+                xytext=(2, 0), textcoords="offset points")
+    ax.axvline(6.1, color="#dfe4e8", lw=0.6)
+    ax.annotate("mapped\nin year\n(2021 solid,\n2020 dashed)", (6.35, top * 0.99),
+                ha="left", va="top", fontsize=5.8, color=C["2021"])
+    ax.annotate("mapped\na year late", (6.35, top * 0.60), ha="left", va="top",
+                fontsize=5.8, color=C["alt"])
+    for year, y in (("2021", 0.40), ("2020", 0.22)):
         v = st[year]
-        ax.annotate(f"{year} median {v['intensity_q']['mapped'][1]:.2f} τ vs "
-                    f"{v['intensity_q']['late'][1]:.2f} τ", (5.95, ax.get_ylim()[1] * y),
-                    ha="right", va="top", fontsize=6.0, color=C[year])
+        ax.annotate(f"{year} median\n{v['intensity_q']['mapped'][1]:.2f} vs "
+                    f"{v['intensity_q']['late'][1]:.2f} τ", (6.35, top * y), ha="left",
+                    va="top", fontsize=5.8, color=C[year])
+    ax.set_xticks([0, 2, 4, 6])
     ax.set_xlabel("interior angular change ÷ τ")
     ax.set_ylabel("density")
     ax.set_title("change intensity", color=INK, pad=5)
-    ax.plot([], [], color=C["2021"], lw=1.1, label="mapped in year (2021 solid, 2020 dashed)")
-    ax.plot([], [], color=C["alt"], lw=1.1, label="mapped a year late")
-    ax.legend(frameon=False, loc="upper right", fontsize=6.0, handlelength=1.3,
-              bbox_to_anchor=(1.02, 0.78))
     tidy(ax)
 
     ax = axes[2]
