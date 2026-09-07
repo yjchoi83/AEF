@@ -34,41 +34,43 @@ def _bin_ci(d, cp, reg, nboot=400):
 
 # ------------------------------------------------------------------ F1
 def f1():
-    fig, axes = plt.subplots(1, 2, figsize=(W2, W2 * 0.34))
-    fig.subplots_adjust(wspace=0.22)
+    fig, axes = plt.subplots(1, 2, figsize=(W2, W2 * 0.36))
+    fig.subplots_adjust(wspace=0.20)
     x = np.arange(len(LBL))
     for ax, (year, path, extra) in zip(axes, (("2021", P2, None),
                                               ("2020", P2B, pd.read_csv(S1_2020)))):
-        for rule, ls, alpha, lab in (("date_upper", "-", 0.18, "date_upper (primary)"),
-                                     ("radd_any", "--", 0.0, "RADD-only (sensitivity)")):
+        for rule, ls, band, mfc, lab in (
+                ("date_upper", "-", True, C[year], "date_upper (primary)"),
+                ("radd_any", "--", False, "white", "RADD-only (sensitivity)")):
             d, cp, s1 = M.prepare(path, rule, extra)
             v = _bin_ci(d, cp, "registered")
             p = np.array([q[0] for q in v]); lo = np.array([q[1] for q in v])
             hi = np.array([q[2] for q in v]); n = [q[3] for q in v]
-            ax.plot(x[1:], p[1:], ls, color=C[year], marker="o", ms=2.8, zorder=3,
-                    label=lab)
-            if alpha:
-                ax.fill_between(x[1:], lo[1:], hi[1:], color=C[year], alpha=alpha, lw=0)
-            ax.plot([x[0]], [p[0]], marker="s", ms=4, mfc="white", mec=C[year],
-                    mew=1.0, ls="none", zorder=4)
+            ax.plot(x[1:], p[1:], ls, color=C[year], marker="o", ms=2.8, mfc=mfc,
+                    zorder=3, label=lab)
+            if band:
+                ax.fill_between(x[1:], lo[1:], hi[1:], color=C[year], alpha=0.16, lw=0)
             ax.errorbar([x[0]], [p[0]], yerr=[[p[0] - lo[0]], [hi[0] - p[0]]],
-                        color=C[year], lw=0.8, capsize=1.6, zorder=4)
-            if rule == "date_upper":
-                ax.annotate(f"n = {n[1]}", (x[1], p[1]), textcoords="offset points",
-                            xytext=(2, -9), fontsize=6.2, color=INK2)
+                        color=C[year], lw=0.8, capsize=1.8, zorder=4)
+            ax.plot([x[0]], [p[0]], marker="s", ms=4.2, mfc=mfc, mec=C[year], mew=1.0,
+                    ls="none", zorder=5)
+            ax.annotate(f"n = {n[0]}", (x[0], p[0]), textcoords="offset points",
+                        xytext=(7, -1.5), fontsize=6, color=INK2, va="center")
         ax.axhline(0.95, color=C["flag"], lw=0.7, ls=":", zorder=2)
-        ax.annotate("H3 floor, 0.95", (6.35, 0.951), ha="right", va="bottom",
-                    fontsize=6.2, color=C["flag"])
+        ax.annotate("H3 floor 0.95", (1.05, 0.958), ha="left", va="bottom", fontsize=6.2,
+                    color=C["flag"])
+        ax.axvspan(-0.55, 0.5, color="#f4f5f7", zorder=0)
         ax.set_xticks(x); ax.set_xticklabels(LBL)
-        ax.set_ylim(0.35, 1.02)
+        ax.set_xlim(-0.55, 6.4)
+        ax.set_ylim(0.20, 1.03)
         ax.set_xlabel("post-event clear Sentinel-2 observations")
         ax.set_title(f"Brazilian Legal Amazon, {year}", color=INK)
         tidy(ax)
-        ax.legend(frameon=False, loc="lower right", handlelength=1.6)
+        ax.legend(frameon=False, loc="lower right", handlelength=1.8)
     axes[0].set_ylabel("P(registered)")
-    axes[0].annotate("zero bin: dating\nartifact stratum", (0, 0.70),
-                     textcoords="offset points", xytext=(6, -2), fontsize=6.2,
-                     color=INK2, va="top")
+    for ax in axes:
+        ax.annotate("exactly\nzero", (0.0, 1.005), xycoords=("data", "axes fraction"),
+                    ha="center", va="bottom", fontsize=6.2, color=INK2)
     panel_tag(axes[0], "(a)"); panel_tag(axes[1], "(b)")
     save(fig, "F1_registration_curve.png")
 
@@ -76,8 +78,8 @@ def f1():
 # ------------------------------------------------------------------ F2
 def f2():
     n = numbers()
-    fig, axes = plt.subplots(1, 2, figsize=(W2, W2 * 0.34))
-    fig.subplots_adjust(wspace=0.26)
+    fig, axes = plt.subplots(1, 2, figsize=(W2, W2 * 0.36))
+    fig.subplots_adjust(wspace=0.26, top=0.84)
     ax = axes[0]
     xs, w = np.arange(2), 0.34
     for k, (year, key) in enumerate((("2021", "2021_date_upper"), ("2020", "2020_date_upper"))):
@@ -91,13 +93,13 @@ def f2():
                         yerr=[[v["point"] - v["lo"]], [v["hi"] - v["point"]]],
                         color=INK, lw=0.8, capsize=1.8)
             ax.annotate(f"n={h['n_lo' if j == 0 else 'n_hi']}",
-                        (k + (j - 0.5) * w, 0.03), ha="center", fontsize=6, color="white")
+                        (k + (j - 0.5) * w, 0.025), ha="center", fontsize=5.6, color="white")
     ax.axhline(0.80, color=C["flag"], lw=0.8, ls=":")
-    ax.annotate("H7(b)′ bar, 0.80", (1.45, 0.808), ha="right", fontsize=6.2, color=C["flag"])
+    ax.annotate("H7(b)′ bar 0.80", (-0.45, 0.812), ha="left", fontsize=6.2, color=C["flag"])
     ax.set_xticks(xs); ax.set_xticklabels(["2021", "2020"])
     ax.set_ylim(0, 1.0)
     ax.set_ylabel("P(registered), clear_post ≤ 2")
-    ax.set_title("registration by within-month SAR density", color=INK)
+    ax.set_title("registration by within-month SAR density", color=INK, pad=6)
     ax.legend(frameon=False, loc="upper left", handlelength=1.4)
     tidy(ax)
     ax = axes[1]
@@ -113,10 +115,10 @@ def f2():
     ax.set_xticklabels(["Q1\nsparsest", "Q2", "Q3", "Q4\ndensest"])
     ax.set_xlabel("within-month Sentinel-1 density quartile")
     ax.set_ylabel("P(registered), clear_post ≤ 2")
-    ax.set_title("more radar does not mean more registration", color=INK)
+    ax.set_title("more radar does not mean more registration", color=INK, pad=6)
     ax.legend(frameon=False, loc="upper right", handlelength=1.4)
     tidy(ax)
-    panel_tag(axes[0], "(a)"); panel_tag(axes[1], "(b)")
+    panel_tag(axes[0], "(a)", dy=1.16); panel_tag(axes[1], "(b)", dy=1.16)
     save(fig, "F2_sar_stratification.png")
 
 
@@ -183,36 +185,36 @@ def f4():
 def f5():
     n = numbers()
     cg = json.load(open("aef_explore/stage5/TB01/P5b/p4b_stats.json"))
-    fig, axes = plt.subplots(1, 3, figsize=(W2, W2 * 0.30))
-    fig.subplots_adjust(wspace=0.36)
+    fig, axes = plt.subplots(1, 3, figsize=(W2, W2 * 0.36))
+    fig.subplots_adjust(wspace=0.34, top=0.80, bottom=0.20)
     ax = axes[0]
-    rows = [("Brazil 2021\nDETER", n["2021_date_upper"]["n"], n["2021_date_upper"]["n_lo"], C["2021"]),
-            ("Brazil 2020\nDETER", n["2020_date_upper"]["n"], n["2020_date_upper"]["n_lo"], C["2020"]),
-            ("Congo 2021\nTMF (2024 dates)", 4959, 202, C["congo"]),
-            ("Congo 2021\nTMF (2021 dates)", cg["n"], cg["n_lo"], C["congo"])]
+    rows = [("BR 2021\nDETER", n["2021_date_upper"]["n"], n["2021_date_upper"]["n_lo"], C["2021"]),
+            ("BR 2020\nDETER", n["2020_date_upper"]["n"], n["2020_date_upper"]["n_lo"], C["2020"]),
+            ("CG 2021 TMF\n2024 dates", 4959, 202, C["congo"]),
+            ("CG 2021 TMF\n2021 dates", cg["n"], cg["n_lo"], C["congo"])]
     for i, (lab, tot, lo, col) in enumerate(rows):
         ax.bar(i, 100 * lo / tot, 0.55, color=col, alpha=1.0 if i != 3 else 0.5,
                hatch="" if i != 3 else "///", edgecolor="white")
         ax.annotate(f"{lo:,}\nof {tot:,}", (i, 100 * lo / tot), textcoords="offset points",
                     xytext=(0, 3), ha="center", fontsize=6.2, color=INK)
     ax.set_xticks(range(len(rows)))
-    ax.set_xticklabels([r[0] for r in rows], fontsize=6.2)
+    ax.set_xticklabels([r[0] for r in rows], fontsize=6.0)
     ax.set_ylabel("share of events with clear_post ≤ 2 (%)")
-    ax.set_title("how big the low-observation bin is", color=INK)
+    ax.set_title("how big the low-observation bin is", color=INK, pad=6)
     tidy(ax)
     ax = axes[1]
-    bars = [("coverage\n2024 vintage", 100 * cg["coverage_2024_vintage_P4"], C["congo"]),
-            ("coverage\n2021 vintage", 100 * cg["coverage_2021_vintage_all"], C["congo"]),
-            ("dates moved\n> 30 days", 100 * cg["shift_gt30_share"], C["flag"]),
-            ("lost their\ndate", 100 * cg["lost_share"], C["flag"])]
+    bars = [("dated\n2024 vint.", 100 * cg["coverage_2024_vintage_P4"], C["congo"]),
+            ("dated\n2021 vint.", 100 * cg["coverage_2021_vintage_all"], C["congo"]),
+            ("moved\n> 30 d", 100 * cg["shift_gt30_share"], C["flag"]),
+            ("date\nlost", 100 * cg["lost_share"], C["flag"])]
     for i, (lab, v, col) in enumerate(bars):
         ax.bar(i, v, 0.55, color=col, alpha=0.85)
         ax.annotate(f"{v:.1f}", (i, v), textcoords="offset points", xytext=(0, 3),
                     ha="center", fontsize=6.4, color=INK)
     ax.set_xticks(range(len(bars)))
-    ax.set_xticklabels([b[0] for b in bars], fontsize=6.2)
+    ax.set_xticklabels([b[0] for b in bars], fontsize=6.0)
     ax.set_ylabel("% of Congo patches")
-    ax.set_title("what the alert vintage decides", color=INK)
+    ax.set_title("what the alert vintage decides", color=INK, pad=6)
     tidy(ax)
     ax = axes[2]
     est = [("Brazil 2021", n["2021_date_upper"]["gap"], C["2021"]),
@@ -230,10 +232,10 @@ def f5():
                                                  fontsize=6.2)
     ax.set_xlim(-0.6, 2.5)
     ax.set_ylabel("registration gap (pp)")
-    ax.set_title("effect size, where estimable", color=INK)
+    ax.set_title("effect size, where estimable", color=INK, pad=6)
     tidy(ax)
     for a, t in zip(axes, ("(a)", "(b)", "(c)")):
-        panel_tag(a, t)
+        panel_tag(a, t, dy=1.20)
     save(fig, "F5_reference_selection.png")
 
 
