@@ -87,6 +87,7 @@ Point estimates reproduce throughout; the bootstrap intervals do not always, and
 | package | what changed | why |
 |---|---|---|
 | P7 item 1 | Section 4.4 said that excluding optically late events *raises* the 2021 gap from 46.5 to 40.6 points. It lowers it. The value 40.6 (`robust_2021_date_upper`, row `no radd_only`) is unchanged; only the direction word was wrong. | 40.6 < 46.5 |
+| P7 item 2 | The sentence reporting the curve bin by bin did not say that the plotted bins exclude the exactly-zero stratum, so 0.536 for the first plotted bin appeared to contradict the H1″ value of 0.510 for `clear_post` ≤ 2. No number changed: 0.536 on 323 events pooled with 0.289 on 38 gives 0.510 on 361 (2021), and 0.620 on 389 with 0.500 on 50 gives 0.606 on 439 (2020). Bins are now written in interval notation in the text, the figure and Table S2. | ambiguous wording |
 | P7 item 7 | Title set to "When does an annual embedding register a clearing? Optical observation supply and the temporal fidelity of AlphaEarth annual embeddings in the Brazilian Amazon, 2020-2021"; the three candidates were removed from the manuscript comment. | author's choice |
 | P7 item 1 | Discussion sections renumbered: two sections were both numbered 5.4. "Relation to the alert-latency literature" is now 5.5 and "What an annual embedding field is, and is not, for" is now 5.6. No cross-reference in the text pointed at either. | duplicate numbering |
 

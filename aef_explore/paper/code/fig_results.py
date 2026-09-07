@@ -16,7 +16,7 @@ from figstyle import W1, W2, C, INK, INK2, SEQ_BLUE, SEQ_RED, numbers, tidy, pan
 P2 = "aef_explore/stage5/TB01/P2/P2_events.csv"
 P2B = "aef_explore/stage5/TB01/P2b/P2b_events_2020.csv"
 S1_2020 = "aef_explore/paper/code/s1_post_2020_derived.csv"
-LBL = ["0", "0-2", "2-4", "4-6", "6-9", "9-14", "14+"]
+LBL = ["0", "(0,2]", "(2,4]", "(4,6]", "(6,9]", "(9,14]", "14+"]
 NPROC = 24
 
 

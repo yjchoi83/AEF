@@ -386,8 +386,16 @@ event followed by at least five clear observations registers with probability 0.
 [0.438, 0.584]; the gap is **46.5 percentage points [39.0, 53.6]** on 361 low-observation
 events out of 38,303. In 2020 the corresponding values are 0.981 [0.979, 0.984], 0.606
 [0.541, 0.669] and a gap of **37.5 points [31.3, 43.9]** on 439 of 39,664. H1″ and H3 are met
-in both years. Bin by bin the 2021 curve runs 0.536, 0.743, 0.861, 0.920, 0.968, 0.981 from
-the 0–2 bin upward, and the 2020 curve 0.620, 0.793, 0.893, 0.954, 0.975, 0.985.
+in both years.
+
+The bins plotted in Fig. 1 exclude the exactly-zero stratum, which is reported separately for
+the reason given in Section 3.1, so the leftmost plotted bin is the half-open interval (0, 2]
+rather than the closed interval [0, 2] used for the H1″ statistic. Bin by bin the 2021 curve
+runs 0.536, 0.743, 0.861, 0.920, 0.968 and 0.981 over (0, 2], (2, 4], (4, 6], (6, 9], (9, 14]
+and 14+, and the 2020 curve 0.620, 0.793, 0.893, 0.954, 0.975 and 0.985. Pooling the zero
+stratum back in reconciles the two: 0.536 on 323 events and 0.289 on 38 give 0.510 on 361 in
+2021, and 0.620 on 389 with 0.500 on 50 give 0.606 on 439 in 2020, which are the H1″ values
+quoted above.
 
 Two features of these numbers matter more than their magnitude. The first is that the ceiling
 is high and the floor is low: an annual embedding registers essentially every clearing it is

@@ -142,6 +142,13 @@ def main():
           "2021 gap from 46.5 to 40.6 points. It lowers it. The value 40.6 "
           "(`robust_2021_date_upper`, row `no radd_only`) is unchanged; only the direction word "
           "was wrong. | 40.6 < 46.5 |",
+          "| P7 item 2 | The sentence reporting the curve bin by bin did not say that the "
+          "plotted bins exclude the exactly-zero stratum, so 0.536 for the first plotted bin "
+          "appeared to contradict the H1\u2033 value of 0.510 for `clear_post` \u2264 2. No "
+          "number changed: 0.536 on 323 events pooled with 0.289 on 38 gives 0.510 on 361 "
+          "(2021), and 0.620 on 389 with 0.500 on 50 gives 0.606 on 439 (2020). Bins are now "
+          "written in interval notation in the text, the figure and Table S2. | ambiguous "
+          "wording |",
           "| P7 item 7 | Title set to \"When does an annual embedding register a clearing? "
           "Optical observation supply and the temporal fidelity of AlphaEarth annual embeddings "
           "in the Brazilian Amazon, 2020-2021\"; the three candidates were removed from the "

@@ -47,12 +47,17 @@ def robust_table(key, what):
     return "\n".join(rows)
 
 
+BINLBL = {"0": "exactly 0", "0-2": "(0, 2]", "2-4": "(2, 4]", "4-6": "(4, 6]",
+          "6-9": "(6, 9]", "9-14": "(9, 14]", "14+": "> 14"}
+
+
 def curve_table():
     rows = ["| clear_post bin | 2021 n | 2021 P(reg) | 2020 n | 2020 P(reg) |",
             "|---|---|---|---|---|"]
     a = N["2021_date_upper"]["curve"]; b = N["2020_date_upper"]["curve"]
     for x, y in zip(a, b):
-        rows.append(f"| {x['bin']} | {x['n']:,} | {x['reg']:.3f} | {y['n']:,} | {y['reg']:.3f} |")
+        rows.append(f"| {BINLBL[x['bin']]} | {x['n']:,} | {x['reg']:.3f} | {y['n']:,} | "
+                    f"{y['reg']:.3f} |")
     return "\n".join(rows)
 
 
@@ -79,6 +84,11 @@ as robustness variants. Event counts are all polygons in the population, dated o
 floor, so their thresholds are provisional. Together they hold under one per cent of events.
 
 ## Table S2. The registration curve under the primary dating rule
+
+Bins are half-open: an event with exactly two post-event clear observations falls in (0, 2].
+The exactly-zero stratum is listed separately because under RADD-only dating it is a dating
+artefact rather than the left end of the curve (Section 3.1 of the manuscript). The H1″
+statistic pools the first two rows, giving 0.510 on 361 events in 2021 and 0.606 on 439 in 2020.
 
 {curve_table()}
 

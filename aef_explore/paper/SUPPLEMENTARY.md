@@ -28,15 +28,20 @@ floor, so their thresholds are provisional. Together they hold under one per cen
 
 ## Table S2. The registration curve under the primary dating rule
 
+Bins are half-open: an event with exactly two post-event clear observations falls in (0, 2].
+The exactly-zero stratum is listed separately because under RADD-only dating it is a dating
+artefact rather than the left end of the curve (Section 3.1 of the manuscript). The H1″
+statistic pools the first two rows, giving 0.510 on 361 events in 2021 and 0.606 on 439 in 2020.
+
 | clear_post bin | 2021 n | 2021 P(reg) | 2020 n | 2020 P(reg) |
 |---|---|---|---|---|
-| 0 | 38 | 0.289 | 50 | 0.500 |
-| 0-2 | 323 | 0.536 | 389 | 0.620 |
-| 2-4 | 658 | 0.743 | 715 | 0.793 |
-| 4-6 | 940 | 0.861 | 1,035 | 0.893 |
-| 6-9 | 1,633 | 0.920 | 1,943 | 0.954 |
-| 9-14 | 3,919 | 0.968 | 4,647 | 0.975 |
-| 14+ | 30,792 | 0.981 | 30,885 | 0.985 |
+| exactly 0 | 38 | 0.289 | 50 | 0.500 |
+| (0, 2] | 323 | 0.536 | 389 | 0.620 |
+| (2, 4] | 658 | 0.743 | 715 | 0.793 |
+| (4, 6] | 940 | 0.861 | 1,035 | 0.893 |
+| (6, 9] | 1,633 | 0.920 | 1,943 | 0.954 |
+| (9, 14] | 3,919 | 0.968 | 4,647 | 0.975 |
+| > 14 | 30,792 | 0.981 | 30,885 | 0.985 |
 
 ## Table S3. Robustness of H1″ and H3, primary dating rule
 
