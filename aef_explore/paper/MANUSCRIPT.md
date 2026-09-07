@@ -20,10 +20,10 @@ events followed by two or fewer, a gap of 46.5 percentage points [39.0, 53.6] an
 [31.3, 43.9]. The deficit is specifically optical: among low-observation events, registration
 is lowest where Sentinel-1 coverage is densest, so radar acquisition does not compensate.
 Unregistered events are deferred rather than missed, 94.0 % and 96.5 % registering the
-following year. Nearly half of unregistered events carry a stronger change signal in a
-50–150 m ring than inside the mapped polygon. A Congo Basin comparison shows that the same
-question cannot presently be answered there, because the low-observation stratum available for
-testing is an artefact of the alert vintage used for dating. We provide expected-supply and
+following year. For nearly half of unregistered events the change signal exceeds the
+threshold in a 50–150 m ring around the polygon but not inside it. A Congo Basin comparison cannot presently answer the
+same question: the low-observation stratum available for testing is an artefact of the alert
+vintage used for dating. We provide expected-supply and
 deferral-risk maps, and two-tier guidance for users who do and do not have an event date.
 
 **Keywords.** annual embedding; AlphaEarth; temporal fidelity; deforestation alerts;
@@ -47,9 +47,9 @@ The word doing the most work in that sentence is *annual*. A user who takes the 
 between the 2020 and 2021 embeddings, thresholds it, and calls the result "2021 clearing" has
 made an assumption about temporal semantics that the product does not state and that no
 benchmark measures: that a clearing occurring at any point in 2021 is fully expressed in the
-2021 vector. That assumption is not obviously true. The embedding is derived predominantly
-from optical imagery, and in the humid tropics the supply of cloud-free optical observation is
-both scarce and strongly seasonal [@whitcraft2015cloud; @prudente2020limitations;
+2021 vector. That assumption is not obviously true. The embedding draws on optical,
+radar and ancillary inputs, and in the humid tropics the supply of cloud-free optical
+observation is both scarce and strongly seasonal [@whitcraft2015cloud; @prudente2020limitations;
 @sudmanns2019coverage]. A clearing in late November may be followed by one usable Sentinel-2
 observation before the year ends; a clearing in July may be followed by thirty. If the annual
 vector is a summary of what was seen, then when in the year an event happens should determine
@@ -258,11 +258,14 @@ year, at or below the ten per cent that τ implies for undisturbed forest); and 
 truncation, since December supplies only 18.5 % and 4.7 % of the stratum and excluding it
 *raises* the stratum's registration rate.
 
-The RADD alert is late in these cases for a structural reason. RADD confirms an alert on
-subsequent acquisitions, and a 2020 event has no RADD archive contemporaneous with it, so its
-first recorded alert may be a re-detection from a later snapshot. Taking the minimum with the
-analyst's detection date removes most of that error while never moving a date later than the
-evidence allows. Under `date_upper` the registration curve is monotone from zero upward in
+We can offer a plausible mechanism for the lateness but have not tested it. RADD confirms an
+alert on subsequent acquisitions, and no RADD archive contemporaneous with 2020 exists, so a
+2020 event's first recorded alert may be a re-detection carried by a later snapshot rather than
+the original detection. That is a hypothesis consistent with the pattern, not a demonstrated
+cause: we observe that the alert date is systematically later than the analyst's, and we do not
+observe why. The correction does not depend on the mechanism being right. Taking the minimum
+with the analyst's detection date removes most of the error under any explanation of it, and
+never moves a date later than the evidence allows. Under `date_upper` the registration curve is monotone from zero upward in
 both years and the zero stratum shrinks from 173 to 38 events (2021) and from 1,011 to 50
 (2020). We report every headline quantity under both rules and treat the difference between
 them as a measurement of dating sensitivity rather than as a nuisance.
@@ -438,11 +441,15 @@ register *less* often, not more.
 The monotone version of the same statement is Fig. 2b. Sorting low-observation events into
 quartiles of within-month radar density, registration in 2021 runs 0.593, 0.556, 0.467, 0.422
 from sparsest to densest, and in 2020 0.627, 0.718, 0.541, 0.537. The relationship is negative
-in both years. The explanation is not that radar destroys information; it is that radar density
-is a proxy for high-latitude-of-orbit and for time of year in ways that correlate with the
-optical deficit, and, most importantly, that the embedding is optically led. Whatever
-Sentinel-1 contributes to the annual vector is not enough to carry a clearing across the
-threshold on its own.
+in both years. The explanation is not that radar destroys information. Sentinel-1 acquisition follows a
+fixed observation plan, so within-month radar density is set almost entirely by where a pixel
+sits relative to the overlap of adjacent orbit swaths, and is close to independent of the
+weather that governs optical supply. Conditioning on it therefore does not select
+better-observed events in the sense that matters; it selects a different part of the
+acquisition geometry, and within the low-optical population those parts are not the easier
+cases. What the pattern establishes is the negative claim we need: whatever Sentinel-1
+contributes to the annual vector is not enough, on its own, to carry a clearing across a
+threshold calibrated on undisturbed forest.
 
 It is worth being explicit about what this test does and does not establish. It does not show
 that Sentinel-1 is uninformative about clearing; the alert product we use for dating is built

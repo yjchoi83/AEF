@@ -149,6 +149,13 @@ def main():
           "(2021), and 0.620 on 389 with 0.500 on 50 gives 0.606 on 439 (2020). Bins are now "
           "written in interval notation in the text, the figure and Table S2. | ambiguous "
           "wording |",
+          "| P7 item 3 | Four wording changes, no numbers: the abstract now states the offset "
+          "finding as the change signal exceeding the threshold in a 50-150 m ring but not "
+          "inside the polygon; Section 1.1 says the embedding draws on optical, radar and "
+          "ancillary inputs rather than asserting optical dominance before the evidence in "
+          "Section 4.2; Section 4.2 explains the radar-density pattern by the fixed acquisition "
+          "plan and orbit overlap instead of orbital latitude; Section 3.1 marks the RADD "
+          "re-detection account as an untested hypothesis. | claims outrunning evidence |",
           "| P7 item 7 | Title set to \"When does an annual embedding register a clearing? "
           "Optical observation supply and the temporal fidelity of AlphaEarth annual embeddings "
           "in the Brazilian Amazon, 2020-2021\"; the three candidates were removed from the "
