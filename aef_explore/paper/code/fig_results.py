@@ -144,41 +144,86 @@ def f3():
     save(fig, "F4_deferral.png")
 
 
-# ------------------------------------------------------------------ F4
+# ------------------------------------------------------------------ F4 -> Fig. 5
 def f4():
-    d = pd.read_csv(P2)
-    d = d[d["clear_post_date_upper"].notna()]
-    fig, axes = plt.subplots(1, 2, figsize=(W2, W2 * 0.34))
-    fig.subplots_adjust(wspace=0.28, top=0.84)
+    """Optically late events: registration, change intensity, and the deficit decomposition."""
+    st = json.load(open("aef_explore/paper/intensity_stats.json"))
+    frames = {}
+    for year, path, angcol, extra in (("2021", P2, "ang_mean_deg", None),
+                                      ("2020", P2B, "ang_2019_2020_deg",
+                                       pd.read_csv(S1_2020))):
+        d, cp, s1 = M.prepare(path, "date_upper", extra)
+        d = d.copy()
+        d["r"] = d[angcol] / d["tau_p90"]
+        frames[year] = d
+    fig, axes = plt.subplots(1, 3, figsize=(W2, W2 * 0.34))
+    fig.subplots_adjust(wspace=0.30, top=0.84, bottom=0.20)
+
     ax = axes[0]
-    grp = d.groupby("radd_only")["registered"]
-    for i, (k, lab) in enumerate(((0, "DETER-mapped in 2021"), (1, "optically late\n(DETER 2022)"))):
-        s = d[d["radd_only"] == k]
-        r = M.boot_ci(NPROC, s, "share", "clear_post_date_upper", "clear_post_date_upper",
-                      "registered", nboot=400)
-        ax.bar(i, r["point"], 0.5, color=C["2021"] if k == 0 else C["alt"])
-        ax.errorbar(i, r["point"], yerr=[[r["point"] - r["lo"]], [r["hi"] - r["point"]]],
-                    color=INK, lw=0.8, capsize=1.8)
-        ax.annotate(f"{r['point']:.3f}\nn = {len(s):,}", (i, r["point"]),
-                    textcoords="offset points", xytext=(0, 3), ha="center", fontsize=6.4,
-                    color=INK)
-    ax.set_xticks([0, 1]); ax.set_xticklabels(["DETER-mapped\nin 2021", "optically late\n(DETER 2022)"])
-    ax.set_ylim(0, 1.08); ax.set_ylabel("P(registered)")
-    ax.set_title("registration by reference-map timing", color=INK, pad=6)
+    w = 0.34
+    for k, year in enumerate(("2021", "2020")):
+        v = st[year]
+        for j, (key, col, lab) in enumerate(((("reg_mapped"), C[year], "mapped in year"),
+                                             (("reg_late"), C["alt"], "mapped a year late"))):
+            ax.bar(k + (j - 0.5) * w, v[key], w * 0.9, color=col,
+                   label=lab if k == 0 else None)
+            ax.annotate(f"{v[key]:.3f}", (k + (j - 0.5) * w, v[key]),
+                        textcoords="offset points", xytext=(0, 2), ha="center",
+                        fontsize=6, color=INK)
+    ax.set_xticks([0, 1]); ax.set_xticklabels(["2021", "2020"])
+    ax.set_ylim(0, 1.12); ax.set_ylabel("P(registered)")
+    ax.set_title("registration rate", color=INK, pad=5)
+    ax.legend(frameon=False, loc="lower center", ncol=1, handlelength=1.3, fontsize=6.2)
     tidy(ax)
+
     ax = axes[1]
-    bins = np.arange(0, 80, 2.5)
-    for k, lab, col in ((0, "DETER-mapped in 2021", C["2021"]),
-                        (1, "optically late", C["alt"])):
-        ax.hist(d.loc[d["radd_only"] == k, "clear_post_date_upper"].clip(0, 79), bins=bins,
-                density=True, histtype="step", lw=1.2, color=col, label=lab)
-    ax.set_xlabel("post-event clear observations (date_upper)")
+    bins = np.linspace(0, 6, 49)
+    for year, ls in (("2021", "-"), ("2020", "--")):
+        d = frames[year]
+        for late, col in ((0, C[year]), (1, C["alt"])):
+            ax.hist(d.loc[d.radd_only == late, "r"].clip(0, 6), bins=bins, density=True,
+                    histtype="step", lw=1.1, ls=ls, color=col)
+    ax.axvline(1.0, color=C["flag"], lw=0.8, ls=":")
+    ax.annotate("τ", (1.0, ax.get_ylim()[1] * 0.96), fontsize=7, color=C["flag"],
+                ha="left", va="top", xytext=(2, 0), textcoords="offset points")
+    for year, y in (("2021", 0.97), ("2020", 0.88)):
+        v = st[year]
+        ax.annotate(f"{year} median {v['intensity_q']['mapped'][1]:.2f} τ vs "
+                    f"{v['intensity_q']['late'][1]:.2f} τ", (5.95, ax.get_ylim()[1] * y),
+                    ha="right", va="top", fontsize=6.0, color=C[year])
+    ax.set_xlabel("interior angular change ÷ τ")
     ax.set_ylabel("density")
-    ax.set_title("similar observation supply, very different registration",
-                 color=INK, pad=6)
-    ax.legend(frameon=False, handlelength=1.4)
+    ax.set_title("change intensity", color=INK, pad=5)
+    ax.plot([], [], color=C["2021"], lw=1.1, label="mapped in year (2021 solid, 2020 dashed)")
+    ax.plot([], [], color=C["alt"], lw=1.1, label="mapped a year late")
+    ax.legend(frameon=False, loc="upper right", fontsize=6.0, handlelength=1.3,
+              bbox_to_anchor=(1.02, 0.78))
     tidy(ax)
-    panel_tag(axes[0], "(a)", dy=1.16); panel_tag(axes[1], "(b)", dy=1.16)
+
+    ax = axes[2]
+    for k, year in enumerate(("2021", "2020")):
+        v = st[year]
+        for j, (key, col, lab) in enumerate(
+                (("deficit_raw_pp", C["grey"], "unadjusted"),
+                 ("deficit_adjusted_pp", C[year], "adjusted for supply,\nstate, month, area"))):
+            b = v[key]
+            ax.bar(k + (j - 0.5) * w, b["point"], w * 0.9, color=col,
+                   label=lab if k == 0 else None)
+            ax.errorbar(k + (j - 0.5) * w, b["point"],
+                        yerr=[[b["point"] - b["lo"]], [b["hi"] - b["point"]]],
+                        color=INK, lw=0.8, capsize=1.6)
+            ax.annotate(f"{b['point']:.1f}", (k + (j - 0.5) * w, b["hi"]),
+                        textcoords="offset points", xytext=(0, 2), ha="center",
+                        fontsize=6, color=INK)
+    ax.set_xticks([0, 1]); ax.set_xticklabels(["2021", "2020"])
+    ax.set_ylabel("registration deficit (pp)")
+    ax.set_ylim(0, 34)
+    ax.set_title("deficit, before and after adjustment", color=INK, pad=5)
+    ax.legend(frameon=False, loc="upper center", fontsize=6.0, handlelength=1.3, ncol=1)
+    tidy(ax)
+
+    for a, t in zip(axes, ("(a)", "(b)", "(c)")):
+        panel_tag(a, t, dy=1.16)
     save(fig, "F5_optically_late.png")
 
 

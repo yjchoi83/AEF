@@ -223,7 +223,51 @@ and 3.8 % by more than 90; 260 patches
 (5.3 %) lose their date entirely under the contemporaneous vintage, and
 58.5 % of those had been in the low-observation bin.
 
-## Table S10. Deferral-risk link function
+## Table S10. Published intervals beside the re-derived ones
+
+The P2/P2b fitting script was not retained, so the model was rebuilt (`code/p2_model.py`) and
+validated against the coefficients those packages reported. Every point estimate reproduces to
+the precision published. The intervals divide cleanly in two. For the **registration gaps** the
+two procedures agree to within seven per cent of interval width, and the re-derived interval is
+marginally the wider one in nine of ten rows. For the **logistic coefficients** the published
+intervals are wider in all ten rows, by factors of 1.5 to 4.1. Whatever differs between the two
+procedures affects the coefficient bootstrap and not the proportion bootstrap. The manuscript
+prints the re-derived intervals; this table is the audit trail. Rows are under the RADD-only
+dating rule, which is what the packages used.
+
+| quantity | published interval | re-derived interval |
+|---|---|---|
+| 2021 registration gap (pp) | 34.4 [28.3, 40.3] | **34.39 [27.83, 40.30]** |
+| 2021 gap, tau p85 | 31.7 [25.7, 37.4] | **31.66 [25.38, 37.60]** |
+| 2021 gap, tau p95 | 42.2 [35.8, 48.3] | **42.23 [35.51, 48.23]** |
+| 2021 gap, high-confidence alerts | 35.2 [29.1, 41.3] | **35.18 [28.74, 41.40]** |
+| 2021 gap, date_upper dating | 46.5 [39.5, 53.2] | **46.53 [38.97, 53.63]** |
+| 2021 gap, excluding optically late | 27.8 [21.6, 34.1] | **27.80 [21.52, 34.26]** |
+| 2021 gap, area < 5 ha | 18.5 [-2.9, 65.3] | **18.51 [-2.95, 65.39]** |
+| 2021 gap, area 5-25 ha | 30.2 [24.8, 35.9] | **30.17 [24.42, 35.67]** |
+| 2021 gap, area >= 25 ha | 50.4 [37.2, 62.2] | **50.39 [36.50, 61.40]** |
+| 2021 joint clear_post coefficient | 0.219 [0.046, 0.429] | **0.217 [0.111, 0.327]** |
+| 2021 coefficient, tau p85 | [-0.003, 0.420] | **0.222 [0.096, 0.346]** |
+| 2021 coefficient, tau p95 | [0.037, 0.348] | **0.188 [0.088, 0.293]** |
+| 2021 coefficient, high-confidence alerts | [0.009, 0.377] | **0.196 [0.091, 0.302]** |
+| 2021 coefficient, date_upper dating | [-0.072, 0.212] | **0.083 [0.000, 0.172]** |
+| 2021 coefficient, excluding optically late | [0.376, 1.604] | **0.463 [0.315, 0.617]** |
+| 2021 coefficient, area < 5 ha | [-0.975, 1.551] | **-0.091 [-0.815, 0.637]** |
+| 2021 coefficient, area 5-25 ha | [0.182, 0.767] | **0.323 [0.197, 0.446]** |
+| 2021 coefficient, area >= 25 ha | [-0.082, 0.384] | **0.194 [0.071, 0.353]** |
+| 2020 registration gap (pp) | 14.1 [11.6, 16.6] | **14.06 [11.38, 16.71]** |
+| 2020 joint clear_post coefficient | 0.387 [0.129, 0.732] | **0.318 [0.221, 0.419]** |
+
+The rows that matter for a verdict are the coefficients. H7(a) passes on both the published
+2021 interval [0.046, 0.429] and the re-derived [0.111, 0.327]; it passes on the
+published 2020 interval [0.129, 0.732] and on the re-derived [0.221, 0.419] around a
+point estimate of 0.318. Same sign, same verdict, different width, and one variant changes
+status: under the published intervals the τ p85 and area ≥ 25 ha coefficients cross zero, under
+the re-derived ones they do not. Without the original code the difference cannot be attributed.
+The manuscript therefore reports H7(a) as directionally robust rather than precisely estimated,
+which is the reading both sets of intervals support.
+
+## Table S11. Deferral-risk link function
 
 Logit P(registered) = β₀ + β₁·ln(1 + `clear_post`), fitted on dated 2021 events with
 `clear_post` > 0, and its calibration against the empirical curve. The raw-count link used in an

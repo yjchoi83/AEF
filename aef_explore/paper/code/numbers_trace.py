@@ -160,6 +160,17 @@ def main():
           "(2021), and 0.620 on 389 with 0.500 on 50 gives 0.606 on 439 (2020). Bins are now "
           "written in interval notation in the text, the figure and Table S2. | ambiguous "
           "wording |",
+          "| P7 item 6 | Section 4.4 is rewritten from an open question to a measured "
+          "intensity effect. New numbers, all from `intensity_stats.json` "
+          "(`code/intensity.py`): the registration deficit adjusted for observation supply, "
+          "radar density, state, month and area is **14.2 pp [12.3, 16.4]** (2021) and "
+          "**13.3 pp [11.1, 15.6]** (2020) against unadjusted 23.0 and 20.8; the adjusted "
+          "intensity ratio of late to contemporaneously mapped events is **0.56 [0.54, 0.58]** "
+          "and **0.60 [0.57, 0.62]**; median interior change 1.37 tau vs 2.92 tau (2021) and "
+          "1.44 vs 2.99 (2020). A definition check confirmed no drift: an optically late "
+          "event's DETER date lies in the following year, so `date_upper` never binds and its "
+          "`clear_post` is identical under both dating rules for 100 % of such events. | "
+          "section 4.4 was unresolved |",
           "| P7 item 4 | The 2020 \u2192 2021 deferral rate was cited from P3 because that "
           "package's per-event table was not retained. It is now re-derived from scratch "
           "(polygons refetched, 2020\u20132021 angular change recomputed against the next "

@@ -523,22 +523,45 @@ missing event, and that is a materially different problem for users. A change ma
 differencing consecutive annual embeddings will find nearly all clearings; it will place a
 minority of them in the wrong year, with the minority concentrated in the last quarter.
 
-### 4.4 The reference map is selective too
+### 4.4 The reference map is selective, and what it selects are weaker changes
 
 Clearings that DETER mapped only in the following year, but that RADD confirms within the
 target year, register at 0.753 in 2021 and 0.776 in 2020, against 0.984 and 0.986 for events
 DETER mapped contemporaneously (Fig. 5a). This is a population invisible to any study anchored
 solely on an annual reference map, and it is large: 3,082 and 2,591 events.
 
-Under the primary dating rule these events are only mildly observation-poor. Their median
-post-event clear count is 23.0 against 23.7 for contemporaneously mapped events, though they
-are five times more likely to fall in the low-observation bin (3.8 % against 0.7 %; Fig. 5b).
-Observation scarcity therefore explains only a small part of a 23-point registration
-difference. What distinguishes them is more likely to be the property that made the analyst
-late in the first place: a clearing that was incomplete, partially vegetated or ambiguous
-during the target year is both harder for an analyst to delineate and less likely to move an
-annual vector past a threshold calibrated on undisturbed forest. We report this as an open
-question rather than a settled mechanism, and note that it cuts in a conservative direction:
+The obvious explanation is that these are events the satellites did not see, but that is not
+what the data show. The primary dating rule cannot correct them — an optically late event's
+DETER date lies in the following year, so the minimum with the alert date never binds, and
+their `clear_post` is identical under both dating rules — which means their observation counts
+come entirely from the alert date, the least corrected dating available. Even so they are only
+mildly observation-poor: median post-event clear count 23.0 against 23.7 in 2021, though with a
+heavier low tail (3.8 % against 0.7 % of events in the low-observation bin). In 2020 the tail
+is heavier still, 17.0 against 22.7 at the median. Adjusting the registration deficit for
+observation supply, radar density, state, event month and polygon area removes about two fifths
+of it and no more: 23.0 points [19.9, 26.2] falls to **14.2 points [12.3, 16.4]** in 2021, and
+20.8 [18.1, 23.7] to **13.3 [11.1, 15.6]** in 2020 (Fig. 5c).
+
+What separates them is the intensity of the change itself. Expressed as a multiple of the
+event's own state threshold, the interior angular change of an optically late clearing has a
+median of 1.37 τ in 2021 against 2.92 τ for contemporaneously mapped clearings, and 1.44 τ
+against 2.99 τ in 2020; the whole distribution is displaced, not just its tail, with quartiles
+of 1.01–1.88 τ against 2.13–3.72 τ (Fig. 5b). Within the same adjustment as above, an optically
+late event's change is **0.56 [0.54, 0.58]** of a comparable contemporaneously mapped event's
+in 2021 and **0.60 [0.57, 0.62]** in 2020. Polygon area is not the difference — medians of
+14.2 against 13.0 ha in 2021 — and neither is alert confidence, since every optically late
+event carries a high-confidence alert by construction against 99.4 % of the rest.
+
+So the deficit is an intensity effect rather than an observation effect, and the two are
+distinguishable here because the adjustment controls one while measuring the other. Part of the
+statement is definitional, since registration is by construction the event of intensity
+exceeding τ; the content that is not definitional is that the intensity shift survives
+conditioning on observation supply and composition, and that supply accounts for under two
+fifths of the registration gap. The reading we take from this is that a clearing which is
+incomplete, partially vegetated or spread across a year is both harder for an analyst to
+delineate in the year it begins and genuinely produces less annual embedding change — the
+reference map's lateness and the embedding's silence share a cause rather than one explaining
+the other. This also cuts in a conservative direction for the paper's central estimate:
 excluding these events *lowers* the gap in 2021 from 46.5 to 40.6 points but raises the
 conditional coefficient from 0.083 to 0.252.
 
@@ -734,17 +757,29 @@ discrepancy against a reference product.
 ### 5.6 What an annual embedding field is, and is not, for
 
 One further reading of the results deserves stating, because it is the one a sceptical reader
-should test first. Everything reported here is consistent with a much duller alternative: that
-the low-observation events are simply harder events — smaller, more partial, more ambiguous —
-and that observation count is a proxy for difficulty rather than a cause of non-registration.
-It is the same class of question as asking whether a time-series detector's accuracy depends on
-the disturbance agent and its severity rather than on the site's history [@rodman2021disturbance].
-Three findings weigh against that reading. The gap grows rather than shrinks with polygon size
-(Section 4.1); it survives excluding the optically late events that are the most plausible
-carriers of ambiguity, and the conditional coefficient triples when they are excluded
-(Section 4.4); and the deferral result shows that the same events, with the same polygons and
-the same size, register at 94–97 % one year later, when the observations have arrived
+should test first: that the low-observation events are simply harder events — smaller, more
+partial, more ambiguous — and that observation count is a proxy for difficulty rather than a
+cause of non-registration. It is the same class of question as asking whether a time-series
+detector's accuracy depends on the disturbance agent and its severity rather than on the site's
+history [@rodman2021disturbance].
+
+Section 4.4 shows that this mechanism is real, and shows exactly where it operates. Clearings
+the reference map records a year late produce 0.56–0.60 of the annual embedding change of
+otherwise comparable clearings it records on time, an intensity difference that survives
+conditioning on observation supply, state, month and area. Those events are, in the relevant
+sense, harder — and the embedding's silence and the analyst's lateness share that cause rather
+than one explaining the other.
+
+What that finding does not do is explain the main result, and three things separate the two.
+The gap along the observation axis grows rather than shrinks with polygon size (Section 4.1),
+where a difficulty account predicts the opposite. It survives excluding the optically late
+events entirely — the conditional coefficient triples when they are removed (Section 4.4) —
+so the population in which intensity demonstrably differs is not the population carrying the
+gap. And the deferral result shows the same events, with the same polygons and the same
+intensity, registering at 94–97 % one year later, when the observations have arrived
 (Section 4.3). Difficulty does not resolve itself after twelve months; observation supply does.
+The honest summary is that both mechanisms exist in this data, that they act on different
+subpopulations, and that the design separates them rather than having to choose between them.
 
 The picture that emerges is coherent and, we think, reassuring about the product while
 cautionary about one specific use. An annual embedding field is an excellent detector of
@@ -869,10 +904,12 @@ re-derived, with 0.5° block-bootstrap intervals. Single column.
 
 **Fig. 5.** Clearings that the reference map records late. (a) Registration for events DETER
 mapped in the target year against events it mapped only the following year but that RADD
-confirms within the target year. (b) Distribution of post-event clear observations for the two
-groups under the primary dating rule: the late group is more often in the low-observation tail
-but has a similar median, so observation scarcity explains only part of the difference in (a).
-Double column.
+confirms within the target year. (b) Distribution of interior angular change in units of the
+event's own state threshold τ, for both groups and both years: the late group's distribution is
+displaced toward τ rather than merely tailed, so these are weaker changes. (c) The registration
+deficit before and after adjusting for post-event clear observations, radar density, state,
+event month and polygon area; adjustment removes about two fifths of it. Error bars are 0.5°
+block bootstraps. Double column.
 
 **Fig. 6.** Reference selection decides what is measurable. (a) The share of events falling in
 the low-observation bin, for the two Brazilian years and for the Congo patches under two alert
