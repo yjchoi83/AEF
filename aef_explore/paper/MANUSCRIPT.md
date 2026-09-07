@@ -528,7 +528,7 @@ late in the first place: a clearing that was incomplete, partially vegetated or 
 during the target year is both harder for an analyst to delineate and less likely to move an
 annual vector past a threshold calibrated on undisturbed forest. We report this as an open
 question rather than a settled mechanism, and note that it cuts in a conservative direction:
-excluding these events *raises* the gap in 2021 from 46.5 to 40.6 points but raises the
+excluding these events *lowers* the gap in 2021 from 46.5 to 40.6 points but raises the
 conditional coefficient from 0.083 to 0.252.
 
 ### 4.5 Polygon geometry accounts for part of the residual
@@ -703,7 +703,7 @@ corollary for practitioners is sharper: a study of this kind is only as good as 
 dating, and reporting the alert vintage is not optional. In the Congo case the choice of
 vintage moved the answer from "a small but significant effect" to "not estimable".
 
-### 5.4 Relation to the alert-latency literature
+### 5.5 Relation to the alert-latency literature
 
 The alert community has developed a precise vocabulary for this class of problem: detection
 delay, confirmation lag, and the trade-off between the two [@tang2019nrt; @bullock2022timeliness;
@@ -720,7 +720,7 @@ picks its confirmation rule and publishes the resulting latency; an annual embed
 equivalent choice implicit, and the user discovers it, if at all, as an unexplained
 discrepancy against a reference product.
 
-### 5.5 What an annual embedding field is, and is not, for
+### 5.6 What an annual embedding field is, and is not, for
 
 One further reading of the results deserves stating, because it is the one a sceptical reader
 should test first. Everything reported here is consistent with a much duller alternative: that

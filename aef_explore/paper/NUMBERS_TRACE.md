@@ -82,7 +82,14 @@ Point estimates reproduce throughout; the bootstrap intervals do not always, and
 | JRC TMF annual changes | `projects/JRC/TMF/v1_2024/AnnualChanges` |
 | Sentinel-2 L2A / Sentinel-1 GRD | `COPERNICUS/S2_SR_HARMONIZED`, `COPERNICUS/S1_GRD` |
 
-## 5. Figures
+## 5. Corrections made after the first draft
+
+| package | what changed | why |
+|---|---|---|
+| P7 item 1 | Section 4.4 said that excluding optically late events *raises* the 2021 gap from 46.5 to 40.6 points. It lowers it. The value 40.6 (`robust_2021_date_upper`, row `no radd_only`) is unchanged; only the direction word was wrong. | 40.6 < 46.5 |
+| P7 item 1 | Discussion sections renumbered: two sections were both numbered 5.4. "Relation to the alert-latency literature" is now 5.5 and "What an annual embedding field is, and is not, for" is now 5.6. No cross-reference in the text pointed at either. | duplicate numbering |
+
+## 6. Figures
 
 | figure | script | inputs |
 |---|---|---|
