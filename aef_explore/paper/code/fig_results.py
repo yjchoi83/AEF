@@ -243,33 +243,36 @@ def f5():
     n = numbers()
     cg = json.load(open("aef_explore/stage5/TB01/P5b/p4b_stats.json"))
     fig, axes = plt.subplots(1, 3, figsize=(W2, W2 * 0.36))
-    fig.subplots_adjust(wspace=0.34, top=0.80, bottom=0.20)
+    fig.subplots_adjust(wspace=0.34, top=0.82, bottom=0.30)
     ax = axes[0]
-    rows = [("BR 2021\nDETER", n["2021_date_upper"]["n"], n["2021_date_upper"]["n_lo"], C["2021"]),
-            ("BR 2020\nDETER", n["2020_date_upper"]["n"], n["2020_date_upper"]["n_lo"], C["2020"]),
-            ("CG 2021 TMF\n2024 dates", 4959, 202, C["congo"]),
-            ("CG 2021 TMF\n2021 dates", cg["n"], cg["n_lo"], C["congo"])]
+    rows = [("BR 2021 DETER", n["2021_date_upper"]["n"], n["2021_date_upper"]["n_lo"], C["2021"]),
+            ("BR 2020 DETER", n["2020_date_upper"]["n"], n["2020_date_upper"]["n_lo"], C["2020"]),
+            ("CG TMF, 2024 dates", 4959, 202, C["congo"]),
+            ("CG TMF, 2021 dates", cg["n"], cg["n_lo"], C["congo"])]
     for i, (lab, tot, lo, col) in enumerate(rows):
         ax.bar(i, 100 * lo / tot, 0.55, color=col, alpha=1.0 if i != 3 else 0.5,
                hatch="" if i != 3 else "///", edgecolor="white")
-        ax.annotate(f"{lo:,}\nof {tot:,}", (i, 100 * lo / tot), textcoords="offset points",
-                    xytext=(0, 3), ha="center", fontsize=6.2, color=INK)
+        ax.annotate(f"{lo:,}/{tot:,}", (i, 100 * lo / tot), textcoords="offset points",
+                    xytext=(0, 3), ha="center", fontsize=5.6, color=INK)
+    ax.set_ylim(0, 5.2)
     ax.set_xticks(range(len(rows)))
-    ax.set_xticklabels([r[0] for r in rows], fontsize=6.0)
-    ax.set_ylabel("share of events with clear_post ≤ 2 (%)")
+    ax.set_xticklabels([r[0] for r in rows], fontsize=5.8, rotation=28, ha="right",
+                       rotation_mode="anchor")
+    ax.set_ylabel("events with clear_post ≤ 2 (%)")
     ax.set_title("how big the low-observation bin is", color=INK, pad=6)
     tidy(ax)
     ax = axes[1]
-    bars = [("dated\n2024 vint.", 100 * cg["coverage_2024_vintage_P4"], C["congo"]),
-            ("dated\n2021 vint.", 100 * cg["coverage_2021_vintage_all"], C["congo"]),
-            ("moved\n> 30 d", 100 * cg["shift_gt30_share"], C["flag"]),
-            ("date\nlost", 100 * cg["lost_share"], C["flag"])]
+    bars = [("dated, 2024 vintage", 100 * cg["coverage_2024_vintage_P4"], C["congo"]),
+            ("dated, 2021 vintage", 100 * cg["coverage_2021_vintage_all"], C["congo"]),
+            ("date moved > 30 d", 100 * cg["shift_gt30_share"], C["flag"]),
+            ("date lost", 100 * cg["lost_share"], C["flag"])]
     for i, (lab, v, col) in enumerate(bars):
         ax.bar(i, v, 0.55, color=col, alpha=0.85)
         ax.annotate(f"{v:.1f}", (i, v), textcoords="offset points", xytext=(0, 3),
                     ha="center", fontsize=6.4, color=INK)
     ax.set_xticks(range(len(bars)))
-    ax.set_xticklabels([b[0] for b in bars], fontsize=6.0)
+    ax.set_xticklabels([b[0] for b in bars], fontsize=5.8, rotation=28, ha="right",
+                       rotation_mode="anchor")
     ax.set_ylabel("% of Congo patches")
     ax.set_title("what the alert vintage decides", color=INK, pad=6)
     tidy(ax)
@@ -285,8 +288,9 @@ def f5():
     ax.axvspan(1.5, 2.5, color="#f2f4f6", zorder=0)
     ax.annotate("Congo:\nno estimate\n(n = %d < 100)" % cg["n_lo"], (2, 25), ha="center",
                 va="center", fontsize=6.4, color=INK2)
-    ax.set_xticks([0, 1, 2]); ax.set_xticklabels(["Brazil\n2021", "Brazil\n2020", "Congo\n2021"],
-                                                 fontsize=6.2)
+    ax.set_xticks([0, 1, 2])
+    ax.set_xticklabels(["Brazil 2021", "Brazil 2020", "Congo 2021"], fontsize=5.8,
+                       rotation=28, ha="right", rotation_mode="anchor")
     ax.set_xlim(-0.6, 2.5)
     ax.set_ylabel("registration gap (pp)")
     ax.set_title("effect size, where estimable", color=INK, pad=6)
