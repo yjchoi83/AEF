@@ -570,6 +570,46 @@
   "author": "Vancutsem, C. and Achard, F. and Pekel, J.-F. and Vieilledent, G. and Carboni, S. and Simonetti, D. and Gallego, J. and Arag\u00e3o, L. E. O. C. and Nasi, R."
  },
  {
+  "cluster": 1,
+  "key": "ma2026harvesting",
+  "doi": "10.1016/j.jag.2026.105258",
+  "role": "how AlphaEarth is currently evaluated: downstream label accuracy",
+  "title": "Harvesting AlphaEarth: Benchmarking the geospatial foundation model for agricultural downstream tasks",
+  "year": "2026",
+  "venue": "International Journal of Applied Earth Observation and Geoinformation",
+  "author": "Ma, Yuchi and Shen, Yawen and Swatantran, Anu and Lobell, David B."
+ },
+ {
+  "cluster": 1,
+  "key": "belyakov2026cloudprior",
+  "doi": "10.1109/ICETIS70504.2026.11633492",
+  "role": "the assumption that AEF embeddings are robust to observational gaps",
+  "title": "Geospatial Priors from Alphaearth Foundations for Cloud-Robust Satellite Image Restoration",
+  "year": "2026",
+  "venue": "2026 11th International Conference on Electronic Technology and Information Science (ICETIS)",
+  "author": "Belyakov, Nikita and Illarionova, Svetlana and Rubin, Ivan and Shadrin, Dmitrii and Burnaev, Evgeny"
+ },
+ {
+  "cluster": 3,
+  "key": "potapov2026operational",
+  "doi": "10.3389/frsen.2026.1818592",
+  "role": "intercomparison of operational disturbance products in Brazil",
+  "title": "Evaluation of operational satellite-based disturbance detection products in Brazilian primary forests for the years 2023 and 2024",
+  "year": "2026",
+  "venue": "Frontiers in Remote Sensing",
+  "author": "Potapov, Peter and Turubanova, Svetlana and Rosa, Marcos and Teixeira, Lana and Shimbo, Julia and Zalles, Viviana and Sims, Michelle J. and Stanimirova, Radost and Lima, Andre and Goldman, Elizabeth and Harris, Nancy and Stolle, Fred"
+ },
+ {
+  "cluster": 2,
+  "key": "rodman2021disturbance",
+  "doi": "10.1016/j.rse.2020.112244",
+  "role": "what governs detectability in a time series: agent and severity, not history",
+  "title": "Disturbance detection in landsat time series is influenced by tree mortality agent and severity, not by prior disturbance",
+  "year": "2021",
+  "venue": "Remote Sensing of Environment",
+  "author": "Rodman, Kyle C. and Andrus, Robert A. and Veblen, Thomas T. and Hart, Sarah J."
+ },
+ {
   "cluster": 12,
   "key": "carroll2006measurement",
   "doi": "10.1201/9781420010138",

@@ -70,6 +70,10 @@ ENTRIES = [
  (10, "picoli2018bigearth", "10.1016/J.ISPRSJPRS.2018.08.007", "Brazilian time-series monitoring"),
  (10, "lima2019quality", "10.1016/J.ISPRSJPRS.2021.04.014", "class noise in image time series"),
  (11, "vancutsem2021tmf", "10.1126/sciadv.abe1603", "the Congo event set"),
+ (1, "wang2026harvesting", "10.1016/j.jag.2026.105258", "how AlphaEarth is currently evaluated: downstream label accuracy"),
+ (1, "anon2026cloudprior", "10.1109/ICETIS70504.2026.11633492", "the assumption that AEF embeddings are robust to observational gaps"),
+ (3, "chen2026operational", "10.3389/frsen.2026.1818592", "intercomparison of operational disturbance products in Brazil"),
+ (2, "cohen2021disturbance", "10.1016/j.rse.2020.112244", "what governs detectability in a time series: agent and severity, not history"),
  (12, "carroll2006measurement", "10.1201/9781420010138", "attenuation from covariate error"),
 ]
 

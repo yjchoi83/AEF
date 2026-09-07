@@ -1,12 +1,12 @@
 # Literature map — every reference, its cluster and the job it does
 
-**58 references**, all resolved by DOI content negotiation from doi.org (Crossref / DataCite); `references.bib` holds the registered metadata verbatim. Candidates were found with the Semantic Scholar Graph API (cached under `cache/`, one request per second); the curation — which candidate answers which part of the argument — is in the `ENTRIES` table of `code/bib_build.py`.
+**62 references**, all resolved by DOI content negotiation from doi.org (Crossref / DataCite); `references.bib` holds the registered metadata verbatim. Candidates were found with the Semantic Scholar Graph API (cached under `cache/`, one request per second); the curation — which candidate answers which part of the argument — is in the `ENTRIES` table of `code/bib_build.py`.
 
 ## Venue distribution
 
 | venue | n | target |
 |---|---|---|
-| Remote Sensing of Environment | 11 | ≥ 8 ✔ |
+| Remote Sensing of Environment | 12 | ≥ 8 ✔ |
 | IEEE Transactions on Geoscience and Remote Sensing | 8 | ≥ 6 ✔ |
 | ISPRS Journal of Photogrammetry and Remote Sensing | 6 | ≥ 5 ✔ |
 | IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing | 5 | ≥ 4 ✔ |
@@ -14,6 +14,7 @@
 | Environmental Research Letters | 3 | — |
 | Science | 2 | — |
 | Remote Sensing | 2 | — |
+| International Journal of Applied Earth Observation and Geoinformation | 2 | — |
 | Science Advances | 2 | — |
 | Nature Communications | 2 | — |
 | IEEE Transactions on Pattern Analysis and Machine Intelligence | 1 | — |
@@ -22,12 +23,13 @@
 | ISPRS International Journal of Geo-Information | 1 | — |
 | International Journal of Digital Earth | 1 | — |
 | Remote Sensing Applications: Society and Environment | 1 | — |
-| International Journal of Applied Earth Observation and Geoinformation | 1 | — |
 | Annual Review of Environment and Resources | 1 | — |
 | Ecography | 1 | — |
 | Methods in Ecology and Evolution | 1 | — |
 | 2018 25th IEEE International Conference on Image Processing (ICIP) | 1 | — |
 | Scientific Reports | 1 | — |
+| 2026 11th International Conference on Electronic Technology and Information Science (ICETIS) | 1 | — |
+| Frontiers in Remote Sensing | 1 | — |
 | Chapman and Hall/CRC | 1 | — |
 
 MDPI titles: **3** (ceiling 5) ✔
@@ -48,6 +50,8 @@ MDPI titles: **3** (ceiling 5) ✔
 | `hong2024spectralgpt` — Hong et al. | IEEE Transactions on Pattern Analysis and Machine Intelligence, 2024 | spectral foundation model |
 | `brown2025alphaearth` — Brown et al. | arXiv, 2025 | the embedding product under test |
 | `szwarcman2026prithvi2` — Szwarcman et al. | IEEE Transactions on Geoscience and Remote Sensing, 2026 | multitemporal FM successor |
+| `ma2026harvesting` — Ma et al. | International Journal of Applied Earth Observation and Geoinformation, 2026 | how AlphaEarth is currently evaluated: downstream label accuracy |
+| `belyakov2026cloudprior` — Belyakov et al. | 2026 11th International Conference on Electronic Technology and Information Science (ICETIS), 2026 | the assumption that AEF embeddings are robust to observational gaps |
 
 ### 2. Temporal semantics of annual composites and products
 
@@ -61,6 +65,7 @@ MDPI titles: **3** (ceiling 5) ✔
 | `zhu2014ccdc` — Zhu et al. | Remote Sensing of Environment, 2014 | continuous change detection |
 | `zhu2020cold` — Zhu et al. | Remote Sensing of Environment, 2020 | continuous land-disturbance monitoring |
 | `zhang2020thirtym` — Zhang et al. | ISPRS Journal of Photogrammetry and Remote Sensing, 2020 | annual land-surface change detection |
+| `rodman2021disturbance` — Rodman et al. | Remote Sensing of Environment, 2021 | what governs detectability in a time series: agent and severity, not history |
 | `brown2022dynamicworld` — Brown et al. | Scientific Data, 2022 | near-real-time land cover |
 | `bogaert2022hmm` — Bogaert et al. | IEEE Transactions on Geoscience and Remote Sensing, 2022 | temporal consistency of annual maps |
 
@@ -79,6 +84,7 @@ MDPI titles: **3** (ceiling 5) ✔
 | `doblas2022deterr` — Doblas et al. | Remote Sensing, 2022 | radar-based operational alerts |
 | `bullock2022timeliness` — Bullock et al. | Remote Sensing of Environment, 2022 | timeliness assessment framework |
 | `reiche2024integrating` — Reiche et al. | Environmental Research Letters, 2024 | alert integration and timeliness |
+| `potapov2026operational` — Potapov et al. | Frontiers in Remote Sensing, 2026 | intercomparison of operational disturbance products in Brazil |
 
 ### 4. Cloud cover and optical observation supply in the tropics
 
@@ -176,3 +182,63 @@ MDPI titles: **3** (ceiling 5) ✔
 |---|---|---|
 | `carroll2006measurement` — Carroll et al. | Chapman and Hall/CRC, 2006 | attenuation from covariate error |
 
+
+## Novelty pass
+
+Eight targeted searches were run against the Semantic Scholar Graph API on the four questions
+the brief specifies — annual-embedding temporal fidelity, AlphaEarth change detection, the
+optical-versus-SAR contribution inside a learned representation, and deforestation year
+attribution — plus four adjacent formulations (cloud effects on annual composites, `lossyear`
+timing accuracy, observation density as a predictor of omission, and operational product
+intercomparison). Queries are in `code/queries/novelty.json`; every response is cached under
+`cache/`.
+
+**Nothing found measures the temporal fidelity of an annual embedding field.** The closest work
+falls into four groups, and each is adjacent rather than overlapping.
+
+*AlphaEarth applications and benchmarks.* A rapidly growing set of papers applies the published
+embeddings to a downstream task — agricultural monitoring (`ma2026harvesting`, now cited),
+biomass, air quality, slum mapping, mangrove classification, tea plantations, wildfire
+susceptibility. Every one of them scores label accuracy on a task; none asks which events enter
+which year's vector. `ma2026harvesting` is the most systematic and is explicit that the
+existing evaluation record is "mostly about land cover and land use classification", which is
+precisely the gap we occupy. **No overlap; cited as evidence for the gap.**
+
+*Embeddings used as cloud-robust priors.* One conference paper conditions an image-restoration
+model on AlphaEarth embeddings on the stated grounds that they are "robust to temporary
+observational gaps such as cloud cover" (`belyakov2026cloudprior`, now cited). This is the only
+result found that makes a claim in the neighbourhood of ours, and it points the other way. The
+tension is resolvable and we resolve it in Section 1.3: a year-long embedding is a stable
+descriptor of a *place*, which is why it helps restore a cloudy image, and that is compatible
+with it being a poor descriptor of *when* a change happened. **Partial overlap in subject,
+opposite in direction; engaged explicitly in the manuscript.**
+
+*Operational product intercomparison.* An evaluation of MapBiomas Alerta, Tree Cover Loss and
+TMF in Brazilian primary forests for 2023–2024 (`potapov2026operational`, now cited) compares
+disturbance products against one another. It shares our concern with what operational products
+record, but compares alert and annual products among themselves rather than auditing a
+general-purpose representation, and it does not model observation supply. **No overlap; cited
+in the discussion as the natural companion to our two-tier guidance.**
+
+*What governs detectability in a time series.* Work on Landsat time series shows detection
+accuracy depends on mortality agent and disturbance severity rather than on prior disturbance
+history (`rodman2021disturbance`, now cited). Methodologically this is the same shape of
+question as ours — what property of the event, rather than of the algorithm, governs whether it
+is detected — applied to a different product and a different candidate explanation. **No
+overlap; cited where we test the rival "harder events" explanation.**
+
+*Year attribution.* Searches on loss-year misattribution returned nothing measuring the
+timing accuracy of an annual product against independently dated events. The nearest is older
+work on how the choice of imagery affects attribution of change to disturbance type, which
+concerns *what* a change is attributed to rather than *when*. **No overlap.**
+
+*Optical versus SAR inside a representation.* This search returned essentially nothing: the
+literature compares optical and SAR *detectors* (cluster 5) but does not ask what each
+contributes to a fused learned representation's ability to record an event. **No overlap, and
+we regard this as the least contested of our contributions.**
+
+**Assessment.** The four searches the brief names return no prior measurement of what we
+measure. The one paper that touches the same product and the same mechanism assumes the
+property we test and finds it useful for a different purpose; we now cite it and address the
+apparent conflict directly rather than leaving a reviewer to raise it. Four references were
+added to the bibliography as a result of this pass, bringing it to 62.

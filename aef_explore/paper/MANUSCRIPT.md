@@ -119,7 +119,15 @@ No published work measures the temporal fidelity of an annual embedding field: w
 enter the right year's vector, which are deferred, and what predicts the difference. The
 benchmarks that accompany foundation models score label accuracy on downstream tasks and treat
 the temporal dimension as a modelling input rather than as a property to be validated
-[@marsocci2024pangaea]. The change-detection literature that works with learned
+[@marsocci2024pangaea; @ma2026harvesting]. Where the temporal behaviour of an embedding is
+invoked at all, it tends to be as an assumption in its favour: embeddings built from a full
+year of fused observation are described as robust to temporary gaps such as cloud, and are used
+as priors for exactly that reason [@belyakov2026cloudprior]. Our results qualify that
+assumption rather than contradict it — a year-long embedding is indeed a stable descriptor of a
+place, which is why it survives cloud; what does not survive is the timing of a change that
+arrives near the end of the year.
+
+The change-detection literature that works with learned
 representations trains detectors on bitemporal pairs or on curated time series [@saha2019dcva;
 @daudt2018siamese; @chen2022bit; @chen2021dasnet; @chen2024changemamba; @li2023sartscc;
 @lin2024transformermad; @tian2022largescale], and the self-supervised branch pretrains on
@@ -633,7 +641,9 @@ first registration. That costs temporal precision and buys almost all of the acc
 reducing misattribution from 3.48 % to 0.12 %. For applications with a hard annual boundary —
 a regulatory cut-off, an inventory period — the honest statement is that a differenced annual
 embedding is not on its own an adequate instrument, and should be paired with an alert product
-whose latency is measured [@bullock2022timeliness; @reiche2024integrating].
+whose latency is measured [@bullock2022timeliness; @reiche2024integrating]. Intercomparisons of
+the operational products available in Brazil provide a starting point for that pairing
+[@potapov2026operational].
 
 ### 5.2 Expected-supply maps as a planning instrument
 
@@ -716,6 +726,8 @@ One further reading of the results deserves stating, because it is the one a sce
 should test first. Everything reported here is consistent with a much duller alternative: that
 the low-observation events are simply harder events — smaller, more partial, more ambiguous —
 and that observation count is a proxy for difficulty rather than a cause of non-registration.
+It is the same class of question as asking whether a time-series detector's accuracy depends on
+the disturbance agent and its severity rather than on the site's history [@rodman2021disturbance].
 Three findings weigh against that reading. The gap grows rather than shrinks with polygon size
 (Section 4.1); it survives excluding the optically late events that are the most plausible
 carriers of ambiguity, and the conditional coefficient triples when they are excluded

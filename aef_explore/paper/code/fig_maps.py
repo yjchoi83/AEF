@@ -133,7 +133,7 @@ def plate(tag, cfg):
               ("b", reg, f"registered (change > τ = {cfg['tau']:.2f}°)"),
               ("c", dfr, "registers in 2022 (unregistered in 2021)")]
     for i, (t, arr, title) in enumerate(panels):
-        ax = fig.add_axes([0.045 + i * 0.322, 0.10, 0.295, 0.80])
+        ax = fig.add_axes([0.045 + i * 0.288, 0.10, 0.268, 0.80])
         if t == "a":
             im = ax.imshow(arr, extent=ext, cmap=ANG, vmin=0, vmax=30,
                            interpolation="nearest", zorder=1)
@@ -154,7 +154,7 @@ def plate(tag, cfg):
             cb.ax.tick_params(labelsize=6, length=1.5)
             cb.outline.set_visible(False)
         ax.set_xlim(ext[0], ext[1]); ax.set_ylim(ext[2], ext[3])
-    locator(fig, [0.905, 0.615, 0.070, 0.30], cfg["inset"], ext, segs)
+    locator(fig, [0.898, 0.345, 0.085, 0.31], cfg["inset"], ext, segs)
     fig.text(0.045, 0.965, f"{tag}  {cfg['label']}   {ext[0]:.2f}–{ext[1]:.2f}°E, "
              f"{ext[2]:.2f}–{ext[3]:.2f}°N   (100 m)", fontsize=8, color=INK)
     save(fig, f"{tag}_{key}.png")
