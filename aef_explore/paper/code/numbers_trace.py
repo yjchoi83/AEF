@@ -160,6 +160,15 @@ def main():
           "(2021), and 0.620 on 389 with 0.500 on 50 gives 0.606 on 439 (2020). Bins are now "
           "written in interval notation in the text, the figure and Table S2. | ambiguous "
           "wording |",
+          "| P8 | Figure polish only; no analysis value changed. Panel letters, titles, "
+          "annotations, colour keys and month labels were repositioned or reworded across all "
+          "eleven figures, and `figstyle.check()` now enforces the submission specification at "
+          "save time (column width, 300 dpi, no type under 7 pt, nothing outside the canvas). "
+          "Raising every annotation to the 7 pt floor forced layout changes but left the "
+          "plotted values untouched. Section 4.2's sentence 'the relationship is negative in "
+          "both years' was corrected: 2021 declines monotonically, 2020 peaks in the second "
+          "quartile at 0.718, and both share the densest quartile registering lowest "
+          "(0.422 and 0.537). `FIGURE_LIST.md` records the check. | figure legibility |",
           "| P7 item 5 | New Fig. 1 (study area); every other figure renumbered up by one, "
           "so the registration curve is now Fig. 2 and the deferral-risk map Fig. 9. Map "
           "plates M1 and M2 keep their labels. No number changed. | figure added |",

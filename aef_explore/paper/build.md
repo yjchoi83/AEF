@@ -79,12 +79,21 @@ Elsevier titles ask for; switch `linestretch` to 2 if the editor insists.
 
 Figures are already at submission specification and need no conversion: 300 dpi, 90 mm
 (single column) or 190 mm (double column), all type at 7 pt or larger, maps carrying a
-graticule, scale bar, north arrow and locator inset. To regenerate them from source:
+graticule, scale bar, north arrow and locator inset. `figstyle.check()` enforces all of that
+at save time — it refuses to write a figure whose canvas is not a column width, whose dpi is
+wrong, which contains type under 7 pt, or whose content extends past the canvas — and
+`code/figure_list.py` re-checks the written files and regenerates `FIGURE_LIST.md`.
+
+Note that figures are saved at exactly the canvas size, **not** with a tight bounding box. A
+tight box crops the canvas, so the file would be narrower than the column it was drawn for and
+the journal would scale it back up, changing every printed type size. To regenerate them from
+source:
 
     OMP_NUM_THREADS=1 PYTHONPATH=code python code/fig_study_area.py   # Fig. 1
     OMP_NUM_THREADS=1 PYTHONPATH=code python code/fig_results.py f1 f2 f3 f4 f5 f7 f8
     OMP_NUM_THREADS=1 PYTHONPATH=code python code/fig_maps.py         # M1, M2
     OMP_NUM_THREADS=1 PYTHONPATH=code python code/fig_offset.py       # Fig. 7, needs Earth Engine
+    python code/figure_list.py                                        # re-check, rewrite FIGURE_LIST.md
 
 The function names inside `fig_results.py` (`f1` … `f8`) predate the renumbering and refer to
 the figure's subject, not its number; each writes the correctly numbered file.

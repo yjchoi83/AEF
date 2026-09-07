@@ -34,8 +34,8 @@ def _bin_ci(d, cp, reg, nboot=400):
 
 # ------------------------------------------------------------------ F1
 def f1():
-    fig, axes = plt.subplots(1, 2, figsize=(W2, W2 * 0.37))
-    fig.subplots_adjust(wspace=0.20, top=0.86)
+    fig, axes = plt.subplots(1, 2, figsize=(W2, W2 * 0.42))
+    fig.subplots_adjust(left=0.075, right=0.985, wspace=0.20, top=0.84, bottom=0.19)
     x = np.arange(len(LBL))
     for ax, (year, path, extra) in zip(axes, (("2021", P2, None),
                                               ("2020", P2B, pd.read_csv(S1_2020)))):
@@ -55,9 +55,9 @@ def f1():
             ax.plot([x[0]], [p[0]], marker="s", ms=4.2, mfc=mfc, mec=C[year], mew=1.0,
                     ls="none", zorder=5)
             ax.annotate(f"n = {n[0]}", (x[0], p[0]), textcoords="offset points",
-                        xytext=(7, -1.5), fontsize=6, color=INK2, va="center")
+                        xytext=(7, -1.5), fontsize=7.0, color=INK2, va="center")
         ax.axhline(0.95, color=C["flag"], lw=0.7, ls=":", zorder=2)
-        ax.annotate("H3 floor 0.95", (1.05, 0.958), ha="left", va="bottom", fontsize=6.2,
+        ax.annotate("H3 floor 0.95", (1.05, 0.958), ha="left", va="bottom", fontsize=7.0,
                     color=C["flag"])
         ax.axvspan(-0.55, 0.5, color="#f4f5f7", zorder=0)
         ax.set_xticks(x); ax.set_xticklabels(LBL)
@@ -70,7 +70,7 @@ def f1():
     axes[0].set_ylabel("P(registered)")
     for ax in axes:
         ax.annotate("exactly\nzero", (0.0, 1.005), xycoords=("data", "axes fraction"),
-                    ha="center", va="bottom", fontsize=6.2, color=INK2)
+                    ha="center", va="bottom", fontsize=7.0, color=INK2)
     # the panel letters sit in the left margin, clear of the "exactly zero" label that
     # annotates the shaded stratum at x = 0
     panel_tag(axes[0], "(a)", dx=-0.135, dy=1.20)
@@ -82,7 +82,7 @@ def f1():
 def f2():
     n = numbers()
     fig, axes = plt.subplots(1, 2, figsize=(W2, W2 * 0.36))
-    fig.subplots_adjust(wspace=0.26, top=0.84)
+    fig.subplots_adjust(left=0.075, right=0.985, wspace=0.26, top=0.84, bottom=0.20)
     ax = axes[0]
     xs, w = np.arange(2), 0.34
     for k, (year, key) in enumerate((("2021", "2021_date_upper"), ("2020", "2020_date_upper"))):
@@ -97,9 +97,9 @@ def f2():
                         color=INK, lw=0.8, capsize=1.8)
             ax.annotate(f"n = {h['n_lo' if j == 0 else 'n_hi']}",
                         (k + (j - 0.5) * w, v["hi"]), textcoords="offset points",
-                        xytext=(0, 3), ha="center", fontsize=6, color=INK2)
+                        xytext=(0, 3), ha="center", fontsize=7.0, color=INK2)
     ax.axhline(0.80, color=C["flag"], lw=0.8, ls=":")
-    ax.annotate("H7(b)′ bar 0.80", (1.47, 0.812), ha="right", va="bottom", fontsize=6.2,
+    ax.annotate("H7(b)′ bar 0.80", (1.47, 0.812), ha="right", va="bottom", fontsize=7.0,
                 color=C["flag"])
     ax.set_xticks(xs); ax.set_xticklabels(["2021", "2020"])
     ax.set_xlim(-0.55, 1.62)
@@ -116,7 +116,7 @@ def f2():
                     color=C[year], label=f"{year}  (n = {sum(r['n'] for r in q)})")
             for r in q:
                 ax.annotate(f"{r['n']}", (r["q"] + 1, r["reg"]), textcoords="offset points",
-                            xytext=(0, 4), ha="center", fontsize=6, color=INK2)
+                            xytext=(0, 4), ha="center", fontsize=7.0, color=INK2)
     ax.set_xticks([1, 2, 3, 4])
     ax.set_xticklabels(["Q1\nsparsest", "Q2", "Q3", "Q4\ndensest"])
     ax.set_ylabel("P(registered), clear_post ≤ 2")
@@ -131,7 +131,8 @@ def f2():
 # ------------------------------------------------------------------ F3
 def f3():
     n = numbers()
-    fig, ax = plt.subplots(figsize=(W1, W1 * 0.78))
+    fig, ax = plt.subplots(figsize=(W1, W1 * 0.80))
+    fig.subplots_adjust(left=0.34, right=0.855, top=0.86, bottom=0.20)
     h21, h20 = n["h4"]["share"], n["h4_2020"]["share"]
     vals = [("2020 → 2021", h20["point"], h20["lo"], h20["hi"], C["2020"], n["h4_2020"]["n"]),
             ("2021 → 2022", h21["point"], h21["lo"], h21["hi"], C["2021"], n["h4"]["n"])]
@@ -140,7 +141,7 @@ def f3():
         ax.errorbar(v, i, xerr=[[v - lo], [hi - v]], color=INK, lw=0.8, capsize=1.8)
         ax.annotate(f"{v * 100:.1f}%  [{lo * 100:.1f}, {hi * 100:.1f}]", (v, i),
                     textcoords="offset points", xytext=(-4, 0), ha="right", va="center",
-                    fontsize=6.6, color="white")
+                    fontsize=7.0, color="white")
     ax.set_yticks(range(len(vals)))
     ax.set_yticklabels([f"{v[0]}\n(n = {v[5]:,})" for v in vals])
     ax.set_xlim(0, 1.0)
@@ -175,11 +176,12 @@ def f4():
                    label=lab if k == 0 else None)
             ax.annotate(f"{v[key]:.3f}", (k + (j - 0.5) * w, v[key]),
                         textcoords="offset points", xytext=(0, 2), ha="center",
-                        fontsize=6, color=INK)
+                        fontsize=7.0, color=INK)
     ax.set_xticks([0, 1]); ax.set_xticklabels(["2021", "2020"])
-    ax.set_ylim(0, 1.12); ax.set_ylabel("P(registered)")
+    ax.set_ylim(0, 1.42); ax.set_ylabel("P(registered)")
+    ax.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
     ax.set_title("registration rate", color=INK, pad=5)
-    ax.legend(frameon=False, loc="lower center", ncol=1, handlelength=1.3, fontsize=6.2)
+    ax.legend(frameon=False, loc="upper center", ncol=1, handlelength=1.3, fontsize=7.0)
     tidy(ax)
 
     ax = axes[1]
@@ -197,14 +199,14 @@ def f4():
                 xytext=(2, 0), textcoords="offset points")
     ax.axvline(6.1, color="#dfe4e8", lw=0.6)
     ax.annotate("mapped\nin year\n(2021 solid,\n2020 dashed)", (6.35, top * 0.99),
-                ha="left", va="top", fontsize=5.8, color=C["2021"])
+                ha="left", va="top", fontsize=7.0, color=C["2021"])
     ax.annotate("mapped\na year late", (6.35, top * 0.60), ha="left", va="top",
-                fontsize=5.8, color=C["alt"])
+                fontsize=7.0, color=C["alt"])
     for year, y in (("2021", 0.40), ("2020", 0.22)):
         v = st[year]
         ax.annotate(f"{year} median\n{v['intensity_q']['mapped'][1]:.2f} vs "
                     f"{v['intensity_q']['late'][1]:.2f} τ", (6.35, top * y), ha="left",
-                    va="top", fontsize=5.8, color=C[year])
+                    va="top", fontsize=7.0, color=C[year])
     ax.set_xticks([0, 2, 4, 6])
     ax.set_xlabel("interior angular change ÷ τ")
     ax.set_ylabel("density")
@@ -225,12 +227,13 @@ def f4():
                         color=INK, lw=0.8, capsize=1.6)
             ax.annotate(f"{b['point']:.1f}", (k + (j - 0.5) * w, b["hi"]),
                         textcoords="offset points", xytext=(0, 2), ha="center",
-                        fontsize=6, color=INK)
+                        fontsize=7.0, color=INK)
     ax.set_xticks([0, 1]); ax.set_xticklabels(["2021", "2020"])
     ax.set_ylabel("registration deficit (pp)")
-    ax.set_ylim(0, 34)
+    ax.set_ylim(0, 46)
+    ax.set_yticks([0, 5, 10, 15, 20, 25, 30])
     ax.set_title("deficit, before and after adjustment", color=INK, pad=5)
-    ax.legend(frameon=False, loc="upper center", fontsize=6.0, handlelength=1.3, ncol=1)
+    ax.legend(frameon=False, loc="upper center", fontsize=7.0, handlelength=1.3, ncol=1)
     tidy(ax)
 
     for a, t in zip(axes, ("(a)", "(b)", "(c)")):
@@ -252,11 +255,12 @@ def f5():
     for i, (lab, tot, lo, col) in enumerate(rows):
         ax.bar(i, 100 * lo / tot, 0.55, color=col, alpha=1.0 if i != 3 else 0.5,
                hatch="" if i != 3 else "///", edgecolor="white")
+        # the two Brazilian bars are near-equal, so their counts are staggered vertically
         ax.annotate(f"{lo:,}/{tot:,}", (i, 100 * lo / tot), textcoords="offset points",
-                    xytext=(0, 3), ha="center", fontsize=5.6, color=INK)
+                    xytext=(0, 15 if i == 1 else 4), ha="center", fontsize=7.0, color=INK)
     ax.set_ylim(0, 5.2)
     ax.set_xticks(range(len(rows)))
-    ax.set_xticklabels([r[0] for r in rows], fontsize=5.8, rotation=28, ha="right",
+    ax.set_xticklabels([r[0] for r in rows], fontsize=7.0, rotation=28, ha="right",
                        rotation_mode="anchor")
     ax.set_ylabel("events with clear_post ≤ 2 (%)")
     ax.set_title("how big the low-observation bin is", color=INK, pad=6)
@@ -269,9 +273,9 @@ def f5():
     for i, (lab, v, col) in enumerate(bars):
         ax.bar(i, v, 0.55, color=col, alpha=0.85)
         ax.annotate(f"{v:.1f}", (i, v), textcoords="offset points", xytext=(0, 3),
-                    ha="center", fontsize=6.4, color=INK)
+                    ha="center", fontsize=7.0, color=INK)
     ax.set_xticks(range(len(bars)))
-    ax.set_xticklabels([b[0] for b in bars], fontsize=5.8, rotation=28, ha="right",
+    ax.set_xticklabels([b[0] for b in bars], fontsize=7.0, rotation=28, ha="right",
                        rotation_mode="anchor")
     ax.set_ylabel("% of Congo patches")
     ax.set_title("what the alert vintage decides", color=INK, pad=6)
@@ -284,12 +288,12 @@ def f5():
         ax.errorbar(i, g["point"], yerr=[[g["point"] - g["lo"]], [g["hi"] - g["point"]]],
                     color=INK, lw=0.8, capsize=1.8)
         ax.annotate(f"{g['point']:.1f}", (i, g["hi"]), textcoords="offset points",
-                    xytext=(0, 3), ha="center", fontsize=6.4, color=INK)
+                    xytext=(0, 3), ha="center", fontsize=7.0, color=INK)
     ax.axvspan(1.5, 2.5, color="#f2f4f6", zorder=0)
     ax.annotate("Congo:\nno estimate\n(n = %d < 100)" % cg["n_lo"], (2, 25), ha="center",
-                va="center", fontsize=6.4, color=INK2)
+                va="center", fontsize=7.0, color=INK2)
     ax.set_xticks([0, 1, 2])
-    ax.set_xticklabels(["Brazil 2021", "Brazil 2020", "Congo 2021"], fontsize=5.8,
+    ax.set_xticklabels(["Brazil 2021", "Brazil 2020", "Congo 2021"], fontsize=7.0,
                        rotation=28, ha="right", rotation_mode="anchor")
     ax.set_xlim(-0.6, 2.5)
     ax.set_ylabel("registration gap (pp)")
@@ -336,7 +340,7 @@ def f7():
     BLUE = LinearSegmentedColormap.from_list("b", SEQ_BLUE)
     fig = plt.figure(figsize=(W2, W2 * 0.42))
     gs = fig.add_gridspec(2, 13, width_ratios=[1] * 12 + [0.10], hspace=0.12,
-                          wspace=0.06, left=0.055, right=0.965, top=0.90, bottom=0.30)
+                          wspace=0.06, left=0.055, right=0.94, top=0.90, bottom=0.30)
     for r, key in enumerate(("ParaBR163", "Roraima_S")):
         for m in range(12):
             ax = fig.add_subplot(gs[r, m])
@@ -345,13 +349,13 @@ def f7():
             for s in ax.spines.values():
                 s.set_color("#cdd3d9"); s.set_linewidth(0.4)
             if r == 0:
-                ax.set_title(MON[m], fontsize=6.2, color=INK2, pad=1.5)
+                ax.set_title(MON[m], fontsize=7.0, color=INK2, pad=1.5)
             if m == 0:
-                ax.set_ylabel(NAMES[key], fontsize=6.5, color=INK)
+                ax.set_ylabel(NAMES[key], fontsize=7.0, color=INK)
     cax = fig.add_subplot(gs[:, 12])
     cb = fig.colorbar(im, cax=cax)
-    cb.set_label("clear observations in month", fontsize=6.5, color=INK2)
-    cb.ax.tick_params(labelsize=6, length=1.5)
+    cb.set_label("clear observations in month", fontsize=7.0, color=INK2)
+    cb.ax.tick_params(labelsize=7.0, length=1.5)
     cb.outline.set_visible(False)
     ax = fig.add_axes([0.055, 0.08, 0.845, 0.17])
     for key in ("ParaBR163", "Roraima_S"):
@@ -359,9 +363,9 @@ def f7():
         ax.plot(range(1, 13), mu, marker="o", ms=2.6,
                 color=C["2021"] if key == "ParaBR163" else C["2020"], label=NAMES[key])
     ax.set_xticks(range(1, 13))
-    ax.set_xticklabels(MON, fontsize=6.5)
-    ax.set_ylabel("region mean", fontsize=6.5)
-    ax.legend(frameon=False, loc="upper left", fontsize=6.4, ncol=2, handlelength=1.4)
+    ax.set_xticklabels(MON, fontsize=7.0)
+    ax.set_ylabel("region mean", fontsize=7.0)
+    ax.legend(frameon=False, loc="upper left", fontsize=7.0, ncol=2, handlelength=1.4)
     tidy(ax)
     save(fig, "F8_observation_supply.png")
 
@@ -372,7 +376,7 @@ def f8():
     RED = LinearSegmentedColormap.from_list("r", SEQ_RED)
     fig = plt.figure(figsize=(W2, W2 * 0.42))
     gs = fig.add_gridspec(2, 5, width_ratios=[1, 1, 1, 1, 0.09], hspace=0.10,
-                          wspace=0.06, left=0.075, right=0.955, top=0.90, bottom=0.32)
+                          wspace=0.06, left=0.075, right=0.925, top=0.90, bottom=0.32)
     cols = [2, 5, 8, 11]
     for r, key in enumerate(("ParaBR163", "Roraima_S")):
         e = np.stack([0.5 * sup[key][m] + sup[key][m + 1:].sum(axis=0) for m in range(12)])
@@ -384,17 +388,17 @@ def f8():
             for s in ax.spines.values():
                 s.set_color("#cdd3d9"); s.set_linewidth(0.4)
             if r == 0:
-                ax.set_title(f"event in {['Mar','Jun','Sep','Dec'][c]}", fontsize=6.8,
+                ax.set_title(f"event in {['Mar','Jun','Sep','Dec'][c]}", fontsize=7.0,
                              color=INK2, pad=2)
             if c == 0:
-                ax.set_ylabel(NAMES[key], fontsize=6.5, color=INK)
+                ax.set_ylabel(NAMES[key], fontsize=7.0, color=INK)
         if r == 0:
             store = {}
         store[key] = risk
     cax = fig.add_subplot(gs[:, 4])
     cb = fig.colorbar(im, cax=cax)
-    cb.set_label("P(not registered in the event year)", fontsize=6.5, color=INK2)
-    cb.ax.tick_params(labelsize=6, length=1.5)
+    cb.set_label("P(not registered in the event year)", fontsize=7.0, color=INK2)
+    cb.ax.tick_params(labelsize=7.0, length=1.5)
     cb.outline.set_visible(False)
     ax = fig.add_axes([0.075, 0.08, 0.80, 0.19])
     for key in ("ParaBR163", "Roraima_S"):
@@ -402,11 +406,11 @@ def f8():
         ax.plot(range(1, 13), mu, marker="o", ms=2.6,
                 color=C["2021"] if key == "ParaBR163" else C["2020"], label=NAMES[key])
         ax.annotate(f"{mu[-1]:.2f}", (12, mu[-1]), textcoords="offset points",
-                    xytext=(-3, 3), ha="right", fontsize=6.2, color=INK)
+                    xytext=(-3, 3), ha="right", fontsize=7.0, color=INK)
     ax.set_xticks(range(1, 13))
-    ax.set_xticklabels(MON, fontsize=6.5)
-    ax.set_ylabel("mean risk", fontsize=6.5)
-    ax.legend(frameon=False, loc="upper left", fontsize=6.4, ncol=2, handlelength=1.4)
+    ax.set_xticklabels(MON, fontsize=7.0)
+    ax.set_ylabel("mean risk", fontsize=7.0)
+    ax.legend(frameon=False, loc="upper left", fontsize=7.0, ncol=2, handlelength=1.4)
     tidy(ax)
     save(fig, "F9_deferral_risk.png")
 

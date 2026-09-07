@@ -97,8 +97,8 @@ def main():
     sus = off[off.offset_suspect == 1].sort_values("ring_50_150m_ang_deg", ascending=False).head(2)
     cln = off[(off.offset_suspect == 0)].sort_values("interior_ang_deg").head(2)
     sel = pd.concat([sus, cln])
-    fig, axes = plt.subplots(3, 4, figsize=(W2, W2 * 0.80))
-    fig.subplots_adjust(wspace=0.06, hspace=0.10, left=0.055, right=0.925, top=0.90,
+    fig, axes = plt.subplots(3, 4, figsize=(W2, W2 * 0.84))
+    fig.subplots_adjust(wspace=0.08, hspace=0.10, left=0.055, right=0.925, top=0.865,
                         bottom=0.03)
     for j, row in enumerate(sel.itertuples()):
         geom = polygon(row)
@@ -134,21 +134,22 @@ def main():
             for s in ax.spines.values():
                 s.set_color("#cdd3d9"); s.set_linewidth(0.4)
             if j == 0:
-                ax.set_ylabel(lab, fontsize=6.6, color=INK2)
+                ax.set_ylabel(lab, fontsize=7.0, color=INK2)
             if i == 0:
                 flag = "OFFSET-SUSPECT" if row.offset_suspect else "not flagged"
                 ax.set_title(f"{row.event_id} · {row.state} · {row.area_ha:.0f} ha\n"
-                             f"interior {row.interior_ang_deg:.1f}° · ring "
-                             f"{row.ring_50_150m_ang_deg:.1f}° · τ {row.tau_p90:.1f}°\n{flag}",
-                             fontsize=6.2,
+                             f"interior {row.interior_ang_deg:.1f}°, "
+                             f"ring {row.ring_50_150m_ang_deg:.1f}°\n"
+                             f"τ {row.tau_p90:.1f}° · {flag}",
+                             fontsize=7.0, linespacing=1.35,
                              color=C["flag"] if row.offset_suspect else INK2, pad=3)
     # colour key for the angular-change row only; the two Sentinel-2 rows are true colour
     row3 = axes[2][3].get_position()
     cax = fig.add_axes([0.935, row3.y0, 0.012, row3.height])
     sm = plt.cm.ScalarMappable(cmap=ANG, norm=plt.Normalize(0, ANG_MAX))
     cb = fig.colorbar(sm, cax=cax)
-    cb.set_label("2019→2020 angular change (°)", fontsize=6.4, color=INK2, labelpad=2)
-    cb.ax.tick_params(labelsize=6, length=1.5)
+    cb.set_label("2019→2020 angular change (°)", fontsize=7.0, color=INK2, labelpad=2)
+    cb.ax.tick_params(labelsize=7.0, length=1.5)
     cb.outline.set_visible(False)
     fig.text(0.055, 0.965, "Polygon interior (solid) and 50–150 m ring (dotted)", fontsize=7.5,
              color=INK)

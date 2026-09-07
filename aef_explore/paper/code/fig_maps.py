@@ -77,7 +77,7 @@ def scalebar(ax, ext, km=None, xfrac=0.06):
     ax.add_patch(Rectangle((x0, y0), deg, 0.012 * (ext[3] - ext[2]),
                            facecolor=INK, edgecolor="white", lw=0.4, zorder=6))
     ax.text(x0 + deg / 2, y0 + 0.03 * (ext[3] - ext[2]), f"{km} km", ha="center",
-            va="bottom", fontsize=6.5, color=INK, zorder=6)
+            va="bottom", fontsize=7.0, color=INK, zorder=6)
 
 
 def north(ax, ext):
@@ -86,7 +86,7 @@ def north(ax, ext):
     h = 0.09 * (ext[3] - ext[2])
     ax.annotate("", xy=(x, y0 + h), xytext=(x, y0),
                 arrowprops=dict(arrowstyle="-|>", color=INK, lw=0.8), zorder=6)
-    ax.text(x, y0 + h * 1.05, "N", ha="center", va="bottom", fontsize=6.5, color=INK)
+    ax.text(x, y0 + h * 1.05, "N", ha="center", va="bottom", fontsize=7.0, color=INK)
 
 
 def graticule(ax, ext, step=0.5):
@@ -98,8 +98,8 @@ def graticule(ax, ext, step=0.5):
         ax.axhline(y, color="white", lw=0.3, alpha=0.55, zorder=4)
     ax.set_xticks(xt)
     ax.set_yticks(yt)
-    ax.set_xticklabels([f"{abs(v):.1f}°{'W' if v < 0 else 'E'}" for v in xt], fontsize=6.5)
-    ax.set_yticklabels([f"{abs(v):.1f}°{'S' if v < 0 else 'N'}" for v in yt], fontsize=6.5)
+    ax.set_xticklabels([f"{abs(v):.1f}°{'W' if v < 0 else 'E'}" for v in xt], fontsize=7.0)
+    ax.set_yticklabels([f"{abs(v):.1f}°{'S' if v < 0 else 'N'}" for v in yt], fontsize=7.0)
     ax.tick_params(length=1.6, pad=1.2)
 
 
@@ -155,7 +155,7 @@ def plate(tag, cfg):
             ax.legend(handles=[Patch(facecolor=C["congo"], edgecolor="none",
                                      label="registers in 2022")],
                       frameon=True, facecolor="white", edgecolor="#cdd3d9", framealpha=0.85,
-                      loc="lower right", fontsize=6.2, handlelength=1.1,
+                      loc="lower right", fontsize=7.0, handlelength=1.1,
                       borderpad=0.35, handletextpad=0.5).get_frame().set_linewidth(0.4)
         ax.set_xlim(ext[0], ext[1]); ax.set_ylim(ext[2], ext[3])
         if t == "c":
@@ -167,8 +167,8 @@ def plate(tag, cfg):
     pos_c = axes_c.get_position()
     cax = fig.add_axes([pos_a.x0, max(pos_a.y0 - 0.105, 0.02), pos_a.width, 0.020])
     cb = fig.colorbar(first[1], cax=cax, orientation="horizontal")
-    cb.set_label("angular change (°)", fontsize=6.3, color=INK2, labelpad=1.5)
-    cb.ax.tick_params(labelsize=6, length=1.5, pad=1.5)
+    cb.set_label("angular change (°)", fontsize=7.0, color=INK2, labelpad=1.5)
+    cb.ax.tick_params(labelsize=7.0, length=1.5, pad=1.5)
     cb.outline.set_visible(False)
     locator(fig, [0.905, pos_c.y0 + pos_c.height * 0.30, 0.080,
                   pos_c.height * 0.55], cfg["inset"], ext, segs)
