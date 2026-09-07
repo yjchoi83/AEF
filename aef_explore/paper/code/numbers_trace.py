@@ -160,6 +160,13 @@ def main():
           "(2021), and 0.620 on 389 with 0.500 on 50 gives 0.606 on 439 (2020). Bins are now "
           "written in interval notation in the text, the figure and Table S2. | ambiguous "
           "wording |",
+          "| P7 item 5 | New Fig. 1 (study area); every other figure renumbered up by one, "
+          "so the registration curve is now Fig. 2 and the deferral-risk map Fig. 9. Map "
+          "plates M1 and M2 keep their labels. No number changed. | figure added |",
+          "| P7 item 8 | `MANUSCRIPT_RSE.md` added with author-date citations and an "
+          "Elsevier-Harvard reference list; 62 of 62 keys resolve and no entry is uncited. "
+          "Data availability now carries the repository URL and a Zenodo DOI placeholder. "
+          "No number changed. | submission format |",
           "| P7 item 6 | Section 4.4 is rewritten from an open question to a measured "
           "intensity effect. New numbers, all from `intensity_stats.json` "
           "(`code/intensity.py`): the registration deficit adjusted for observation supply, "
