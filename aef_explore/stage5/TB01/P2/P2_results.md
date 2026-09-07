@@ -48,5 +48,37 @@ Supporting: `radd_only` events register at **0.753** (n = 3,082) vs **0.984** fo
 
 **H1″ holds in 8 of 9 variants** (the ninth, < 5 ha, has n(0–2) = 5 — underpowered, not failed); **H3 holds in all 9**; **H7 fails in all 9 for the same structural reason** (n(0–2) ∩ dense-S1 ≤ 1). H7(a) is *not* uniformly robust: the joint coefficient CI crosses 0 under τ p85, `date_upper` and size ≥ 25 ha, even though the empirical gap is large everywhere.
 
+## 6b. H7(a) sensitivity — coefficient and CI under every variant *(added by P5b item 3)*
+
+The joint `clear_post` coefficient of the §5 model, with its 0.5° block-bootstrap CI, in each
+of the nine robustness variants. **⚠ marks the three variants where the pre-registered CI
+crosses zero** — the caveat §6 states in prose, here with the numbers attached.
+
+| variant | n | **coef** | **pre-registered CI** (§6) | P5b refit coef | P5b refit CI |
+|---|---|---|---|---|---|
+| main (τ p90) | 38,303 | 0.219 | [0.046, 0.429] | 0.217 | [0.116, 0.335] |
+| **⚠ τ p85** | 38,303 | 0.222 | **[−0.003, 0.420]** | 0.222 | [0.097, 0.354] |
+| τ p95 | 38,303 | 0.188 | [0.037, 0.348] | 0.188 | [0.090, 0.297] |
+| radd_high only | 38,101 | 0.196 | [0.009, 0.377] | 0.196 | [0.098, 0.300] |
+| **⚠ date_upper** | 38,303 | 0.218 | **[−0.072, 0.212]** | 0.218 | [0.116, 0.346] |
+| no radd_only | 35,221 | 0.463 | [0.376, 1.604] | 0.463 | [0.314, 0.613] |
+| (⚠) size < 5 ha — underpowered, n(0–2) = 5 | 221 | −0.091 | [−0.975, 1.551] | −0.091 | [−0.885, 0.703] |
+| size 5–25 ha | 29,953 | 0.323 | [0.182, 0.767] | 0.323 | [0.199, 0.449] |
+| **⚠ size ≥ 25 ha** | 8,129 | 0.194 | [−0.082, 0.384] | 0.194 | [0.078, 0.354] |
+
+**Provenance.** The original P2 fitting script was not retained, so P5b rebuilt the model from
+the spec in `P2/PLAN.md` step 5 — logistic, L2 (λ = 1), `sqrt(clear_post)` + `s1_post` + state
++ month + `radd_only` — and calibrated it against the only two coefficients P2 reports: solo
+**0.211** (refit 0.213) and joint **0.219** (refit 0.217). The point estimates therefore
+reproduce; the refit **CIs are narrower**, and under them only the underpowered < 5 ha variant
+crosses zero. The discrepancy is in the bootstrap, not the model, and cannot be resolved
+without the original script — so **the table is marked on the pre-registered CIs**, which is
+the conservative reading. Either way the substantive conclusion is unchanged: the coefficient
+is positive in eight of nine variants and its sign is never reversed with any confidence, but
+its CI is not uniformly clear of zero, so **H7(a) should be reported as directionally robust
+and marginally significant in three variants — not as uniformly established**.
+
+Machine-readable: `../P5b/h7a_sensitivity.csv`; script `../P5b/h7a_sensitivity.py`.
+
 ## 7. Compute / compliance
 Polygon `reduceRegions`, centroid `sampleRegions`, `getThumbURL` only; **no image exports**; within the 60 EECU-h ceiling. No `data/`, shapefiles or credentials committed.
