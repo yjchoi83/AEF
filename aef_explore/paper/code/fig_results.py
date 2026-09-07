@@ -326,7 +326,8 @@ def _link():
     return b
 
 
-MON = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"]
+MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+       "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 NAMES = {"ParaBR163": "Pará / BR-163", "Roraima_S": "Roraima (south)"}
 
 
@@ -344,7 +345,7 @@ def f7():
             for s in ax.spines.values():
                 s.set_color("#cdd3d9"); s.set_linewidth(0.4)
             if r == 0:
-                ax.set_title(MON[m], fontsize=6.5, color=INK2, pad=1.5)
+                ax.set_title(MON[m], fontsize=6.2, color=INK2, pad=1.5)
             if m == 0:
                 ax.set_ylabel(NAMES[key], fontsize=6.5, color=INK)
     cax = fig.add_subplot(gs[:, 12])
@@ -358,8 +359,7 @@ def f7():
         ax.plot(range(1, 13), mu, marker="o", ms=2.6,
                 color=C["2021"] if key == "ParaBR163" else C["2020"], label=NAMES[key])
     ax.set_xticks(range(1, 13))
-    ax.set_xticklabels(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep",
-                        "Oct", "Nov", "Dec"], fontsize=6.5)
+    ax.set_xticklabels(MON, fontsize=6.5)
     ax.set_ylabel("region mean", fontsize=6.5)
     ax.legend(frameon=False, loc="upper left", fontsize=6.4, ncol=2, handlelength=1.4)
     tidy(ax)
@@ -404,8 +404,7 @@ def f8():
         ax.annotate(f"{mu[-1]:.2f}", (12, mu[-1]), textcoords="offset points",
                     xytext=(-3, 3), ha="right", fontsize=6.2, color=INK)
     ax.set_xticks(range(1, 13))
-    ax.set_xticklabels(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep",
-                        "Oct", "Nov", "Dec"], fontsize=6.5)
+    ax.set_xticklabels(MON, fontsize=6.5)
     ax.set_ylabel("mean risk", fontsize=6.5)
     ax.legend(frameon=False, loc="upper left", fontsize=6.4, ncol=2, handlelength=1.4)
     tidy(ax)
