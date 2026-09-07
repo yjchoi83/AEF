@@ -34,11 +34,10 @@ observation supply; year attribution
 ### 1.1 The problem
 
 A new class of Earth-observation product ships a learned representation rather than a
-classification. AlphaEarth Foundations [@brown2025alphaearth] publishes an annual, global,
+classification. AlphaEarth Foundations (Brown et al., 2025) publishes an annual, global,
 10 m embedding field in which each pixel carries a 64-dimensional unit vector summarising that
 pixel's year of observation, and comparable representations are being released or benchmarked
-at pace [@jakubik2023prithvi; @szwarcman2026prithvi2; @cong2022satmae; @sun2023ringmo;
-@hong2024spectralgpt; @marsocci2024pangaea]. The appeal for land-change work is direct: the
+at pace (Cong et al., 2022; Jakubik et al., 2023; Sun et al., 2023; Hong et al., 2024; Marsocci et al., 2024; Szwarcman et al., 2026). The appeal for land-change work is direct: the
 difference between two consecutive annual vectors is a ready-made change signal that requires
 no training data, no radiometric normalisation and no sensor-specific engineering. Users are
 already treating it as such.
@@ -49,8 +48,7 @@ made an assumption about temporal semantics that the product does not state and 
 benchmark measures: that a clearing occurring at any point in 2021 is fully expressed in the
 2021 vector. That assumption is not obviously true. The embedding draws on optical,
 radar and ancillary inputs, and in the humid tropics the supply of cloud-free optical
-observation is both scarce and strongly seasonal [@whitcraft2015cloud; @prudente2020limitations;
-@sudmanns2019coverage]. A clearing in late November may be followed by one usable Sentinel-2
+observation is both scarce and strongly seasonal (Whitcraft et al., 2015; Sudmanns et al., 2019; Prudente et al., 2020). A clearing in late November may be followed by one usable Sentinel-2
 observation before the year ends; a clearing in July may be followed by thirty. If the annual
 vector is a summary of what was seen, then when in the year an event happens should determine
 whether it appears in that year's vector at all.
@@ -68,8 +66,8 @@ how much of the year's change survives compression when the evidence arrives lat
 
 The consequence is not academic. The year to which a forest loss is assigned determines
 whether it falls inside a national inventory period, whether it crosses a regulatory cut-off
-date for commodity supply chains [@lambin2023supplychains], and how it is attributed to a
-driver in global accounting [@curtis2018drivers; @tyukavina2018congo]. A product that
+date for commodity supply chains (Lambin and Furumo, 2023), and how it is attributed to a
+driver in global accounting (Curtis et al., 2018; Tyukavina et al., 2018). A product that
 systematically defers a subset of clearings by one year, and does so in a way correlated with
 season and with location, introduces a bias into every one of those uses.
 
@@ -77,30 +75,27 @@ season and with location, introduces a bias into every one of those uses.
 
 Three literatures bear on this and none answers it. The first is the design of annual change
 products, where temporal semantics are explicit engineering choices. The Global Forest Change
-`lossyear` band assigns a year by construction [@hansen2013forest], and a line of algorithms
+`lossyear` band assigns a year by construction (Hansen et al., 2013), and a line of algorithms
 recovers sub-annual timing from dense time series by fitting and breaking temporal models
-[@zhu2014ccdc; @verbesselt2010bfast; @kennedy2010landtrendr; @zhu2020cold], with recent work
-aimed squarely at the temporal consistency of annual labels [@bogaert2022hmm;
-@zhang2020thirtym] and near-real-time products that abandon the annual step altogether
-[@brown2022dynamicworld]. These products know what they do with timing because timing is designed
+(Kennedy et al., 2010; Verbesselt et al., 2010; Zhu and Woodcock, 2014; Zhu et al., 2020), with recent work
+aimed squarely at the temporal consistency of annual labels (Zhang et al., 2020; Bogaert et al., 2022) and near-real-time products that abandon the annual step altogether
+(Brown et al., 2022). These products know what they do with timing because timing is designed
 in. An embedding's temporal behaviour is instead inherited from whatever imagery the year
 supplied, and has not been characterised.
 
 The second is alert systems, which exist precisely because annual products are too slow.
-RADD [@reiche2021radd], GLAD [@hansen2016glad], DETER [@diniz2015deterb] and DETER-R
-[@doblas2022deterr] deliver detections within days to weeks, and a mature sub-literature
-measures their own latency and how to combine them [@tang2019nrt; @bullock2022timeliness;
-@reiche2024integrating; @yuan2020lstm]. This literature supplies the instrument we use for dating, and it is
+RADD (Reiche et al., 2021), GLAD (Hansen et al., 2016), DETER (Diniz et al., 2015) and DETER-R
+(Doblas et al., 2022) deliver detections within days to weeks, and a mature sub-literature
+measures their own latency and how to combine them (Tang et al., 2019; Yuan et al., 2020; Bullock et al., 2022; Reiche et al., 2024). This literature supplies the instrument we use for dating, and it is
 unanimous that alert dates carry error of their own — a point that turns out to be central
 here. What it has not done is turn that instrument on a third product to audit *its* temporal
 behaviour.
 
 The third is SAR-optical fusion, the obvious remedy for cloud. Sentinel-1 sees through cloud
-and detects tropical clearings, often earlier than optical sensors [@reiche2018improving;
-@ballere2021sar; @hoekman2020widearea; @ygorra2021cusum]. If radar compensates for optical
+and detects tropical clearings, often earlier than optical sensors (Reiche et al., 2018; Hoekman et al., 2020; Ballère et al., 2021; Ygorra et al., 2021). If radar compensates for optical
 scarcity in a general-purpose representation, the concern raised above largely evaporates.
 Whether it does is an empirical question that has not been asked of an embedding field, even as
-methods for working around optical gaps continue to accumulate [@huang2026optical].
+methods for working around optical gaps continue to accumulate (Huang et al., 2026).
 
 ### 1.3 The gap
 
@@ -108,19 +103,17 @@ No published work measures the temporal fidelity of an annual embedding field: w
 enter the right year's vector, which are deferred, and what predicts the difference. The
 benchmarks that accompany foundation models score label accuracy on downstream tasks and treat
 the temporal dimension as a modelling input rather than as a property to be validated
-[@marsocci2024pangaea; @ma2026harvesting]. Where the temporal behaviour of an embedding is
+(Marsocci et al., 2024; Ma et al., 2026). Where the temporal behaviour of an embedding is
 invoked at all, it tends to be as an assumption in its favour: embeddings built from a full
 year of fused observation are described as robust to temporary gaps such as cloud, and are used
-as priors for exactly that reason [@belyakov2026cloudprior]. Our results qualify that
+as priors for exactly that reason (Belyakov et al., 2026). Our results qualify that
 assumption rather than contradict it — a year-long embedding is indeed a stable descriptor of a
 place, which is why it survives cloud; what does not survive is the timing of a change that
 arrives near the end of the year.
 
 The change-detection literature that works with learned
-representations trains detectors on bitemporal pairs or on curated time series [@saha2019dcva;
-@daudt2018siamese; @chen2022bit; @chen2021dasnet; @chen2024changemamba; @li2023sartscc;
-@lin2024transformermad; @tian2022largescale], and the self-supervised branch pretrains on
-seasonal or contrastive objectives before doing so [@manas2021seco; @li2022contrastive]. Both
+representations trains detectors on bitemporal pairs or on curated time series (Caye Daudt et al., 2018; Saha et al., 2019; Chen et al., 2021; Chen et al., 2022; Tian et al., 2022; Li et al., 2023; Chen et al., 2024; Lin et al., 2024), and the self-supervised branch pretrains on
+seasonal or contrastive objectives before doing so (Manas et al., 2021; Li et al., 2022). Both
 are a different question from what an untrained, off-the-shelf annual representation already
 contains.
 
@@ -156,11 +149,11 @@ that must infer the event year, because computing it requires the date being inf
 
 Two features of the Brazilian setting make it the right place to ask this question: the
 clearing regime has shifted markedly toward small patches that stress any detector
-[@kalamandeen2018pervasive], and the national monitoring infrastructure supplies dated,
-analyst-drawn reference polygons at continental scale [@picoli2018bigearth].
+(Kalamandeen et al., 2018), and the national monitoring infrastructure supplies dated,
+analyst-drawn reference polygons at continental scale (Picoli et al., 2018).
 
 We use the AlphaEarth Foundations annual embedding field, distributed as
-`GOOGLE/SATELLITE_EMBEDDING/V1/ANNUAL`, for 2018 through 2022 [@brown2025alphaearth]. Each
+`GOOGLE/SATELLITE_EMBEDDING/V1/ANNUAL`, for 2018 through 2022 (Brown et al., 2025). Each
 image year provides 64 bands at 10 m, and the per-pixel vector has unit norm, so the angle
 between two years' vectors is a natural dimensionless change measure. We treat the product
 exactly as a user would: no retraining, no fine-tuning, and no access to its internals.
@@ -170,7 +163,7 @@ exactly as a user would: no retraining, no fine-tuning, and no access to its int
 Events are DETER polygons of class `DESMATAMENTO_CR` (clear-cut) or `DESMATAMENTO_VEG`
 (clearing with residual vegetation) with geodesic area of at least one hectare, in the
 Brazilian Legal Amazon, for calendar years 2020 and 2021, obtained from the TerraBrasilis WFS
-[@diniz2015deterb; @assis2019terrabrasilis]. DETER is a near-real-time system in which an
+(Diniz et al., 2015; F. G. Assis et al., 2019). DETER is a near-real-time system in which an
 analyst delineates a polygon on an image acquired on a recorded date (`view_date`), which we
 use both as an upper bound on the event date and as evidence about the event's own visibility.
 The 2021 population contains 37,689 polygons across nine states, the 2020 population 43,316.
@@ -192,7 +185,7 @@ of which 38,303 and 39,772 carry a usable event date (Section 3.1).
 ### 2.3 Alerts used for dating
 
 Event dates come from RADD, the Sentinel-1 radar-based disturbance alert product
-[@reiche2021radd], read over the whole polygon rather than at its centroid. The distinction is
+(Reiche et al., 2021), read over the whole polygon rather than at its centroid. The distinction is
 not cosmetic: centroid sampling yields 48–55 % date coverage and a spurious latency of +35 to
 +70 days, whereas polygon-wide sampling yields 85–98 % coverage and a latency of −7 to −11 days
 (Supplementary Table S3). This correction was made during the study and is reported because it
@@ -210,8 +203,8 @@ totals, are stored so that any dating rule can be applied afterwards without re-
 
 Registration requires a threshold, which we derive per state from undisturbed forest: pixels
 classed as undisturbed tropical moist forest in both years of the pair by the JRC Tropical
-Moist Forest product [@vancutsem2021tmf] and not flagged as loss in the surrounding years by
-Global Forest Change [@hansen2013forest]. The threshold τ is the 90th percentile of angular
+Moist Forest product (Vancutsem et al., 2021) and not flagged as loss in the surrounding years by
+Global Forest Change (Hansen et al., 2013). The threshold τ is the 90th percentile of angular
 change over that sample, so that by construction one undisturbed pixel in ten exceeds it.
 Values range from 10.20° (Amazonas) to 19.54° (Roraima) for the 2020–2021 pair
 (Supplementary Table S1).
@@ -313,8 +306,7 @@ The event-level model is a logistic regression of registration on the square roo
 `clear_post`, `s1_post`, state fixed effects, event-month fixed effects and an indicator for
 optically late events, with an L2 penalty. All confidence intervals in this paper come from a
 block bootstrap that resamples 0.5° blocks with replacement and refits, 1,000 draws, following
-standard practice for spatially autocorrelated samples [@roberts2017crossvalidation;
-@ploton2020spatial; @meyer2022machine; @valavi2018blockcv]. Blocks rather than events are the
+standard practice for spatially autocorrelated samples (Roberts et al., 2017; Valavi et al., 2018; Ploton et al., 2020; Meyer and Pebesma, 2022). Blocks rather than events are the
 resampling unit because clearings cluster along frontiers, so event-level resampling would
 give intervals that are too narrow.
 
@@ -361,9 +353,9 @@ construction. We report the attribution question in the form that can be answere
 ### 3.6 The polygon-offset diagnostic
 
 A reference polygon can be right about the clearing and wrong about where it is
-[@olofsson2014good; @stehman2019key; @mcroberts2018imperfect; @ye2018obia], and the reference
+(Olofsson et al., 2014; McRoberts et al., 2018; Ye et al., 2018; Stehman and Foody, 2019), and the reference
 class itself can carry noise that propagates into any validation built on it
-[@santos2021quality]. For every unregistered event we
+(Santos et al., 2021). For every unregistered event we
 compare mean angular change in the polygon interior with that in a 50–150 m outer ring. An
 event is *offset-suspect* when the ring exceeds τ and the interior does not, that is, when the
 change signal sits beside the mapped polygon rather than inside it. This does not require the
@@ -573,7 +565,7 @@ unregistered 2020 events are offset-suspect, with a ring exceeding τ and an int
 not (Fig. 7). Removing them from the 2021 population lowers the gap from 46.5 to 39.3 points
 [31.2, 47.0] and raises the conditional coefficient from 0.083 to 0.211 [0.090, 0.340]. The
 diagnostic is a positional-error check in the tradition of reference-data quality assessment
-[@olofsson2014good; @mcroberts2018imperfect], and the conclusion is that geometric mismatch
+(Olofsson et al., 2014; McRoberts et al., 2018), and the conclusion is that geometric mismatch
 between a hand-drawn polygon and a 10 m embedding explains part but not most of the deficit.
 The worked examples in Fig. 7 also show the other kind of residual: unregistered events where
 neither the interior nor the ring exceeds τ, that is, where nothing the embedding can see
@@ -675,9 +667,9 @@ first registration. That costs temporal precision and buys almost all of the acc
 reducing misattribution from 3.48 % to 0.12 %. For applications with a hard annual boundary —
 a regulatory cut-off, an inventory period — the honest statement is that a differenced annual
 embedding is not on its own an adequate instrument, and should be paired with an alert product
-whose latency is measured [@bullock2022timeliness; @reiche2024integrating]. Intercomparisons of
+whose latency is measured (Bullock et al., 2022; Reiche et al., 2024). Intercomparisons of
 the operational products available in Brazil provide a starting point for that pairing
-[@potapov2026operational].
+(Potapov et al., 2026).
 
 ### 5.2 Expected-supply maps as a planning instrument
 
@@ -702,7 +694,7 @@ see in a map.
 ### 5.3 What this implies for benchmarking foundation models
 
 Benchmarks for geospatial foundation models score downstream label accuracy on curated tasks
-[@marsocci2024pangaea], which is the right first question and an incomplete one. A model can
+(Marsocci et al., 2024), which is the right first question and an incomplete one. A model can
 score well on every such task and still place a third of late-year clearings in the wrong year,
 because the benchmark's labels are usually drawn from the same annual products whose temporal
 semantics are in question, and because the evaluation is rarely stratified by anything to do
@@ -715,7 +707,7 @@ directly interpretable by users as a confidence flag.
 We would go further and argue that temporal fidelity deserves the status that spatial
 validation now has in the ecological-mapping literature, where it took a sequence of papers
 showing inflated accuracy under naive validation before blocked designs became standard
-practice [@roberts2017crossvalidation; @ploton2020spatial; @meyer2022machine]. The analogous
+practice (Roberts et al., 2017; Ploton et al., 2020; Meyer and Pebesma, 2022). The analogous
 naive assumption here is that a year label means the year; the analogous correction is to
 validate against events whose dates come from outside the product being tested.
 
@@ -723,7 +715,7 @@ validate against events whose dates come from outside the product being tested.
 
 Event dates carry error, and `clear_post` is computed from them. Classical measurement-error
 theory says that error in a covariate attenuates its estimated effect toward the null
-[@carroll2006measurement], so every gap and every coefficient we report understates the true
+(Carroll et al., 2006), so every gap and every coefficient we report understates the true
 relationship by an unknown amount. Three pieces of evidence in this paper show the attenuation
 operating rather than merely postulating it. Moving from RADD-only dating to `date_upper`
 raised the 2021 gap from 34.4 to 46.5 points and the 2020 gap from 14.1 to 37.5. Excluding
@@ -740,8 +732,7 @@ vintage moved the answer from "a small but significant effect" to "not estimable
 ### 5.5 Relation to the alert-latency literature
 
 The alert community has developed a precise vocabulary for this class of problem: detection
-delay, confirmation lag, and the trade-off between the two [@tang2019nrt; @bullock2022timeliness;
-@reiche2024integrating]. What we describe is the same phenomenon displaced onto a product that
+delay, confirmation lag, and the trade-off between the two (Tang et al., 2019; Bullock et al., 2022; Reiche et al., 2024). What we describe is the same phenomenon displaced onto a product that
 does not present itself as an alert and therefore is not usually held to that standard. An
 annual embedding has, in effect, a detection delay that is zero for a January clearing and one
 year for some fraction of December clearings, and the fraction is set by cloud climatology and
@@ -761,7 +752,7 @@ should test first: that the low-observation events are simply harder events — 
 partial, more ambiguous — and that observation count is a proxy for difficulty rather than a
 cause of non-registration. It is the same class of question as asking whether a time-series
 detector's accuracy depends on the disturbance agent and its severity rather than on the site's
-history [@rodman2021disturbance].
+history (Rodman et al., 2021).
 
 Section 4.4 shows that this mechanism is real, and shows exactly where it operates. Clearings
 the reference map records a year late produce 0.56–0.60 of the annual embedding change of
@@ -963,3 +954,129 @@ Global Forest Watch Data API, which requires a free API key.
 [TBD]
 
 ## References
+
+Elsevier Harvard (author–date). Generated from `references.bib` by `code/render_rse.py`; every entry is the metadata registered at the DOI.
+
+Ballère, M., Bouvet, A., Mermoz, S., Le Toan, T., Koleck, T., Bedeau, C., André, M., Forestier, E., Frison, P.L., Lardeux, C., 2021. SAR data for tropical forest disturbance alerts in French Guiana: Benefit over optical imagery. Remote Sensing of Environment 252, 112159. https://doi.org/10.1016/j.rse.2020.112159
+
+Belyakov, N., Illarionova, S., Rubin, I., Shadrin, D., Burnaev, E., 2026. Geospatial Priors from Alphaearth Foundations for Cloud-Robust Satellite Image Restoration. 2026 11th International Conference on Electronic Technology and Information Science (ICETIS), 481–486. https://doi.org/10.1109/icetis70504.2026.11633492
+
+Bogaert, P., Lamarche, C., Defourny, P., 2022. Hidden Markov Models for Annual Land Cover Mapping—Increasing Temporal Consistency and Completeness. IEEE Transactions on Geoscience and Remote Sensing 60, 1–14. https://doi.org/10.1109/tgrs.2021.3123738
+
+Brown, C.F., Brumby, S.P., Guzder-Williams, B., Birch, T., Hyde, S.B., Mazzariello, J., Czerwinski, W., Pasquarella, V.J., Haertel, R., Ilyushchenko, S., Schwehr, K., Weisse, M., et al., 2022. Dynamic World, Near real-time global 10 m land use land cover mapping. Scientific Data 9 (1). https://doi.org/10.1038/s41597-022-01307-4
+
+Brown, C.F., Kazmierski, M.R., Pasquarella, V.J., Rucklidge, W.J., Samsikova, M., Zhang, C., Shelhamer, E., Lahera, E., Wiles, O., Ilyushchenko, S., Gorelick, N., Zhang, L.L., et al., 2025. AlphaEarth Foundations: An embedding field model for accurate and efficient global mapping from sparse label data. arXiv. https://doi.org/10.48550/ARXIV.2507.22291
+
+Bullock, E.L., Healey, S.P., Yang, Z., Houborg, R., Gorelick, N., Tang, X., Andrianirina, C., 2022. Timeliness in forest change monitoring: A new assessment framework demonstrated using Sentinel-1 and a continuous change detection algorithm. Remote Sensing of Environment 276, 113043. https://doi.org/10.1016/j.rse.2022.113043
+
+Carroll, R.J., Ruppert, D., Stefanski, L.A., Crainiceanu, C.M., 2006. Measurement Error in Nonlinear Models. Chapman and Hall/CRC. https://doi.org/10.1201/9781420010138
+
+Caye Daudt, R., Le Saux, B., Boulch, A., 2018. Fully Convolutional Siamese Networks for Change Detection. 2018 25th IEEE International Conference on Image Processing (ICIP), 4063–4067. https://doi.org/10.1109/icip.2018.8451652
+
+Chen, J., Yuan, Z., Peng, J., Chen, L., Huang, H., Zhu, J., Liu, Y., Li, H., 2021. DASNet: Dual Attentive Fully Convolutional Siamese Networks for Change Detection in High-Resolution Satellite Images. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing 14, 1194–1206. https://doi.org/10.1109/jstars.2020.3037893
+
+Chen, H., Qi, Z., Shi, Z., 2022. Remote Sensing Image Change Detection With Transformers. IEEE Transactions on Geoscience and Remote Sensing 60, 1–14. https://doi.org/10.1109/tgrs.2021.3095166
+
+Chen, H., Song, J., Han, C., Xia, J., Yokoya, N., 2024. ChangeMamba: Remote Sensing Change Detection With Spatiotemporal State Space Model. IEEE Transactions on Geoscience and Remote Sensing 62, 1–20. https://doi.org/10.1109/tgrs.2024.3417253
+
+Cong, Y., Khanna, S., Meng, C., Liu, P., Rozi, E., He, Y., Burke, M., Lobell, D.B., Ermon, S., 2022. SatMAE: Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery. arXiv. https://doi.org/10.48550/ARXIV.2207.08051
+
+Curtis, P.G., Slay, C.M., Harris, N.L., Tyukavina, A., Hansen, M.C., 2018. Classifying drivers of global forest loss. Science 361 (6407), 1108–1111. https://doi.org/10.1126/science.aau3445
+
+Diniz, C.G., Souza, A.A.d.A., Santos, D.C., Dias, M.C., Luz, N.C.d., Moraes, D.R.V.d., Maia, J.S.A., Gomes, A.R., Narvaes, I.d.S., Valeriano, D.M., Maurano, L.E.P., Adami, M., 2015. DETER-B: The New Amazon Near Real-Time Deforestation Detection System. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing 8 (7), 3619–3628. https://doi.org/10.1109/jstars.2015.2437075
+
+Doblas, J., Reis, M.S., Belluzzo, A.P., Quadros, C.B., Moraes, D.R.V., Almeida, C.A., Maurano, L.E.P., Carvalho, A.F.A., Sant’Anna, S.J.S., Shimabukuro, Y.E., 2022. DETER-R: An Operational Near-Real Time Tropical Forest Disturbance Warning System Based on Sentinel-1 Time Series Analysis. Remote Sensing 14 (15), 3658. https://doi.org/10.3390/rs14153658
+
+F. G. Assis, L.F., Ferreira, K.R., Vinhas, L., Maurano, L., Almeida, C., Carvalho, A., Rodrigues, J., Maciel, A., Camargo, C., 2019. TerraBrasilis: A Spatial Data Analytics Infrastructure for Large-Scale Thematic Mapping. ISPRS International Journal of Geo-Information 8 (11), 513. https://doi.org/10.3390/ijgi8110513
+
+Hansen, M.C., Potapov, P.V., Moore, R., Hancher, M., Turubanova, S.A., Tyukavina, A., Thau, D., Stehman, S.V., Goetz, S.J., Loveland, T.R., Kommareddy, A., Egorov, A., et al., 2013. High-Resolution Global Maps of 21st-Century Forest Cover Change. Science 342 (6160), 850–853. https://doi.org/10.1126/science.1244693
+
+Hansen, M.C., Krylov, A., Tyukavina, A., Potapov, P.V., Turubanova, S., Zutta, B., Ifo, S., Margono, B., Stolle, F., Moore, R., 2016. Humid tropical forest disturbance alerts using Landsat data. Environmental Research Letters 11 (3), 034008. https://doi.org/10.1088/1748-9326/11/3/034008
+
+Hoekman, D., Kooij, B., Quiñones, M., Vellekoop, S., Carolita, I., Budhiman, S., Arief, R., Roswintiarti, O., 2020. Wide-Area Near-Real-Time Monitoring of Tropical Forest Degradation and Deforestation Using Sentinel-1. Remote Sensing 12 (19), 3263. https://doi.org/10.3390/rs12193263
+
+Hong, D., Zhang, B., Li, X., Li, Y., Li, C., Yao, J., Yokoya, N., Li, H., Ghamisi, P., Jia, X., Plaza, A., Gamba, P., et al., 2024. SpectralGPT: Spectral Remote Sensing Foundation Model. IEEE Transactions on Pattern Analysis and Machine Intelligence 46 (8), 5227–5244. https://doi.org/10.1109/tpami.2024.3362475
+
+Huang, M., Li, H., Chen, N., Lin, H., Zhu, D., Gong, D., Chen, Y., Altan, O., Gong, J., 2026. Overcoming Optical Observation Limitations: Automatic Dense Time-Series Mapping of Impervious Surfaces in Cloudy and Snow-Covered Regions. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing 19, 21312–21333. https://doi.org/10.1109/jstars.2026.3701406
+
+Jakubik, J., Roy, S., Phillips, C.E., Fraccaro, P., Godwin, D., Zadrozny, B., Szwarcman, D., Gomes, C., Nyirjesy, G., Edwards, B., Kimura, D., Simumba, N., et al., 2023. Foundation Models for Generalist Geospatial Artificial Intelligence. arXiv. https://doi.org/10.48550/ARXIV.2310.18660
+
+Kalamandeen, M., Gloor, E., Mitchard, E., Quincey, D., Ziv, G., Spracklen, D., Spracklen, B., Adami, M., Aragão, L.E.O.C., Galbraith, D., 2018. Pervasive Rise of Small-scale Deforestation in Amazonia. Scientific Reports 8 (1). https://doi.org/10.1038/s41598-018-19358-2
+
+Kennedy, R.E., Yang, Z., Cohen, W.B., 2010. Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1. LandTrendr — Temporal segmentation algorithms. Remote Sensing of Environment 114 (12), 2897–2910. https://doi.org/10.1016/j.rse.2010.07.008
+
+Lambin, E.F., Furumo, P.R., 2023. Deforestation-Free Commodity Supply Chains: Myth or Reality?. Annual Review of Environment and Resources 48 (1), 237–261. https://doi.org/10.1146/annurev-environ-112321-121436
+
+Li, H., Li, Y., Zhang, G., Liu, R., Huang, H., Zhu, Q., Tao, C., 2022. Global and Local Contrastive Self-Supervised Learning for Semantic Segmentation of HR Remote Sensing Images. IEEE Transactions on Geoscience and Remote Sensing 60, 1–14. https://doi.org/10.1109/tgrs.2022.3147513
+
+Li, W., Ma, P., Wang, H., Fang, C., 2023. SAR-TSCC: A Novel Approach for Long Time Series SAR Image Change Detection and Pattern Analysis. IEEE Transactions on Geoscience and Remote Sensing 61, 1–16. https://doi.org/10.1109/tgrs.2023.3243900
+
+Lin, Y., Liu, S., Zheng, Y., Tong, X., Xie, H., Zhu, H., Du, K., Zhao, H., Zhang, J., 2024. An Unsupervised Transformer-Based Multivariate Alteration Detection Approach for Change Detection in VHR Remote Sensing Images. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing 17, 3251–3261. https://doi.org/10.1109/jstars.2024.3349775
+
+Ma, Y., Shen, Y., Swatantran, A., Lobell, D.B., 2026. Harvesting AlphaEarth: Benchmarking the geospatial foundation model for agricultural downstream tasks. International Journal of Applied Earth Observation and Geoinformation 149, 105258. https://doi.org/10.1016/j.jag.2026.105258
+
+Manas, O., Lacoste, A., Giro-i-Nieto, X., Vazquez, D., Rodriguez, P., 2021. Seasonal Contrast: Unsupervised Pre-Training from Uncurated Remote Sensing Data. 2021 IEEE/CVF International Conference on Computer Vision (ICCV), 9394–9403. https://doi.org/10.1109/iccv48922.2021.00928
+
+Marsocci, V., Jia, Y., Bellier, G.L., Kerekes, D., Zeng, L., Hafner, S., Gerard, S., Brune, E., Yadav, R., Shibli, A., Fang, H., Ban, Y., et al., 2024. PANGAEA: A Global and Inclusive Benchmark for Geospatial Foundation Models. arXiv. https://doi.org/10.48550/ARXIV.2412.04204
+
+McRoberts, R.E., Stehman, S.V., Liknes, G.C., Næsset, E., Sannier, C., Walters, B.F., 2018. The effects of imperfect reference data on remote sensing-assisted estimators of land cover class proportions. ISPRS Journal of Photogrammetry and Remote Sensing 142, 292–300. https://doi.org/10.1016/j.isprsjprs.2018.06.002
+
+Meyer, H., Pebesma, E., 2022. Machine learning-based global maps of ecological variables and the challenge of assessing them. Nature Communications 13 (1). https://doi.org/10.1038/s41467-022-29838-9
+
+Olofsson, P., Foody, G.M., Herold, M., Stehman, S.V., Woodcock, C.E., Wulder, M.A., 2014. Good practices for estimating area and assessing accuracy of land change. Remote Sensing of Environment 148, 42–57. https://doi.org/10.1016/j.rse.2014.02.015
+
+Picoli, M.C.A., Camara, G., Sanches, I., Simões, R., Carvalho, A., Maciel, A., Coutinho, A., Esquerdo, J., Antunes, J., Begotti, R.A., Arvor, D., Almeida, C., 2018. Big earth observation time series analysis for monitoring Brazilian agriculture. ISPRS Journal of Photogrammetry and Remote Sensing 145, 328–339. https://doi.org/10.1016/j.isprsjprs.2018.08.007
+
+Ploton, P., Mortier, F., Réjou-Méchain, M., Barbier, N., Picard, N., Rossi, V., Dormann, C., Cornu, G., Viennois, G., Bayol, N., Lyapustin, A., Gourlet-Fleury, S., et al., 2020. Spatial validation reveals poor predictive performance of large-scale ecological mapping models. Nature Communications 11 (1). https://doi.org/10.1038/s41467-020-18321-y
+
+Potapov, P., Turubanova, S., Rosa, M., Teixeira, L., Shimbo, J., Zalles, V., Sims, M.J., Stanimirova, R., Lima, A., Goldman, E., Harris, N., Stolle, F., 2026. Evaluation of operational satellite-based disturbance detection products in Brazilian primary forests for the years 2023 and 2024. Frontiers in Remote Sensing 7. https://doi.org/10.3389/frsen.2026.1818592
+
+Prudente, V.H.R., Martins, V.S., Vieira, D.C., Silva, N.R.d.F.e., Adami, M., Sanches, I.D., 2020. Limitations of cloud cover for optical remote sensing of agricultural areas across South America. Remote Sensing Applications: Society and Environment 20, 100414. https://doi.org/10.1016/j.rsase.2020.100414
+
+Reiche, J., Hamunyela, E., Verbesselt, J., Hoekman, D., Herold, M., 2018. Improving near-real time deforestation monitoring in tropical dry forests by combining dense Sentinel-1 time series with Landsat and ALOS-2 PALSAR-2. Remote Sensing of Environment 204, 147–161. https://doi.org/10.1016/j.rse.2017.10.034
+
+Reiche, J., Mullissa, A., Slagter, B., Gou, Y., Tsendbazar, N.E., Odongo-Braun, C., Vollrath, A., Weisse, M.J., Stolle, F., Pickens, A., Donchyts, G., Clinton, N., et al., 2021. Forest disturbance alerts for the Congo Basin using Sentinel-1. Environmental Research Letters 16 (2), 024005. https://doi.org/10.1088/1748-9326/abd0a8
+
+Reiche, J., Balling, J., Pickens, A.H., Masolele, R.N., Berger, A., Weisse, M.J., Mannarino, D., Gou, Y., Slagter, B., Donchyts, G., Carter, S., 2024. Integrating satellite-based forest disturbance alerts improves detection timeliness and confidence. Environmental Research Letters 19 (5), 054011. https://doi.org/10.1088/1748-9326/ad2d82
+
+Roberts, D.R., Bahn, V., Ciuti, S., Boyce, M.S., Elith, J., Guillera‐Arroita, G., Hauenstein, S., Lahoz‐Monfort, J.J., Schröder, B., Thuiller, W., Warton, D.I., Wintle, B.A., et al., 2017. Cross‐validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure. Ecography 40 (8), 913–929. https://doi.org/10.1111/ecog.02881
+
+Rodman, K.C., Andrus, R.A., Veblen, T.T., Hart, S.J., 2021. Disturbance detection in landsat time series is influenced by tree mortality agent and severity, not by prior disturbance. Remote Sensing of Environment 254, 112244. https://doi.org/10.1016/j.rse.2020.112244
+
+Saha, S., Bovolo, F., Bruzzone, L., 2019. Unsupervised Deep Change Vector Analysis for Multiple-Change Detection in VHR Images. IEEE Transactions on Geoscience and Remote Sensing 57 (6), 3677–3693. https://doi.org/10.1109/tgrs.2018.2886643
+
+Santos, L.A., Ferreira, K.R., Camara, G., Picoli, M.C., Simoes, R.E., 2021. Quality control and class noise reduction of satellite image time series. ISPRS Journal of Photogrammetry and Remote Sensing 177, 75–88. https://doi.org/10.1016/j.isprsjprs.2021.04.014
+
+Stehman, S.V., Foody, G.M., 2019. Key issues in rigorous accuracy assessment of land cover products. Remote Sensing of Environment 231, 111199. https://doi.org/10.1016/j.rse.2019.05.018
+
+Sudmanns, M., Tiede, D., Augustin, H., Lang, S., 2019. Assessing global Sentinel-2 coverage dynamics and data availability for operational Earth observation (EO) applications using the EO-Compass. International Journal of Digital Earth 13 (7), 768–784. https://doi.org/10.1080/17538947.2019.1572799
+
+Sun, X., Wang, P., Lu, W., Zhu, Z., Lu, X., He, Q., Li, J., Rong, X., Yang, Z., Chang, H., He, Q., Yang, G., et al., 2023. RingMo: A Remote Sensing Foundation Model With Masked Image Modeling. IEEE Transactions on Geoscience and Remote Sensing 61, 1–22. https://doi.org/10.1109/tgrs.2022.3194732
+
+Szwarcman, D., Roy, S., Fraccaro, P., Gíslason, Þ.E., Blumenstiel, B., Ghosal, R., de Oliveira, P.H., de Sousa Almeida, J.L., Sedona, R., Kang, Y., Chakraborty, S., Wang, S., et al., 2026. Prithvi-EO-2.0: A Versatile Multitemporal Foundation Model for Earth Observation Applications. IEEE Transactions on Geoscience and Remote Sensing 64, 1–20. https://doi.org/10.1109/tgrs.2025.3642610
+
+Tang, X., Bullock, E.L., Olofsson, P., Estel, S., Woodcock, C.E., 2019. Near real-time monitoring of tropical forest disturbance: New algorithms and assessment framework. Remote Sensing of Environment 224, 202–218. https://doi.org/10.1016/j.rse.2019.02.003
+
+Tian, S., Zhong, Y., Zheng, Z., Ma, A., Tan, X., Zhang, L., 2022. Large-scale deep learning based binary and semantic change detection in ultra high resolution remote sensing imagery: From benchmark datasets to urban application. ISPRS Journal of Photogrammetry and Remote Sensing 193, 164–186. https://doi.org/10.1016/j.isprsjprs.2022.08.012
+
+Tyukavina, A., Hansen, M.C., Potapov, P., Parker, D., Okpa, C., Stehman, S.V., Kommareddy, I., Turubanova, S., 2018. Congo Basin forest loss dominated by increasing smallholder clearing. Science Advances 4 (11). https://doi.org/10.1126/sciadv.aat2993
+
+Valavi, R., Elith, J., Lahoz‐Monfort, J.J., Guillera‐Arroita, G., 2018. block CV : An r package for generating spatially or environmentally separated folds for k ‐fold cross‐validation of species distribution models. Methods in Ecology and Evolution 10 (2), 225–232. https://doi.org/10.1111/2041-210x.13107
+
+Vancutsem, C., Achard, F., Pekel, J.F., Vieilledent, G., Carboni, S., Simonetti, D., Gallego, J., Aragão, L.E.O.C., Nasi, R., 2021. Long-term (1990–2019) monitoring of forest cover changes in the humid tropics. Science Advances 7 (10). https://doi.org/10.1126/sciadv.abe1603
+
+Verbesselt, J., Hyndman, R., Newnham, G., Culvenor, D., 2010. Detecting trend and seasonal changes in satellite image time series. Remote Sensing of Environment 114 (1), 106–115. https://doi.org/10.1016/j.rse.2009.08.014
+
+Whitcraft, A.K., Vermote, E.F., Becker-Reshef, I., Justice, C.O., 2015. Cloud cover throughout the agricultural growing season: Impacts on passive optical earth observations. Remote Sensing of Environment 156, 438–447. https://doi.org/10.1016/j.rse.2014.10.009
+
+Ye, S., Pontius, R.G., Rakshit, R., 2018. A review of accuracy assessment for object-based image analysis: From per-pixel to per-polygon approaches. ISPRS Journal of Photogrammetry and Remote Sensing 141, 137–147. https://doi.org/10.1016/j.isprsjprs.2018.04.002
+
+Ygorra, B., Frappart, F., Wigneron, J., Moisy, C., Catry, T., Baup, F., Hamunyela, E., Riazanoff, S., 2021. Monitoring loss of tropical forest cover from Sentinel-1 time-series: A CuSum-based approach. International Journal of Applied Earth Observation and Geoinformation 103, 102532. https://doi.org/10.1016/j.jag.2021.102532
+
+Yuan, Y., Lin, L., Huo, L.Z., Kong, Y.L., Zhou, Z.G., Wu, B., Jia, Y., 2020. Using An Attention-Based LSTM Encoder–Decoder Network for Near Real-Time Disturbance Detection. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing 13, 1819–1832. https://doi.org/10.1109/jstars.2020.2988324
+
+Zhang, X., Wang, J., Henebry, G.M., Gao, F., 2020. Development and evaluation of a new algorithm for detecting 30 m land surface phenology from VIIRS and HLS time series. ISPRS Journal of Photogrammetry and Remote Sensing 161, 37–51. https://doi.org/10.1016/j.isprsjprs.2020.01.012
+
+Zhu, Z., Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. Remote Sensing of Environment 144, 152–171. https://doi.org/10.1016/j.rse.2014.01.011
+
+Zhu, Z., Zhang, J., Yang, Z., Aljaddani, A.H., Cohen, W.B., Qiu, S., Zhou, C., 2020. Continuous monitoring of land disturbance based on Landsat time series. Remote Sensing of Environment 238, 111116. https://doi.org/10.1016/j.rse.2019.03.009

@@ -7,9 +7,22 @@ Five statements, each within the 85-character limit; character counts in bracket
 3. Radar does not compensate; registration falls as Sentinel-1 density rises  [73]
 4. Missed events are deferred, not lost: 94-97% register the following year  [72]
 5. Alert dating vintage sets the effect size, and can erase it entirely  [68]
-<!-- verification: python -c "for l in open('HIGHLIGHTS.md'):
-     import re; m=re.match(r'\d+\. (.+?)\s+\[(\d+)\]', l)
-     if m: assert len(m.group(1))==int(m.group(2))<=85, l" -->
+**Length check.** Run from `aef_explore/paper/`:
+
+    python - <<'PY'
+    import re, sys
+    ok = True
+    for line in open("HIGHLIGHTS.md"):
+        m = re.match(r"^(\d)\. (.+?)\s+\[(\d+)\]\s*$", line)
+        if m:
+            text, declared = m.group(2), int(m.group(3))
+            good = len(text) == declared <= 85
+            ok &= good
+            print(f"{m.group(1)}. {len(text):>2} chars  {'OK' if good else 'FAIL'}")
+    sys.exit(0 if ok else 1)
+    PY
+
+Last run: all five pass, at 75, 68, 73, 72 and 68 characters.
 
 # Graphical abstract — specification
 
@@ -20,11 +33,11 @@ categorical blue for 2021 and orange for 2020, red only for the flagged quantity
 **Composition, left to right in three bands.**
 
 *Left third — the mechanism.* A schematic calendar strip for one year, twelve cells, shaded by
-expected clear-observation supply using the F7 ramp, with two clearing icons pinned to it: one
+expected clear-observation supply using the Fig. 8 ramp, with two clearing icons pinned to it: one
 in July over a dark (well-observed) cell, one in November over a pale (poorly observed) cell.
 A short label beneath: "when the clearing happens decides what the year's vector sees".
 
-*Middle third — the measurement.* The registration curve from F1a, stripped to a single line
+*Middle third — the measurement.* The registration curve from Fig. 2a, stripped to a single line
 with its bootstrap band, the two clearing icons from the left band placed on it at their
 respective observation counts, and the two probabilities called out: 0.98 for the July event,
 0.51 for the November one. Axis labels only, no gridlines, no legend.

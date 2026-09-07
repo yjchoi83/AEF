@@ -12,3 +12,4 @@ data/
 scratch/*.csv
 __pycache__/
 .netrc
+zenodo_staging/

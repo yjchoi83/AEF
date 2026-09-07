@@ -261,7 +261,7 @@ dating rule, which is what the packages used.
 The rows that matter for a verdict are the coefficients. H7(a) passes on both the published
 2021 interval [0.046, 0.429] and the re-derived [0.111, 0.327]; it passes on the
 published 2020 interval [0.129, 0.732] and on the re-derived [0.221, 0.419] around a
-point estimate of 0.318. Same sign, same verdict, different width, and one variant changes
+point estimate of 0.318. Same sign, same verdict, different width, and two variants change
 status: under the published intervals the τ p85 and area ≥ 25 ha coefficients cross zero, under
 the re-derived ones they do not. Without the original code the difference cannot be attributed.
 The manuscript therefore reports H7(a) as directionally robust rather than precisely estimated,
